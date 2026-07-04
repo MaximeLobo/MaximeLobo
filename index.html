@@ -3,791 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pro Trader — Formation, scanners & copie automatique pour débuter le trading</title>
-  <meta name="description" content="Débute le trading accompagné : une formation claire, des scanners qui repèrent les opportunités et la copie automatique des trades (copy trading). Parcours guidé, même en partant de zéro." />
-  <meta name="theme-color" content="#070b16" />
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070b16'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Arial,sans-serif' font-weight='bold' fill='%2334d399' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
-
-  <meta property="og:title" content="Pro Trader — Débute le trading, accompagné" />
-  <meta property="og:description" content="Formation claire, scanners et copie automatique des trades. Parcours guidé, même en partant de zéro." />
-  <meta property="og:type" content="website" />
-
+  <title>Pro Trader — Inscription (TradeQuo + Pro Trader)</title>
+  <meta name="description" content="Crée ton compte TradeQuo puis ton compte Pro Trader, pas à pas. Sans connaissance technique." />
+  <meta name="theme-color" content="#15111F" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%239236DA'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: {
-        fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
-        colors: { ink: '#070b16' },
-        keyframes: {
-          floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-14px)' } },
-          shine:  { '0%': { backgroundPosition: '0% 50%' }, '100%': { backgroundPosition: '100% 50%' } },
-        },
-        animation: { floaty: 'floaty 11s ease-in-out infinite', shine: 'shine 7s ease-in-out infinite alternate' },
-      } },
-    };
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { background: #070b16; }
-    .glass { background: linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025)); border: 1px solid rgba(255,255,255,.09); box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px -18px rgba(0,0,0,.6); backdrop-filter: blur(12px) saturate(1.2); }
-    .glow { box-shadow: 0 0 0 1px rgba(52,211,153,.25), 0 20px 55px -14px rgba(16,185,129,.5); }
-    .grad-text { background: linear-gradient(105deg,#6ee7b7,#34d399 55%,#2dd4bf); background-size:150% auto; -webkit-background-clip:text; background-clip:text; color:transparent; }
-
-    *:focus-visible { outline:2px solid #6ee7b7; outline-offset:2px; border-radius:6px; }
-
-    .edge { position:relative; transition: transform .35s; }
-    .edge::before { content:''; position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
-      background:linear-gradient(130deg,rgba(52,211,153,.55),rgba(45,212,191,.18),rgba(52,211,153,.4));
-      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
-      opacity:0; transition:.35s; }
-    .edge:hover::before { opacity:1; }
-    .edge:hover { transform: translateY(-3px); }
-
-    .rail::before { content:''; position:absolute; left:27px; top:62px; bottom:-26px; width:2px; background:linear-gradient(#34d399,rgba(52,211,153,.2)); }
-    .step:last-child.rail::before, .step.no-rail.rail::before { display:none; }
-    .num { transition: all .25s; }
-    .badge { opacity:0; transform:scale(0); transition:.25s; }
-    .done-label, .todo-label { display:none; }
-
-    .step.done { background: rgba(52,211,153,.06); }
-    .step.done .num { background:linear-gradient(135deg,#34d399,#10b981); border-color:transparent; color:#04140d; }
-    .step.done .badge { opacity:1; transform:scale(1); }
-    .step.done .done-label { display:inline-flex; }
-
-    .step.current:not(.done) { box-shadow: 0 0 0 1px rgba(52,211,153,.45), 0 0 42px -14px rgba(52,211,153,.55); }
-    .step.current:not(.done) .num { border-color:#34d399; box-shadow:0 0 0 4px rgba(52,211,153,.15); }
-    .step.current:not(.done) .todo-label { display:inline-flex; }
-
-    .step.optional { border-style:dashed; border-color:rgba(148,163,184,.3); background:rgba(255,255,255,.02); }
-
-    .seg-btn { transition: all .2s; }
-    .seg-btn:not(.active) { opacity:.8; }
-    .seg-btn.active { background:linear-gradient(135deg,#34d399,#10b981); color:#04140d; box-shadow:0 8px 22px -10px rgba(52,211,153,.7), inset 0 1px 0 rgba(255,255,255,.35); }
-    .seg-btn:active { transform: scale(.96); }
-    .bpanel { animation: fade .3s ease; }
-    @keyframes fade { from { opacity:0; transform:translateY(6px);} to {opacity:1; transform:none;} }
-
-    .cta { transition: transform .18s cubic-bezier(.34,1.56,.64,1), filter .2s, box-shadow .25s; }
-    .cta:hover { box-shadow: 0 12px 30px -10px rgba(52,211,153,.55); }
-    .cta:active { transform: translateY(1px) scale(.985); }
-    .toggle:active { transform: scale(.96); }
-
-    .copy-btn { transition: transform .15s, background .2s, color .2s, border-color .2s; }
-    .copy-btn:active { transform: scale(.94); }
-    .copied { background:rgba(52,211,153,.18) !important; color:#6ee7b7 !important; border-color:rgba(52,211,153,.5) !important; animation: copybump .3s ease; }
-    @keyframes copybump { 0%{transform:scale(1)} 40%{transform:scale(1.06)} 100%{transform:scale(1)} }
-    .code-flash { box-shadow: 0 0 0 2px rgba(52,211,153,.55), 0 0 22px -4px rgba(52,211,153,.6); transition: box-shadow .25s; }
-
-    .just-done { animation: cardpulse .6s ease; }
-    @keyframes cardpulse { 0%{box-shadow:0 0 0 4px rgba(52,211,153,.45)} 100%{box-shadow:0 0 0 0 rgba(52,211,153,0)} }
-    .count-bump { display:inline-block; animation: copybump .3s ease; }
-
-    .reveal { transition: opacity .6s ease, transform .6s ease; }
-    .js .reveal { opacity:0; transform: translateY(18px); }
-    .js .reveal.in { opacity:1; transform:none; }
-
-    .faq-a { max-height:0; overflow:hidden; transition: max-height .35s ease; }
-    .faq.open .faq-a { max-height: 340px; }
-    .faq.open .chev { transform: rotate(180deg); }
-    .chev { transition: transform .3s; }
-    .faq-q { transition: background .2s; }
-    .faq-q:hover { background: rgba(255,255,255,.03); }
-    .faq.open .faq-q { background: rgba(52,211,153,.04); }
-
-    /* zone à remplir par Maxime (preuve) */
-    .placeholder { border:1.5px dashed rgba(148,163,184,.4); background:rgba(255,255,255,.02); color:#94a3b8; }
-
-    details > summary { cursor:pointer; list-style:none; }
-    details > summary::-webkit-details-marker { display:none; }
-
-    ::selection { background: rgba(52,211,153,.3); }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
-      html { scroll-behavior:auto; }
-      .js .reveal { opacity:1 !important; transform:none !important; }
-    }
+    /* — touche luxe OR & ARGENT sur l'inscription — */
+    .btn-gold{ background:linear-gradient(135deg,#F5D98B 0%,#D4AF37 45%,#B8860B 100%); color:#2a2008; box-shadow:0 14px 30px -12px rgba(212,175,55,.6); }
+    .btn-gold:hover{ filter:brightness(1.06); box-shadow:0 18px 38px -12px rgba(212,175,55,.7); }
+    .eyebrow{ color:#E6C56B !important; }
+    .step-num{ background:linear-gradient(135deg,#F5D98B,#B8860B) !important; color:#2a2008 !important; box-shadow:0 10px 22px -8px rgba(212,175,55,.6) !important; }
+    .step::before{ background:linear-gradient(90deg,#D4AF37,#C9CBD1) !important; }
+    .step-ico{ background:rgba(212,175,55,.14) !important; color:#E6C56B !important; }
+    .code-copy.copied{ background:rgba(212,175,55,.2) !important; color:#E6C56B !important; }
   </style>
-</head>
-
-<body class="font-sans text-slate-200 antialiased selection:text-white pb-24 sm:pb-0">
   <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <div class="bg-stars" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="orb orb-c" aria-hidden="true"></div>
 
-  <!-- décor calmé : un seul halo vert discret -->
-  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
-    <div class="absolute -top-44 left-1/2 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-emerald-500/12 blur-3xl animate-floaty"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_-6%,rgba(16,185,129,.10),transparent_55%)]"></div>
-  </div>
-
-  <!-- ICÔNES réutilisables (définies une fois) -->
-  <svg width="0" height="0" class="absolute" aria-hidden="true"><defs>
-    <g id="i-cap"><path d="m12 4 10 5-10 5L2 9l10-5Z"/><path d="M6 11v4.5c0 1.2 2.7 2.5 6 2.5s6-1.3 6-2.5V11"/></g>
-    <g id="i-radar"><circle cx="12" cy="12" r="2.2"/><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 12 19 5"/></g>
-    <g id="i-sync"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></g>
-    <g id="i-users"><circle cx="9" cy="8" r="3.1"/><path d="M2.6 20a6.4 6.4 0 0 1 12.8 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 6.1"/><path d="M18.4 20a6.4 6.4 0 0 0-3-5.4"/></g>
-    <g id="i-bank"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></g>
-    <g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
-    <g id="i-shield"><path d="M12 3 5 6v5c0 4 3 6.5 7 8 4-1.5 7-4 7-8V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></g>
-    <g id="i-list"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></g>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
     <g id="i-check"><path d="M20 6 9 17l-5-5"/></g>
+    <g id="i-arrow"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></g>
+    <g id="i-back"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></g>
+    <g id="i-bank"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></g>
+    <g id="i-user"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g>
+    <g id="i-play"><path d="M8 5v14l11-7z"/></g>
+    <g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+    <g id="i-alert"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></g>
+    <g id="i-key"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3"/><path d="m18 5 3 3"/><path d="m15 8 3 3"/></g>
+    <g id="i-ig"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></g>
   </defs></svg>
 
-  <!-- HEADER + progression -->
-  <div class="sticky top-0 z-30 border-b border-white/5 bg-ink/70 backdrop-blur-md">
-    <div class="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3 sm:px-5">
-      <span class="grid h-8 w-8 place-items-center rounded-lg bg-emerald-500/20 font-extrabold text-emerald-300">P</span>
-      <span class="font-bold tracking-tight">Pro&nbsp;Trader</span>
-      <a href="#etapes" class="ml-auto hidden text-sm font-semibold text-slate-300 transition hover:text-white sm:block">Activation</a>
-      <div class="ml-auto flex items-center gap-2.5 sm:ml-6">
-        <div id="barWrap" class="h-2 w-20 overflow-hidden rounded-full bg-white/10 sm:w-36" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-label="Étapes essentielles complétées">
-          <div id="bar" class="h-full w-0 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-500 transition-all duration-500"></div>
-        </div>
-        <span id="count" class="text-sm font-semibold text-slate-300 tabular-nums">0/3</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO (résultat + 3 promesses + dépôt annoncé honnêtement) -->
-  <header class="mx-auto max-w-3xl px-4 pt-16 pb-12 text-center sm:px-5">
-    <span class="reveal inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-300">
-      <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"></span> Formation · Scanners · Copy trading
-    </span>
-    <p class="reveal mt-3 text-sm text-slate-400">Animé par Maxime — <a href="#" data-link="instagram" target="_blank" rel="noopener" class="font-semibold text-emerald-300 underline-offset-2 hover:underline">@MaximeLobo_</a></p>
-    <h1 class="reveal mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-6xl">
-      Débute le trading,<br /><span class="grad-text animate-shine">vraiment accompagné.</span>
-    </h1>
-    <p class="reveal mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-      Avec Pro&nbsp;Trader, tu débutes <strong class="text-white">à ta façon</strong> — et c'est <strong class="text-white">100 % gratuit</strong>. Tu peux
-      <strong class="text-white">tout laisser faire par l'IA</strong> (elle ouvre les positions toute seule), <strong class="text-white">recopier toi-même</strong> les signaux du canal Telegram (copy trading),
-      ou <strong class="text-white">apprendre à trader</strong> avec la formation, les lives et le scanner Cypher. Même en partant de zéro.
-    </p>
-    <p class="reveal mx-auto mt-4 max-w-xl rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm leading-relaxed text-slate-400">
-      La formation, les scanners et le canal te sont <strong class="text-slate-200">100 % offerts</strong> — pas de formation payante, pas de « VIP », pas d'abonnement. Pour trader en réel, tu ouvres un compte
-      chez un broker partenaire avec un dépôt <strong class="text-slate-200">qui commence à partir de 300&nbsp;$</strong> : c'est <strong class="text-slate-200">ton capital de départ</strong>, sur ton propre compte — pas des frais.
-    </p>
-    <p class="reveal mx-auto mt-3 max-w-xl text-sm font-semibold text-emerald-200">Et ton 1ᵉʳ dépôt est <strong class="text-emerald-300">doublé</strong> : tu déposes 300 $, tu démarres avec <strong class="text-emerald-300">600 $</strong> pour trader <span class="font-normal text-emerald-200/70">(un crédit pour trader, pas du cash à retirer)</span>.</p>
-    <p class="reveal mx-auto mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/[.08] px-4 py-2 text-xs font-semibold text-emerald-200 sm:text-sm">
-      <svg class="h-4 w-4 shrink-0 text-emerald-300" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      Pas sûr de toi&nbsp;? Une <strong class="text-emerald-100">vidéo explicative t'attend à chaque étape</strong>, plus bas.
-    </p>
-    <div class="reveal mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-      <a href="#etapes" class="glow w-full rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 px-8 py-3.5 text-center font-bold text-ink transition hover:brightness-110 active:scale-[.97] will-change-transform sm:w-auto">Activer mon accès →</a>
-      <a href="#offre" class="glass w-full rounded-xl px-8 py-3.5 text-center font-semibold text-slate-200 transition hover:bg-white/10 active:scale-[.98] sm:w-auto">Voir ce que j'obtiens</a>
-    </div>
-    <p class="reveal mt-3 text-center text-xs text-slate-400">Sans engagement · création gratuite · je réponds perso.</p>
-    <div class="reveal mt-9 flex flex-wrap justify-center gap-2.5 text-sm">
-      <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium text-slate-300"><svg class="h-4 w-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-cap"/></svg>Formation</span>
-      <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium text-slate-300"><svg class="h-4 w-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-radar"/></svg>Scanners</span>
-      <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium text-slate-300"><svg class="h-4 w-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sync"/></svg>Copy trading</span>
-      <span class="glass inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium text-slate-300"><svg class="h-4 w-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-users"/></svg>Communauté</span>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a href="index.html" class="logo"><span class="mark">P</span> Pro&nbsp;Trader</a>
     </div>
   </header>
 
-  <!-- CE QUE TU DÉBLOQUES (offre nommée) -->
-  <section id="offre" class="mx-auto max-w-3xl px-4 py-12 sm:px-5">
-    <p class="reveal text-center text-xs font-bold uppercase tracking-widest text-emerald-400">Pro Trader</p>
-    <h2 class="reveal mx-auto mt-2 max-w-lg text-center text-3xl font-extrabold tracking-tight text-white">Ce que tu obtiens</h2>
-    <p class="reveal mx-auto mt-3 max-w-md text-center text-sm leading-relaxed text-slate-400">Tout au même endroit, pour apprendre et trader sans rester seul.</p>
-    <div class="mt-9 grid gap-4 sm:grid-cols-2">
-      <div class="edge reveal glass rounded-2xl p-5">
-        <div class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-400/15 text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-cap"/></svg></div>
-        <h3 class="mt-4 font-bold text-white">La formation + les lives</h3>
-        <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Les bases du trading expliquées simplement, pas à pas — et des sessions en <strong class="text-slate-300">direct</strong> pour apprendre en conditions réelles.</p>
-      </div>
-      <div class="edge reveal glass rounded-2xl p-5">
-        <div class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-400/15 text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-radar"/></svg></div>
-        <h3 class="mt-4 font-bold text-white">Le scanner Cypher</h3>
-        <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Il surveille le marché en continu et repère les opportunités (les « setups ») <strong class="text-slate-300">à ta place</strong>.</p>
-      </div>
-      <div class="edge reveal glass rounded-2xl p-5">
-        <div class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-400/15 text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></div>
-        <h3 class="mt-4 font-bold text-white">Le copy trading <span class="text-slate-400">(Telegram)</span></h3>
-        <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Les signaux tombent dans le canal Telegram : tu les <strong class="text-slate-300">recopies toi-même</strong> sur ton compte, en quelques secondes.</p>
-      </div>
-      <div class="edge reveal glass rounded-2xl p-5">
-        <div class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-400/15 text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-users"/></svg></div>
-        <h3 class="mt-4 font-bold text-white">Une communauté</h3>
-        <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Un groupe pour poser tes questions, échanger et progresser sans rester seul.</p>
-      </div>
-      <div class="order-first edge reveal glass rounded-2xl border border-emerald-400/25 bg-emerald-400/[.06] p-5 sm:col-span-2">
-        <div class="flex items-start gap-4">
-          <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-400/20 text-emerald-300"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sync"/></svg></div>
-          <div>
-            <h3 class="font-bold text-white">L'automatisation par l'IA <span class="ml-1 rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">le + simple</span></h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Le summum du confort : l'IA <strong class="text-slate-200">ouvre les positions toute seule</strong>, sans que tu touches ton téléphone — tu n'as littéralement <strong class="text-slate-200">rien à faire</strong>. <span class="text-slate-500">(À ne pas confondre avec le copy trading, où c'est toi qui recopies les signaux.)</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREUVE (active) — photos réelles fournies par Maxime : maxime.jpg, preuve-scanner.jpg, preuve-communaute.jpg. Ne JAMAIS inventer de faux résultats/témoignages. -->
-  <section id="preuve" class="mx-auto max-w-3xl px-4 py-12 sm:px-5">
-    <p class="reveal text-center text-xs font-bold uppercase tracking-widest text-emerald-400">Confiance</p>
-    <h2 class="reveal mx-auto mt-2 max-w-lg text-center text-3xl font-extrabold tracking-tight text-white">Pourquoi nous faire confiance</h2>
-    <p class="reveal mx-auto mt-3 max-w-md text-center text-sm leading-relaxed text-slate-400">Du concret avant de te lancer — pas des promesses en l'air.</p>
-
-    <!-- Qui suis-je -->
-    <div class="reveal glass mt-9 flex flex-col items-center gap-5 rounded-2xl p-6 text-center sm:flex-row sm:text-left">
-      <img src="maxime.jpg" alt="Maxime, fondateur de Pro Trader" width="112" height="112" loading="lazy" decoding="async" class="h-28 w-28 shrink-0 rounded-2xl object-cover object-top ring-1 ring-white/10" />
-      <div>
-        <h3 class="text-lg font-bold text-white">Moi, c'est <span class="text-emerald-300">Maxime</span></h3>
-        <p class="mt-2 text-sm leading-relaxed text-slate-400">Je trade depuis <strong class="text-slate-200">7 ans</strong>. Pro&nbsp;Trader, je ne l'ai pas inventé : je suis allé chercher <strong class="text-slate-200">les meilleurs outils du marché</strong> — formation, scanners et copy trading — pour les rendre accessibles à <strong class="text-slate-200">Monsieur et Madame tout le monde</strong>, même en partant de zéro. Mon rôle, c'est de <strong class="text-slate-200">t'accompagner</strong> : une question ? je suis dispo à 100 % sur Instagram (<a href="#" data-link="instagram" target="_blank" rel="noopener" class="font-semibold text-emerald-300 underline-offset-2 hover:underline">@MaximeLobo_</a>), et la communauté est là aussi.</p>
-      </div>
-    </div>
-
-    <!-- Captures (fichiers à déposer dans le dossier : preuve-communaute.jpg + preuve-scanner.jpg) -->
-    <div class="mt-4 grid gap-4 sm:grid-cols-2">
-      <figure class="reveal glass overflow-hidden rounded-2xl">
-        <img src="preuve-communaute.jpg" alt="Le canal de signaux et la communauté Pro Trader" loading="lazy" decoding="async" class="aspect-[3/4] w-full object-cover" />
-        <figcaption class="px-4 py-3 text-xs text-slate-400">Le vrai canal où tombent les signaux — <strong class="text-slate-200">5&nbsp;392 membres</strong> qui avancent ensemble. <span class="text-slate-500">Capture réelle, non retouchée.</span></figcaption>
-      </figure>
-      <figure class="reveal glass overflow-hidden rounded-2xl">
-        <img src="preuve-scanner.jpg" alt="Les scanners Pro Trader" loading="lazy" decoding="async" class="aspect-[3/4] w-full object-cover" />
-        <figcaption class="px-4 py-3 text-xs text-slate-400">Le scanner <strong class="text-slate-200">CYPHER</strong> : il surveille le marché pour repérer les setups à ta place. <span class="text-slate-500">Capture réelle, non retouchée.</span></figcaption>
-      </figure>
-    </div>
-
-    <!-- PREUVE DE PAIRS — bloc prêt. Pour l'ACTIVER : déposer preuve-chat-1.jpg / preuve-chat-2.jpg dans le dossier, puis retirer ce commentaire (les balises juste en dessous). Commenté pour ne charger aucune image manquante (zéro 404).
-    <div class="reveal mt-4">
-      <p class="mb-3 text-center text-sm text-slate-400">La vie du groupe : des débutants qui posent leurs questions, et des réponses.</p>
-      <div class="grid gap-4 sm:grid-cols-2">
-        <figure class="glass overflow-hidden rounded-2xl"><img src="preuve-chat-1.jpg" alt="Discussion dans le groupe Pro Trader" loading="lazy" decoding="async" class="w-full" /></figure>
-        <figure class="glass overflow-hidden rounded-2xl"><img src="preuve-chat-2.jpg" alt="Accompagnement de Maxime dans le groupe" loading="lazy" decoding="async" class="w-full" /></figure>
-      </div>
-    </div>
-    -->
-
-    <p class="reveal mt-6 text-center text-sm text-slate-300">Une communauté de <strong class="text-white">5&nbsp;392 membres</strong> — et tu n'avances jamais seul.</p>
-    <div class="reveal mt-7 text-center">
-      <a href="#etapes" class="cta inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 px-7 py-3 font-bold text-ink transition hover:brightness-110">Voir comment démarrer →</a>
-    </div>
-  </section>
-
-  <!-- LE DEAL (transparence) -->
-  <section class="mx-auto max-w-3xl px-4 pb-4 sm:px-5">
-    <div class="reveal glass rounded-2xl p-6">
-      <h2 class="text-base font-bold text-white">Pourquoi c'est « offert » ?</h2>
-      <p class="mt-2 text-sm leading-relaxed text-slate-300">Soyons clairs, d'abord, sur ce qu'on ne touche <strong class="text-white">jamais</strong> :</p>
-      <ul class="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>On n'est <strong class="text-white">pas payés sur ton dépôt</strong>. Que tu déposes 300&nbsp;$ ou 1&nbsp;000&nbsp;$, ça ne change <strong class="text-white">rien</strong> pour nous.</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>On n'est <strong class="text-white">pas payés sur tes gains</strong>.</span></li>
-        <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>On n'est <strong class="text-white">pas payés sur tes pertes</strong> non plus. Si tu perds tout et que tu repars au bout de 2 jours, on ne gagne <strong class="text-white">rien</strong>.</span></li>
-      </ul>
-      <p class="mt-4 text-sm leading-relaxed text-slate-400">
-        Alors comment c'est financé&nbsp;? Le broker nous reverse une <strong class="text-slate-200">petite part quand tu trades</strong>, sur la durée, tant que tu utilises la plateforme. Du coup, notre <strong class="text-slate-200">seul</strong> intérêt, c'est que tu <strong class="text-slate-200">réussisses et que tu restes</strong>.
-      </p>
-      <p class="mt-3 text-sm leading-relaxed text-slate-400">
-        C'est tout l'inverse des « influenceurs » qui te vendent une formation ou un « VIP » à des centaines d'euros, encaissent, et disparaissent. Ici, <strong class="text-slate-200">tu ne nous paies jamais</strong> — la formation, les scanners et le canal sont offerts. Et ton dépôt (à partir de 300&nbsp;$) reste <strong class="text-slate-200">ton argent</strong>, sur ton propre compte.
-      </p>
-    </div>
+  <!-- HERO -->
+  <section class="wrap narrow" style="text-align:center; padding:54px 20px 8px">
+    <p class="eyebrow reveal">Étape 1 · Inscription</p>
+    <h1 class="h-sec reveal" style="margin-top:12px; font-size:clamp(28px,4.4vw,44px)">Crée tes accès, en 2 étapes</h1>
+    <p class="lead reveal" style="margin:16px auto 0; max-width:560px">On te guide pas à pas, dans le bon ordre. <strong style="color:var(--ink)">Aucune connaissance technique requise</strong> — et on ne parle pas encore de dépôt.</p>
   </section>
 
   <!-- ÉTAPES -->
-  <section id="etapes" class="mx-auto max-w-3xl px-4 py-12 sm:px-5">
-    <p class="reveal text-center text-xs font-bold uppercase tracking-widest text-emerald-400">Activation</p>
-    <h2 class="reveal mx-auto mt-2 max-w-lg text-center text-3xl font-extrabold tracking-tight text-white">Comment démarrer</h2>
-    <div class="reveal mx-auto mt-4 flex flex-wrap justify-center gap-2 text-xs">
-      <span class="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-slate-300"><svg class="h-3.5 w-3.5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>~15 min</span>
-      <span class="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-slate-300"><svg class="h-3.5 w-3.5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-shield"/></svg>Progression sauvegardée</span>
-      <span class="glass inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-slate-300"><svg class="h-3.5 w-3.5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-list"/></svg>3 étapes</span>
+  <section class="wrap" style="padding:26px 20px 8px">
+    <div class="note note-blue reveal" style="max-width:760px; margin:0 auto">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
+      <span>Inscris-toi <strong>uniquement via les liens de cette page</strong> — c'est ce qui débloque ton accès Pro&nbsp;Trader. Sans ça, l'accès ne peut pas s'ouvrir.</span>
     </div>
 
-    <!-- Condition (ton positif), juste avant d'agir -->
-    <div class="reveal mx-auto mt-6 flex max-w-2xl items-start gap-2.5 rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-4 text-sm leading-relaxed text-emerald-100">
-      <svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
-      <span>Pour démarrer, inscris-toi chez un <strong>broker partenaire</strong>, <strong>uniquement via le lien de ce site</strong> (avec le code pour PU&nbsp;Prime). C'est ce lien qui débloque ton accès Pro&nbsp;Trader, ta formation, tes scanners et ton bonus — sans lui, l'accès ne peut pas s'ouvrir.</span>
-    </div>
+    <div class="timeline" style="max-width:820px; margin:12px auto 0">
 
-    <p class="reveal mx-auto mt-3 flex max-w-2xl items-center justify-center gap-2 text-center text-sm text-slate-400">
-      <svg class="h-4 w-4 shrink-0 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8A8.38 8.38 0 0 1 12.5 3a8.38 8.38 0 0 1 8.5 8.5Z"/></svg>
-      <span>Une question à <strong class="text-slate-200">n'importe quelle étape</strong> ? Je suis <strong class="text-slate-200">joignable à tout moment</strong> — écris-moi sur <a href="#" data-link="instagram" target="_blank" rel="noopener" class="font-semibold text-emerald-300 underline-offset-2 hover:underline">@MaximeLobo_</a>.</span>
-    </p>
-
-    <div id="steps" class="mx-auto mt-7 max-w-2xl space-y-5">
-
-      <!-- ÉTAPE 1 — BROKER (choix) -->
-      <div class="step rail edge reveal relative glass rounded-2xl p-4 pl-14 sm:p-5 sm:pl-16 current" data-step="broker" data-required data-chooser>
-        <div class="num absolute left-3.5 top-5 grid h-9 w-9 place-items-center rounded-full border-2 border-emerald-400/40 bg-ink font-extrabold text-emerald-300">
-          <span>1</span>
-          <span class="badge absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-emerald-400 text-ink ring-2 ring-ink">
-            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
-          </span>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-400/12 text-emerald-300"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bank"/></svg></div>
-          <div class="min-w-0">
-            <div class="flex flex-wrap items-center gap-2">
-              <h3 class="font-bold leading-snug text-white">Crée ton compte broker</h3>
-              <span class="todo-label items-center rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">à faire</span>
-              <span class="done-label items-center gap-1 rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">✓ validé</span>
-            </div>
-            <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Un <strong class="text-slate-300">broker</strong>, c'est la société où tu ouvres ton compte de trading. Choisis le tien et inscris-toi via le lien. La création est <strong class="text-slate-300">gratuite</strong>.</p>
+      <!-- ÉTAPE 1 -->
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div style="display:flex; align-items:flex-start; gap:16px">
+          <div class="step-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bank"/></svg></div>
+          <div style="min-width:0">
+            <p class="eyebrow">Étape 1</p>
+            <h2 class="h-sec" style="font-size:22px; margin-top:4px">Ouvre ton compte de trading</h2>
+            <p style="margin:8px 0 0; font-size:15px; line-height:1.55; color:var(--muted)">Crée ton compte chez <strong style="color:var(--ink)">TradeQuo</strong> via le lien. C'est gratuit et rapide.</p>
           </div>
         </div>
 
-        <div class="mt-4">
-          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">Choisis ton broker</p>
-          <div class="seg inline-flex w-full gap-1 rounded-xl border border-white/10 bg-white/5 p-1 shadow-inner" role="tablist" aria-label="Choisis ton broker">
-            <button type="button" id="tab-puprime" data-broker="puprime" role="tab" aria-selected="true" aria-controls="panel-puprime" tabindex="0" class="seg-btn active flex-1 rounded-lg px-4 py-3 text-sm font-bold text-slate-200 min-h-[44px]">PU&nbsp;Prime</button>
-            <button type="button" id="tab-tradequo" data-broker="tradequo" role="tab" aria-selected="false" aria-controls="panel-tradequo" tabindex="-1" class="seg-btn flex-1 rounded-lg px-4 py-3 text-sm font-bold text-slate-200 min-h-[44px]">TradeQuo</button>
-          </div>
+        <div class="note note-red" style="margin-top:18px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-alert"/></svg>
+          <span><strong>IMPORTANT — choisis un compte réel RAW</strong> (et non « Standard »). C'est indispensable.</span>
         </div>
 
-        <!-- PANEL PU PRIME -->
-        <div class="bpanel mt-4" id="panel-puprime" data-panel="puprime" role="tabpanel" aria-labelledby="tab-puprime">
-          <ul class="space-y-2 text-sm leading-relaxed text-slate-300">
-            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Remplis les informations de base</span></li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Plateforme <strong class="text-white">MetaTrader 5</strong>, compte <strong class="text-white">RAW</strong> <span class="text-slate-500">(juste des cases à cocher — recopie ces réglages)</span></span></li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Choisis ta devise et complète la vérification d'identité</span></li>
-          </ul>
-
-          <div class="mt-4 rounded-2xl border border-emerald-400/20 bg-emerald-400/[.06] p-4">
-            <p class="text-xs font-semibold uppercase tracking-wide text-emerald-200">Code de parrainage PU&nbsp;Prime</p>
-            <div class="mt-2 flex flex-wrap items-center gap-2.5">
-              <code id="puCode" class="basis-full select-all rounded-lg border border-white/10 bg-ink/60 px-4 py-2 text-base font-extrabold tracking-wider text-white sm:basis-auto sm:text-lg sm:tracking-widest">yzZiF9Wr</code>
-              <button type="button" data-code-for="puCode" class="copy-btn inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm font-bold text-slate-200 transition hover:bg-white/10">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                Copier
-              </button>
-            </div>
-            <p class="mt-2 text-xs leading-relaxed text-amber-200">À saisir exactement comme ci-dessus (attention aux majuscules).</p>
-          </div>
-
-          <a href="#" data-link="puprime" target="_blank" rel="noopener nofollow sponsored" class="cta mt-4 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-400 to-emerald-500 px-5 py-3 text-sm font-bold text-ink transition hover:brightness-110">
-            Ouvrir mon compte PU Prime
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </a>
-          <p class="mt-2 text-xs leading-relaxed text-slate-400">Trading = risque de perte en capital · lien de parrainage (commission possible, sans coût pour toi).</p>
+        <div class="ck-list" style="margin-top:16px">
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Remplis les informations de base</span></div>
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Type de compte : <strong style="color:var(--ink)">RAW</strong></span></div>
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Choisis ta devise préférée</span></div>
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Complète la vérification d'identité</span></div>
         </div>
 
-        <!-- PANEL TRADEQUO -->
-        <div class="bpanel mt-4 hidden" id="panel-tradequo" data-panel="tradequo" role="tabpanel" aria-labelledby="tab-tradequo">
-          <ul class="space-y-2 text-sm leading-relaxed text-slate-300">
-            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Remplis les informations de base</span></li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Plateforme <strong class="text-white">MetaTrader 5</strong>, compte <strong class="text-white">RAW</strong> <span class="text-slate-500">(juste des cases à cocher — recopie ces réglages)</span></span></li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Choisis ta devise et complète la vérification d'identité</span></li>
-          </ul>
-          <p class="mt-3 flex items-center gap-2 rounded-lg bg-emerald-400/10 px-3 py-2 text-xs font-semibold text-emerald-200"><svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 7h6l-3 7"/></svg>Atout TradeQuo : les retraits sont quasiment instantanés.</p>
-
-          <a href="#" data-link="tradequo" target="_blank" rel="noopener nofollow sponsored" class="cta mt-4 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-400 to-emerald-500 px-5 py-3 text-sm font-bold text-ink transition hover:brightness-110">
-            Ouvrir mon compte TradeQuo
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </a>
-          <p class="mt-2 text-xs leading-relaxed text-slate-400">Inscris-toi bien via ce bouton, sinon ton accès ne pourra pas être validé. Trading = risque de perte en capital · lien de parrainage (commission possible, sans coût pour toi).</p>
+        <div class="note note-amber" style="margin-top:14px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-key"/></svg>
+          <span><strong>Garde bien ton numéro de compte TradeQuo</strong> sous la main : tu en auras besoin à l'étape 2 pour connecter ton compte Pro&nbsp;Trader.</span>
         </div>
 
-        <!-- VIDÉO étape 1 -->
-        <div class="mt-5 border-t border-white/5 pt-4">
-          <p class="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-emerald-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Regarde en vidéo</p>
-          <div class="grid gap-3 sm:grid-cols-2">
-            <div class="vid relative block aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40" data-yt="L6r8itcpYb8">
-              <button type="button" class="vid-btn group absolute inset-0 h-full w-full text-left" aria-label="Lire la vidéo : créer ton compte broker">
-                <img src="https://i.ytimg.com/vi/L6r8itcpYb8/hqdefault.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-300 group-hover:scale-105 group-hover:opacity-90" />
-                <span class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"></span>
-                <span class="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-400 text-ink shadow-xl transition duration-300 group-hover:scale-110"><svg class="ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                <span class="absolute inset-x-0 bottom-0 p-3 text-sm font-semibold text-white">1 · Créer ton compte <span class="font-normal text-slate-300">(exemple)</span></span>
-              </button>
-            </div>
-            <div class="vid relative block aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40" data-yt="Tlbm8tkWyGI">
-              <button type="button" class="vid-btn group absolute inset-0 h-full w-full text-left" aria-label="Lire la vidéo : configurer MetaTrader 5">
-                <img src="https://i.ytimg.com/vi/Tlbm8tkWyGI/hqdefault.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-300 group-hover:scale-105 group-hover:opacity-90" />
-                <span class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"></span>
-                <span class="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-400 text-ink shadow-xl transition duration-300 group-hover:scale-110"><svg class="ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                <span class="absolute inset-x-0 bottom-0 p-3 text-sm font-semibold text-white">2 · Configurer MetaTrader 5 (RAW)</span>
-              </button>
-            </div>
-          </div>
-          <p class="mt-2 text-xs text-slate-500">Exemple filmé avec TradeQuo — le principe est identique chez PU&nbsp;Prime.</p>
-        </div>
+        <a href="https://my.tradequo.com/register?referral=019e8e96-5023-7169-93e5-2cd846dbb329" target="_blank" rel="noopener nofollow sponsored" class="btn btn-gold btn-md" style="margin-top:18px">Ouvrir mon compte TradeQuo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
 
-        <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-white/5 pt-4">
-          <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">~5 min</span>
-          <button data-toggle="broker" class="toggle ml-auto inline-flex min-h-[40px] items-center rounded-lg px-3 py-2 text-xs font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Marquer comme fait</button>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 2 — COMPTE PRO TRADER -->
-      <div class="step rail edge reveal relative glass rounded-2xl p-4 pl-14 sm:p-5 sm:pl-16" data-step="protrader" data-required>
-        <div class="num absolute left-3.5 top-5 grid h-9 w-9 place-items-center rounded-full border-2 border-emerald-400/40 bg-ink font-extrabold text-emerald-300">
-          <span>2</span>
-          <span class="badge absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-emerald-400 text-ink ring-2 ring-ink">
-            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
-          </span>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-400/12 text-emerald-300"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
-          <div class="min-w-0">
-            <div class="flex flex-wrap items-center gap-2">
-              <h3 class="font-bold leading-snug text-white">Crée ton compte Pro&nbsp;Trader</h3>
-              <span class="todo-label items-center rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">à faire</span>
-              <span class="done-label items-center gap-1 rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">✓ validé</span>
-            </div>
-            <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Ton espace personnel : la formation, le canal, les scanners et tes accès. Moins de 3 minutes.</p>
-          </div>
-        </div>
-        <ul class="mt-3 space-y-2 pl-1 text-sm leading-relaxed text-slate-300">
-          <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Clique sur le bouton pour ouvrir la page d'inscription Pro&nbsp;Trader</span></li>
-          <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span>Crée ton compte et complète la vérification d'identité</span></li>
-          <li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg><span><strong class="text-white">Connecte ton compte de trading</strong> (celui de ton broker) pour qu'on vérifie que ton inscription est bien validée</span></li>
-        </ul>
-        <div class="mt-4 flex flex-wrap items-center gap-3">
-          <a href="#" data-link="protrader" target="_blank" rel="noopener" class="cta inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-400 to-emerald-500 px-5 py-3 text-sm font-bold text-ink transition hover:brightness-110">
-            Créer mon compte Pro&nbsp;Trader
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </a>
-          <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">~3 min</span>
-          <button data-toggle="protrader" class="toggle ml-auto inline-flex min-h-[40px] items-center rounded-lg px-3 py-2 text-xs font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Marquer comme fait</button>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 3 — DÉPÔT -->
-      <div class="step edge reveal relative glass rounded-2xl p-4 pl-14 sm:p-5 sm:pl-16 no-rail" data-step="deposit" data-required data-chooser>
-        <div class="num absolute left-3.5 top-5 grid h-9 w-9 place-items-center rounded-full border-2 border-emerald-400/40 bg-ink font-extrabold text-emerald-300">
-          <span>3</span>
-          <span class="badge absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-emerald-400 text-ink ring-2 ring-ink">
-            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
-          </span>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-400/12 text-emerald-300"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/><path d="M21 12h-6a2 2 0 0 0 0 4h6v-4Z"/></svg></div>
-          <div class="min-w-0">
-            <div class="flex flex-wrap items-center gap-2">
-              <h3 class="font-bold leading-snug text-white">Dépose & débloque ton accès</h3>
-              <span class="todo-label items-center rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">à faire</span>
-              <span class="done-label items-center gap-1 rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-300">✓ validé</span>
-            </div>
-            <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Ton dépôt active ton compte en direct et débloque ton accès Pro&nbsp;Trader. Cet argent reste le tien, sur ton compte.</p>
-          </div>
-        </div>
-
-        <!-- message dominant simple -->
-        <p class="mt-4 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-center text-base font-bold text-emerald-100">Tu déposes 300&nbsp;$ → tu démarres avec <span class="text-emerald-300">600&nbsp;$</span> <span class="block text-xs font-medium text-emerald-200/80">(ton 1ᵉʳ dépôt est doublé en bonus)</span></p>
-
-        <!-- clarté bonus = crédit -->
-        <p class="mt-3 text-xs leading-relaxed text-slate-400"><strong class="text-slate-200">Bon à savoir :</strong> tes 300 $ sont sur <strong class="text-slate-200">ton</strong> compte, retirables quand tu veux. Le bonus, lui, est un <strong class="text-slate-200">crédit pour trader</strong> (pas du cash retirable) : si tu retires tes fonds, tu perds simplement le bonus.</p>
-        <p class="mt-3 flex items-start gap-2 text-xs leading-relaxed text-emerald-200"><svg class="mt-0.5 h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg><span>Le doublement ne joue <strong>qu'une seule fois</strong>, sur ton tout premier dépôt — autant en profiter dès le départ.</span></p>
-
-        <div class="mt-4">
-          <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">Activer le bonus selon ton broker</p>
-          <div class="seg inline-flex w-full gap-1 rounded-xl border border-white/10 bg-white/5 p-1 shadow-inner" role="tablist" aria-label="Bonus selon le broker">
-            <button type="button" id="tab-dep-puprime" data-broker="puprime" role="tab" aria-selected="true" aria-controls="panel-dep-puprime" tabindex="0" class="seg-btn active flex-1 rounded-lg px-4 py-3 text-sm font-bold text-slate-200 min-h-[44px]">PU&nbsp;Prime</button>
-            <button type="button" id="tab-dep-tradequo" data-broker="tradequo" role="tab" aria-selected="false" aria-controls="panel-dep-tradequo" tabindex="-1" class="seg-btn flex-1 rounded-lg px-4 py-3 text-sm font-bold text-slate-200 min-h-[44px]">TradeQuo</button>
-          </div>
-        </div>
-
-        <div class="bpanel mt-3 text-sm leading-relaxed text-slate-300" id="panel-dep-puprime" data-panel="puprime" role="tabpanel" aria-labelledby="tab-dep-puprime">
-          Chez PU&nbsp;Prime, le bonus s'<strong class="text-white">active directement depuis ton espace compte</strong>, une fois ton compte créé et approvisionné.
-        </div>
-        <div class="bpanel mt-3 hidden text-sm leading-relaxed text-slate-300" id="panel-dep-tradequo" data-panel="tradequo" role="tabpanel" aria-labelledby="tab-dep-tradequo">
-          Chez TradeQuo, saisis le code <strong class="text-white">STARTBOOST</strong> (1ᵉʳ dépôt) au moment du dépôt ; tes fonds doivent rester sur ton compte MT5.
-        </div>
-
-        <details class="mt-3 rounded-xl border border-white/10 bg-white/[.03] px-4 py-2.5 text-sm text-slate-400">
-          <summary class="flex items-center justify-between font-semibold text-slate-300">Voir le détail du bonus <span class="text-xs text-slate-500">▾</span></summary>
-          <ul class="mt-2 space-y-1.5 text-xs leading-relaxed">
-            <li>• 1ᵉʳ dépôt : jusqu'à +100 % (dans la limite de 1 000 $).</li>
-            <li>• Dépôts suivants : bonus supplémentaire (jusqu'à 20 000 $ au total).</li>
-            <li>• TradeQuo : codes <strong>STARTBOOST</strong> / <strong>BOOST</strong> au dépôt. PU Prime : activation sur le compte.</li>
-            <li>• Un transfert vers ton portefeuille ou l'expiration de la période annule le bonus.</li>
-          </ul>
-        </details>
-
-        <div class="mt-3 flex flex-wrap items-center gap-3 rounded-xl border border-emerald-400/25 bg-emerald-400/[.06] p-3.5">
-          <p class="min-w-0 flex-1 text-sm leading-relaxed text-slate-200">Dépôt effectué ? Écris-moi <strong class="text-white">« Dépôt »</strong> sur Instagram — je t'accompagne perso et je réponds à tes questions.</p>
-          <a href="#" data-link="instagram" target="_blank" rel="noopener" class="cta inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-bold text-slate-100 transition hover:bg-white/10">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-            @MaximeLobo_
-          </a>
-        </div>
-
-        <div class="mt-4 flex flex-wrap items-center gap-3 border-t border-white/5 pt-4">
-          <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">~5 min</span>
-          <button data-toggle="deposit" class="toggle ml-auto inline-flex min-h-[40px] items-center rounded-lg px-3 py-2 text-xs font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Marquer comme fait</button>
-        </div>
-      </div>
-
-      <!-- BONUS (non numéroté) -->
-      <div class="reveal mt-8 text-center">
-        <span class="inline-flex items-center gap-2 rounded-full border border-slate-400/30 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-300">Bonus · facultatif</span>
-        <p class="mx-auto mt-2 max-w-md text-xs leading-relaxed text-slate-400">Pas nécessaire pour démarrer. Pour automatiser entièrement la copie des trades, tu peux relier MarketSync.</p>
-      </div>
-
-      <!-- MARKETSYNC (bonus, sans numéro) -->
-      <div class="step optional edge reveal relative rounded-2xl p-4 pl-14 sm:p-5 sm:pl-16" data-step="marketsync">
-        <div class="num absolute left-3.5 top-5 grid h-9 w-9 place-items-center rounded-full border-2 border-slate-400/40 bg-ink text-slate-300">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sync"/></svg>
-          <span class="badge absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-emerald-400 text-ink ring-2 ring-ink">
-            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
-          </span>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-slate-400/12 text-slate-300"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sync"/></svg></div>
-          <div class="min-w-0">
-            <div class="flex flex-wrap items-center gap-2">
-              <h3 class="font-bold leading-snug text-white">Automatisation complète (MarketSync)</h3>
-              <span class="items-center inline-flex rounded-full bg-slate-400/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-300">Facultatif</span>
-            </div>
-            <p class="mt-1.5 text-sm leading-relaxed text-slate-400">Le copy trading <strong class="text-slate-300">sans rien faire</strong> : tu connectes ton compte une seule fois, et les trades se prennent <strong class="text-slate-300">tout seuls</strong>. (Sinon, tu recopies les trades toi-même — c'est le copy trading classique, ci-dessus.)</p>
-          </div>
-        </div>
-
-        <div class="mt-3 rounded-2xl border border-slate-400/20 bg-white/[.03] p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-300">Code de parrainage MarketSync</p>
-          <div class="mt-2 flex flex-wrap items-center gap-2.5">
-            <code id="msCode" class="basis-full select-all rounded-lg border border-white/10 bg-ink/60 px-4 py-2 text-base font-extrabold tracking-wider text-white sm:basis-auto sm:text-lg sm:tracking-widest">VNCYEG</code>
-            <button type="button" data-code-for="msCode" class="copy-btn inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-3.5 py-2.5 text-sm font-bold text-slate-200 transition hover:bg-white/10">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-              Copier
+        <div style="margin-top:18px">
+          <p class="vid-tag" style="margin:0 0 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg>Tutoriel vidéo</p>
+          <div class="vid" data-yt="L6r8itcpYb8">
+            <button type="button" class="vid-btn" aria-label="Lire la vidéo : ouvrir ton compte TradeQuo">
+              <img class="vid-thumb" src="https://i.ytimg.com/vi/L6r8itcpYb8/hqdefault.jpg" alt="" loading="lazy" decoding="async" />
+              <span class="vid-shade"></span><span class="vid-play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg></span>
+              <span class="vid-label">Ouvrir ton compte — pas à pas</span>
             </button>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-amber-200">Si un code t'est demandé à l'inscription, utilise celui-ci (respecte les majuscules).</p>
         </div>
 
-        <div class="mt-4 flex flex-wrap items-center gap-3">
-          <a href="#" data-link="marketsync" target="_blank" rel="noopener nofollow sponsored" class="cta inline-flex items-center gap-2 rounded-lg border border-slate-400/30 bg-white/5 px-5 py-3 text-sm font-bold text-slate-100 transition hover:bg-white/10">
-            Activer MarketSync
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </a>
-          <span class="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">~5 min</span>
-          <button data-toggle="marketsync" class="toggle ml-auto inline-flex min-h-[40px] items-center rounded-lg px-3 py-2 text-xs font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">Marquer comme fait</button>
+        <div style="margin-top:16px"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>~7 min</span></div>
+      </div>
+
+      <!-- ÉTAPE 2 -->
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div style="display:flex; align-items:flex-start; gap:16px">
+          <div class="step-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg></div>
+          <div style="min-width:0">
+            <p class="eyebrow">Étape 2</p>
+            <h2 class="h-sec" style="font-size:22px; margin-top:4px">Crée ton compte Pro&nbsp;Trader</h2>
+            <p style="margin:8px 0 0; font-size:15px; line-height:1.55; color:var(--muted)">Ton espace personnel : la formation, le canal, les scanners et tes accès.</p>
+          </div>
         </div>
+
+        <div class="ck-list" style="margin-top:16px">
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Clique sur le bouton pour ouvrir l'inscription</span></div>
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Renseigne tes informations</span></div>
+          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span><strong style="color:var(--ink)">Connecte ton compte de trading</strong> en entrant ton <strong style="color:var(--ink)">numéro de compte TradeQuo</strong> (celui reçu à l'étape 1) — c'est ce qui active ton accès.</span></div>
+        </div>
+
+        <a href="https://app.myprotrader.app/" target="_blank" rel="noopener" class="btn btn-gold btn-md" style="margin-top:18px">Créer mon compte Pro&nbsp;Trader <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
+
+        <div style="margin-top:18px">
+          <p class="vid-tag" style="margin:0 0 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg>Tutoriel vidéo</p>
+          <div class="vid" data-yt="jajDUYlgSYI">
+            <button type="button" class="vid-btn" aria-label="Lire la vidéo : créer ton compte Pro Trader">
+              <img class="vid-thumb" src="https://i.ytimg.com/vi/jajDUYlgSYI/hqdefault.jpg" alt="" loading="lazy" decoding="async" />
+              <span class="vid-shade"></span><span class="vid-play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg></span>
+              <span class="vid-label">Créer ton compte Pro Trader — pas à pas</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="margin-top:16px"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>~3 min</span></div>
       </div>
 
     </div>
 
-    <div class="mx-auto mt-5 max-w-2xl text-center">
-      <button id="reset" class="inline-block rounded-lg px-3 py-2 text-xs font-semibold text-slate-400 underline-offset-4 transition hover:text-slate-200 hover:underline">Réinitialiser ma progression</button>
-    </div>
 
-    <div id="done-banner" class="mx-auto mt-8 hidden max-w-2xl rounded-2xl border border-emerald-400/30 bg-emerald-400/10 p-7 text-center">
-      <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-emerald-400/20 text-emerald-300"><svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></div>
-      <p class="mt-3 text-xl font-bold text-white">Tu as suivi les 3 étapes 👏</p>
-      <p class="mt-1.5 text-sm text-slate-300">Ton accès s'ouvre dès que ton inscription et ton dépôt sont validés. À tout de suite dans le groupe — et pense à la copie auto (MarketSync) quand tu veux.</p>
+  </section>
+
+  <!-- PAGER -->
+  <section class="wrap" style="padding:30px 20px 10px">
+    <div class="pagernav" style="max-width:820px; margin:0 auto; justify-content:center">
+      <a href="depot.html" class="btn btn-green btn-md">Passer au dépôt <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="mx-auto max-w-3xl px-4 py-12 sm:px-5">
-    <p class="reveal text-center text-xs font-bold uppercase tracking-widest text-emerald-400">Questions fréquentes</p>
-    <h2 class="reveal mx-auto mt-2 max-w-lg text-center text-3xl font-extrabold tracking-tight text-white">Tu te demandes peut-être…</h2>
-    <div id="faqs" class="mx-auto mt-8 max-w-2xl space-y-3">
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Est-ce que je dois payer Pro&nbsp;Trader ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Non. La formation, les scanners et le canal sont offerts (on est rémunérés par le broker via nos liens). Le seul argent que tu engages, c'est ton <strong class="text-slate-200">dépôt (dès 300 $)</strong> — et il reste le tien, sur ton propre compte de trading.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>C'est quoi le copy trading et les scanners ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Le <strong class="text-slate-200">copy trading</strong>, c'est recopier automatiquement les trades du canal sur ton compte (tu n'as rien à faire manuellement). Les <strong class="text-slate-200">scanners</strong> sont des outils qui surveillent le marché et repèrent les opportunités à ta place.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Pourquoi un dépôt, et est-ce que je peux le récupérer ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Le dépôt sert à activer ton compte en réel (sinon tu ne peux pas trader). C'est <strong class="text-slate-200">ton capital</strong>, retirable quand tu veux. Seul le <strong class="text-slate-200">bonus</strong> offert est un crédit pour trader (pas du cash retirable) : si tu retires tes fonds, tu perds le bonus. Attention, le trading comporte un risque de perte.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Quel broker choisir : PU&nbsp;Prime ou TradeQuo ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Les deux fonctionnent pareil ; choisis celui que tu préfères. Atout TradeQuo : retraits quasi instantanés. Pour PU&nbsp;Prime, pense à t'inscrire via le lien et à entrer le code <strong class="text-slate-200">yzZiF9Wr</strong> (en respectant les majuscules).</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Faut-il déjà avoir de l'expérience ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Non, c'est pensé pour les débutants : on t'accompagne pas à pas et tout est expliqué simplement.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>C'est pas une arnaque ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Légitime de se poser la question. Trois choses concrètes : <strong class="text-slate-200">ton argent reste sur TON compte</strong> chez le broker (PU&nbsp;Prime / TradeQuo), pas chez nous ; moi, Maxime, je n'ai pas créé Pro&nbsp;Trader — j'ai sélectionné les outils et je t'accompagne (mon Instagram <strong class="text-slate-200">@MaximeLobo_</strong> est juste là) ; et on est transparents : rémunérés par le broker, <strong class="text-slate-200">ni sur tes gains, ni sur tes pertes, ni sur ton dépôt</strong>.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Et si je perds de l'argent ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Le trading comporte un <strong class="text-slate-200">vrai risque de perte</strong> — on ne te promettra jamais de gains. C'est justement pour ça qu'on te <strong class="text-slate-200">forme d'abord</strong>, qu'on t'apprend à gérer le risque, et qu'on te conseille de <strong class="text-slate-200">commencer petit</strong>, avec une somme que tu peux te permettre de perdre.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Ça me prend combien de temps par jour ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Ça dépend de toi : avec l'<strong class="text-slate-200">automatisation</strong> (MarketSync), c'est quasi zéro — les trades se prennent tout seuls. En <strong class="text-slate-200">copy trading manuel</strong>, quelques minutes pour recopier les signaux. Et tu suis la formation à ton rythme.</p></div>
-      </div>
-      <div class="faq reveal glass overflow-hidden rounded-2xl">
-        <button class="faq-q flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white" aria-expanded="false"><span>Comment je récupère mon argent, et si je veux arrêter ?</span><svg class="chev h-5 w-5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-        <div class="faq-a"><p class="px-5 pb-4 text-sm leading-relaxed text-slate-400">Tu retires depuis ton compte broker quand tu veux (chez <strong class="text-slate-200">TradeQuo</strong>, les retraits sont quasi instantanés). Il n'y a <strong class="text-slate-200">aucun abonnement</strong> : tu peux arrêter quand tu veux, sans frais.</p></div>
-      </div>
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <p style="margin:0">© <span id="year"></span> Pro&nbsp;Trader · Animé par Maxime (<a href="#" data-link="instagram" target="_blank" rel="noopener">@MaximeLobo_</a>)</p>
     </div>
-    <div class="reveal mt-7 text-center">
-      <a href="#etapes" class="cta inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 px-7 py-3 font-bold text-ink transition hover:brightness-110">Prêt ? → Voir les 3 étapes</a>
-    </div>
-  </section>
+  </footer>
 
-  <!-- AVERTISSEMENT + AFFILIATION -->
-  <section id="avertissements" class="mx-auto max-w-3xl px-4 pb-12 sm:px-5">
-    <div class="glass reveal rounded-2xl p-6">
-      <h2 class="flex items-center gap-2 text-base font-bold text-amber-300"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg> Avertissement sur les risques</h2>
-      <p class="mt-3 text-sm leading-relaxed text-slate-400">
-        Le trading comporte un risque de perte en capital, pouvant aller jusqu'à la totalité des sommes engagées. Les contenus de
-        Pro&nbsp;Trader sont fournis à titre <strong class="text-slate-300">purement pédagogique</strong> et ne constituent pas un conseil en
-        investissement. Les performances passées ne préjugent pas des performances futures. Ne place jamais d'argent dont tu
-        pourrais avoir besoin. Tu restes seul responsable de tes décisions.
-      </p>
-      <p class="mt-4 text-sm leading-relaxed text-slate-400">
-        <strong class="text-slate-300">Mention d'affiliation.</strong> Les liens d'inscription PU&nbsp;Prime, TradeQuo et MarketSync sont des liens de
-        parrainage : une commission peut être perçue lorsque tu ouvres un compte via ces liens, sans coût supplémentaire pour toi.
-      </p>
-    </div>
-    <p class="mt-6 text-center text-xs text-slate-500">© <span id="year"></span> Pro Trader · Parcours d'activation</p>
-  </section>
-
-  <!-- CTA collant (mobile) -->
-  <div class="fixed inset-x-0 bottom-0 z-40 glass border-t border-white/10 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:hidden">
-    <a href="#etapes" class="glow flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 px-6 py-3.5 font-bold text-ink transition active:scale-[.98]">Activer mon accès →</a>
-  </div>
-
-  <script>
-  (function () {
-    function showAll(){ try { document.querySelectorAll('.reveal').forEach(function (r) { r.classList.add('in'); }); } catch (e) {} }
-    setTimeout(showAll, 1500);
-
-    try {
-      /* ⚙️ TES LIENS — modifie l'adresse entre les guillemets si besoin. */
-      const CONFIG = {
-        puprime   : "https://fr.puprime.partners/forex-trading-account/?affid=MjMyMTY2Nzc=",
-        tradequo  : "https://my.tradequo.com/register?referral=019e8e96-5023-7169-93e5-2cd846dbb329",
-        protrader : "https://app.myprotrader.app/dashboard",
-        marketsync: "https://www.marketsync.ai/auth/register?ref=VNCYEG",
-        instagram : "https://instagram.com/MaximeLobo_",
-        puCode    : "yzZiF9Wr",
-        msCode    : "VNCYEG",
-      };
-
-      document.querySelectorAll("[data-link]").forEach((a) => {
-        const url = CONFIG[a.dataset.link];
-        if (url) { a.setAttribute("href", url); }
-        else {
-          a.removeAttribute("href");
-          a.classList.add("pointer-events-none", "opacity-50");
-          a.setAttribute("aria-disabled", "true");
-          a.setAttribute("title", "Lien bientôt disponible");
-        }
-      });
-
-      const puCodeEl = document.getElementById("puCode");
-      if (puCodeEl) puCodeEl.textContent = CONFIG.puCode;
-      const msCodeEl = document.getElementById("msCode");
-      if (msCodeEl) msCodeEl.textContent = CONFIG.msCode;
-
-      /* sélecteurs de broker (onglets, clavier inclus) — étape 1 et étape dépôt */
-      document.querySelectorAll("[data-chooser]").forEach((scope) => {
-        const tabs = [...scope.querySelectorAll("[data-broker]")];
-        function select(which, focus) {
-          tabs.forEach((b) => {
-            const on = b.dataset.broker === which;
-            b.classList.toggle("active", on);
-            b.setAttribute("aria-selected", on ? "true" : "false");
-            b.tabIndex = on ? 0 : -1;
-            if (on && focus) b.focus();
-          });
-          scope.querySelectorAll("[data-panel]").forEach((p) => p.classList.toggle("hidden", p.dataset.panel !== which));
-        }
-        tabs.forEach((btn, i) => {
-          btn.addEventListener("click", () => select(btn.dataset.broker));
-          btn.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-              e.preventDefault();
-              const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
-              select(next.dataset.broker, true);
-            }
-          });
-        });
-      });
-
-      document.querySelectorAll(".copy-btn").forEach((btn) => {
-        const codeEl = document.getElementById(btn.dataset.codeFor);
-        btn.addEventListener("click", async () => {
-          const code = codeEl ? codeEl.textContent.trim() : "";
-          try { await navigator.clipboard.writeText(code); }
-          catch (e) {
-            const t = document.createElement("textarea");
-            t.value = code; t.setAttribute("readonly", "");
-            t.style.position = "fixed"; t.style.top = "-9999px";
-            document.body.appendChild(t); t.select();
-            try { document.execCommand("copy"); } catch (_) {}
-            document.body.removeChild(t);
-          }
-          const original = btn.innerHTML;
-          btn.classList.add("copied");
-          if (codeEl) codeEl.classList.add("code-flash");
-          btn.innerHTML = '<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copié !';
-          setTimeout(() => { btn.classList.remove("copied"); if (codeEl) codeEl.classList.remove("code-flash"); btn.innerHTML = original; }, 1800);
-        });
-      });
-
-      /* progression — checklist PERSO (cocher manuellement, sans valider l'inscription réelle) */
-      const REQUIRED = ["broker", "protrader", "deposit"];
-      const TOTAL = REQUIRED.length;
-      const KEY = "protrader_onb_v3";
-      let done = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
-
-      const cards = {};
-      document.querySelectorAll(".step").forEach((c) => { cards[c.dataset.step] = c; });
-      let lastN = null;
-
-      function applyState() {
-        Object.entries(cards).forEach(([id, card]) => {
-          const isDone = done.has(id);
-          card.classList.toggle("done", isDone);
-          const tg = card.querySelector(".toggle");
-          if (tg) tg.textContent = isDone ? "✓ Fait — annuler" : "Marquer comme fait";
-        });
-        const n = REQUIRED.filter((id) => done.has(id)).length;
-        const countEl = document.getElementById("count");
-        countEl.textContent = n + "/" + TOTAL;
-        if (lastN !== null && n !== lastN) { countEl.classList.add("count-bump"); setTimeout(() => countEl.classList.remove("count-bump"), 300); }
-        lastN = n;
-        document.getElementById("bar").style.width = (n / TOTAL * 100) + "%";
-        document.getElementById("barWrap").setAttribute("aria-valuenow", String(n));
-        document.getElementById("done-banner").classList.toggle("hidden", n < TOTAL);
-        let current = REQUIRED.find((id) => !done.has(id)) || null;
-        Object.entries(cards).forEach(([id, card]) => card.classList.toggle("current", id === current));
-        localStorage.setItem(KEY, JSON.stringify([...done]));
-      }
-      function setDone(id, val) {
-        if (val && !done.has(id) && cards[id]) { const c = cards[id]; c.classList.add("just-done"); setTimeout(() => c.classList.remove("just-done"), 600); }
-        val ? done.add(id) : done.delete(id);
-        applyState();
-      }
-
-      document.querySelectorAll(".toggle[data-toggle]").forEach((b) => {
-        b.addEventListener("click", () => { const id = b.dataset.toggle; setDone(id, !done.has(id)); });
-      });
-      document.getElementById("reset").addEventListener("click", () => { done.clear(); applyState(); });
-
-      document.querySelectorAll(".faq").forEach((el) => {
-        const q = el.querySelector(".faq-q");
-        q.addEventListener("click", () => {
-          el.classList.toggle("open");
-          q.setAttribute("aria-expanded", el.classList.contains("open") ? "true" : "false");
-        });
-      });
-
-      document.querySelectorAll("svg").forEach((s) => { s.setAttribute("aria-hidden", "true"); s.setAttribute("focusable", "false"); });
-
-      const reveals = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
-        }, { threshold: 0.12 });
-        reveals.forEach((r) => io.observe(r));
-      } else { showAll(); }
-
-      document.getElementById("year").textContent = new Date().getFullYear();
-      applyState();
-    } catch (err) {
-      console.error("[Pro Trader] erreur init :", err);
-      document.documentElement.classList.remove("js");
-      showAll();
-    }
-  })();
-  </script>
+  <script src="config.js?v=3"></script>
 </body>
 </html>
