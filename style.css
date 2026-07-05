@@ -102,6 +102,14 @@ a{ color:inherit; }
 .steps-nav .sep{ width:14px; height:2px; background:var(--line); border-radius:2px; }
 @media (max-width:680px){ .steps-nav .lbl{ display:none; } }
 
+/* bandeau de confiance (hero) */
+.trust{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:20px auto 0; }
+.trust .chip{ font-weight:600; }
+
+/* étape optionnelle : allégée visuellement */
+.step.optional{ border-style:dashed; border-color:rgba(255,255,255,.14); background:linear-gradient(180deg,#181322,#141020); }
+.step.optional::before{ opacity:.5; }
+
 /* navigation bas de page (Retour / Suivant) */
 .pagernav{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; }
 /* boîte contact (texte + bouton) : alignée en ligne sur desktop, empilée sur mobile */
