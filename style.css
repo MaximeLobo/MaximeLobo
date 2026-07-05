@@ -91,7 +91,7 @@ a{ color:inherit; }
 
 /* ---------- Barre de progression du parcours (nav 3 pages) ---------- */
 .topbar{ position:sticky; top:0; z-index:40; background:rgba(21,17,31,.72); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-.topbar-in{ display:flex; align-items:center; gap:14px; padding:12px 0; }
+.topbar-in{ display:flex; align-items:center; gap:14px; padding:13px 6px; }
 .logo{ display:inline-flex; align-items:center; gap:9px; font-weight:800; color:var(--ink); text-decoration:none; }
 .logo span.mark{ display:grid; place-items:center; height:34px; width:34px; border-radius:10px; color:#fff; font-weight:800; background:var(--grad); }
 .steps-nav{ margin-left:auto; display:flex; align-items:center; gap:6px; font-size:13px; }
