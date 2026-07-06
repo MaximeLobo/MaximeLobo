@@ -5,29 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pro Trader — L'écosystème de trading tout-en-un</title>
   <meta name="description" content="Une académie complète, des stratégies, un journal piloté par l'IA et l'automatisation — réunis dans un seul écosystème." />
-  <meta name="theme-color" content="#15111F" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%239236DA'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0D0D0C" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d0d0c'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Georgia' font-weight='bold' fill='%23d5bf82' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <style>
     :root{
-      --bg:#15111F; --bg2:#0C0913; --ink:#EDE9F4; --text:#E7E2F0; --muted:#9A92AC;
-      --line:rgba(255,255,255,.09); --primary:#9236DA; --primary2:#B45CF0; --vlight:#CDA0FF;
-      --card:linear-gradient(180deg,#1B1628,#150F1F); --grad:linear-gradient(125deg,#9236DA,#B45CF0);
-      --green:#12B886; --red:#FB5A6A; --muted-2:#B3AAC4; --maxw:1080px;
+      --bg:#0D0D0C; --bg2:#0A0A09; --ink:#F4ECD9; --text:#EAE2D2; --muted:#8C8677;
+      --line:rgba(213,191,130,.16); --primary:#D5BF82; --primary2:#F5E6B8; --vlight:#E9D9A6;
+      --card:linear-gradient(180deg,#171510,#100F0B); --grad:linear-gradient(105deg,#F5E6B8,#D5BF82 52%,#B8963F);
+      --gold:#D5BF82; --gold-lt:#F5E6B8; --gold-dk:#B8963F;
+      --green:#3DBE8B; --red:#FB5A6A; --muted-2:#B0A997; --maxw:1080px;
     }
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; scroll-padding-top:72px; }
-    body{ margin:0; background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.5; letter-spacing:-0.011em; text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1; }
+    body{ margin:0; background:var(--bg); color:var(--text); font-family:Poppins,Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.6; letter-spacing:-0.005em; text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1; }
+    .h-hero,.h-sec,.logo,.brand{ font-family:Cinzel,Georgia,serif; letter-spacing:.005em; font-weight:700; }
+    /* Bandeau défilant (marquee) */
+    .marquee{ overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:linear-gradient(180deg, rgba(213,191,130,.05), transparent); padding:13px 0; -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+    .marquee-track{ display:inline-flex; align-items:center; gap:24px; white-space:nowrap; will-change:transform; animation:marqueeMove 28s linear infinite; }
+    .marquee-track:hover{ animation-play-state:paused; }
+    .marquee-track span{ font-family:Cinzel,Georgia,serif; font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2); }
+    .marquee-track span.g{ color:transparent; background:var(--grad); -webkit-background-clip:text; background-clip:text; }
+    .marquee-track .sep{ color:var(--primary); font-size:13px; }
+    @keyframes marqueeMove{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+    @media (prefers-reduced-motion:reduce){ .marquee-track{ animation:none; } }
     /* === FOND PREMIUM — Aurores douces (animations discrètes, reduced-motion safe) === */
     body::before{ content:""; position:fixed; inset:0; z-index:-4; pointer-events:none;
       background:
-        radial-gradient(1100px 600px at 50% -10%, rgba(146,54,218,.24), transparent 60%),
-        radial-gradient(1200px 720px at 84% 6%, rgba(180,92,240,.12), transparent 60%),
-        radial-gradient(950px 620px at -8% 32%, rgba(108,70,240,.12), transparent 55%),
-        radial-gradient(1000px 760px at 50% 112%, rgba(146,54,218,.13), transparent 60%),
+        radial-gradient(1100px 600px at 50% -10%, rgba(213,191,130,.24), transparent 60%),
+        radial-gradient(1200px 720px at 84% 6%, rgba(245,230,184,.12), transparent 60%),
+        radial-gradient(950px 620px at -8% 32%, rgba(184,150,63,.12), transparent 55%),
+        radial-gradient(1000px 760px at 50% 112%, rgba(213,191,130,.13), transparent 60%),
         linear-gradient(180deg, #15111F 0%, #120E1B 60%, #0E0A17 100%); }
     body::after{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.55;
       background-image:
@@ -39,22 +50,22 @@
       animation:gridBreath 30s ease-in-out infinite; will-change:opacity; }
     @keyframes gridBreath{ 0%,100%{ opacity:.42 } 50%{ opacity:.60 } }
     .bg-stars{ position:fixed; inset:0; z-index:-3; pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='%23CDA0FF'%3E%3Ccircle cx='30' cy='40' r='1'/%3E%3Ccircle cx='110' cy='90' r='.8'/%3E%3Ccircle cx='200' cy='30' r='1.1'/%3E%3Ccircle cx='270' cy='120' r='.7'/%3E%3Ccircle cx='60' cy='180' r='.9'/%3E%3Ccircle cx='160' cy='220' r='.8'/%3E%3Ccircle cx='240' cy='200' r='1'/%3E%3Ccircle cx='300' cy='280' r='.7'/%3E%3Ccircle cx='20' cy='270' r='.8'/%3E%3Ccircle cx='130' cy='300' r='.9'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='%23B45CF0'%3E%3Ccircle cx='50' cy='30' r='.7'/%3E%3Ccircle cx='150' cy='70' r='.6'/%3E%3Ccircle cx='210' cy='150' r='.7'/%3E%3Ccircle cx='90' cy='130' r='.6'/%3E%3Ccircle cx='180' cy='210' r='.7'/%3E%3Ccircle cx='30' cy='190' r='.6'/%3E%3C/g%3E%3C/svg%3E");
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='%23E9D9A6'%3E%3Ccircle cx='30' cy='40' r='1'/%3E%3Ccircle cx='110' cy='90' r='.8'/%3E%3Ccircle cx='200' cy='30' r='1.1'/%3E%3Ccircle cx='270' cy='120' r='.7'/%3E%3Ccircle cx='60' cy='180' r='.9'/%3E%3Ccircle cx='160' cy='220' r='.8'/%3E%3Ccircle cx='240' cy='200' r='1'/%3E%3Ccircle cx='300' cy='280' r='.7'/%3E%3Ccircle cx='20' cy='270' r='.8'/%3E%3Ccircle cx='130' cy='300' r='.9'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='%23D5BF82'%3E%3Ccircle cx='50' cy='30' r='.7'/%3E%3Ccircle cx='150' cy='70' r='.6'/%3E%3Ccircle cx='210' cy='150' r='.7'/%3E%3Ccircle cx='90' cy='130' r='.6'/%3E%3Ccircle cx='180' cy='210' r='.7'/%3E%3Ccircle cx='30' cy='190' r='.6'/%3E%3C/g%3E%3C/svg%3E");
       background-repeat:repeat, repeat; background-size:320px 320px, 240px 240px; opacity:.40;
       -webkit-mask-image:radial-gradient(120% 90% at 50% 0%, #000 0%, rgba(0,0,0,.55) 45%, transparent 80%);
       mask-image:radial-gradient(120% 90% at 50% 0%, #000 0%, rgba(0,0,0,.55) 45%, transparent 80%);
       animation:starsTwinkle 18s ease-in-out infinite; will-change:opacity; }
     @keyframes starsTwinkle{ 0%,100%{ opacity:.32 } 50%{ opacity:.5 } }
     .orb{ position:fixed; z-index:-2; border-radius:50%; pointer-events:none; filter:blur(90px); opacity:.36; will-change:transform; mix-blend-mode:screen; }
-    .orb-a{ width:540px; height:540px; top:-150px; left:-120px; background:radial-gradient(circle, rgba(146,54,218,.50), transparent 70%); animation:auroraA 26s ease-in-out infinite alternate; }
-    .orb-b{ width:600px; height:600px; bottom:-200px; right:-150px; background:radial-gradient(circle, rgba(108,70,240,.44), transparent 70%); animation:auroraB 32s ease-in-out infinite alternate; }
-    .orb-c{ width:680px; height:680px; top:34%; left:46%; background:radial-gradient(circle, rgba(180,92,240,.22) 0%, rgba(0,191,166,.07) 45%, transparent 72%); opacity:.30; filter:blur(110px); animation:auroraC 40s ease-in-out infinite alternate; }
+    .orb-a{ width:540px; height:540px; top:-150px; left:-120px; background:radial-gradient(circle, rgba(213,191,130,.50), transparent 70%); animation:auroraA 26s ease-in-out infinite alternate; }
+    .orb-b{ width:600px; height:600px; bottom:-200px; right:-150px; background:radial-gradient(circle, rgba(184,150,63,.44), transparent 70%); animation:auroraB 32s ease-in-out infinite alternate; }
+    .orb-c{ width:680px; height:680px; top:34%; left:46%; background:radial-gradient(circle, rgba(245,230,184,.22) 0%, rgba(184,150,63,.07) 45%, transparent 72%); opacity:.30; filter:blur(110px); animation:auroraC 40s ease-in-out infinite alternate; }
     @keyframes auroraA{ 0%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(80px,60px) scale(1.12);} 100%{ transform:translate(150px,110px) scale(1.18);} }
     @keyframes auroraB{ 0%{ transform:translate(0,0) scale(1.05);} 50%{ transform:translate(-70px,-50px) scale(1.12);} 100%{ transform:translate(-130px,-90px) scale(1.16);} }
     @keyframes auroraC{ 0%{ transform:translate(-50%,-50%) scale(1) rotate(0deg);} 50%{ transform:translate(-46%,-54%) scale(1.1) rotate(6deg);} 100%{ transform:translate(-54%,-47%) scale(1.05) rotate(-5deg);} }
     @media (prefers-reduced-motion:reduce){ .orb,.bg-stars,body::after{ animation:none !important; } .orb-c{ transform:translate(-50%,-50%) !important; } body::after{ opacity:.5; } .bg-stars{ opacity:.4; } }
     *:focus-visible{ outline:2px solid var(--primary2); outline-offset:2px; border-radius:8px; }
-    ::selection{ background:rgba(146,54,218,.4); }
+    ::selection{ background:rgba(213,191,130,.4); }
     img{ max-width:100%; display:block; }
     a{ color:inherit; }
     .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
@@ -66,7 +77,7 @@
     .h-sec{ color:var(--ink); font-weight:800; letter-spacing:-.02em; line-height:1.08; font-size:clamp(27px,3.7vw,42px); margin:0; }
     .lead{ font-size:clamp(16px,2.1vw,19px); line-height:1.6; color:#C9C2D6; }
     .grad{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .h-hero .grad{ background-image:linear-gradient(110deg,#9236DA,#B45CF0 42%,#CDA0FF 64%,#B45CF0 86%); background-size:230% auto; animation:gradShimmer 8.5s ease-in-out infinite; }
+    .h-hero .grad{ background-image:linear-gradient(110deg,#D5BF82,#F5E6B8 42%,#E9D9A6 64%,#F5E6B8 86%); background-size:230% auto; animation:gradShimmer 8.5s ease-in-out infinite; }
     @keyframes gradShimmer{ 0%,100%{ background-position:0% center } 50%{ background-position:100% center } }
     .fine{ font-size:11px; line-height:1.5; color:var(--muted); }
 
@@ -74,8 +85,8 @@
     .btn:active{ transform:translateY(1px) scale(.99); }
     .btn-lg{ padding:16px 30px; font-size:16px; }
     .btn-md{ padding:13px 22px; font-size:15px; }
-    .btn-primary{ background:var(--grad); color:#fff; box-shadow:0 16px 36px -14px rgba(146,54,218,.7); }
-    .btn-primary:hover{ filter:brightness(1.08); box-shadow:0 20px 44px -14px rgba(146,54,218,.8); }
+    .btn-primary{ background:var(--grad); color:#221A08; box-shadow:0 16px 36px -14px rgba(213,191,130,.7); }
+    .btn-primary:hover{ filter:brightness(1.08); box-shadow:0 20px 44px -14px rgba(213,191,130,.8); }
     .btn-ghost{ background:rgba(255,255,255,.04); border:1px solid var(--line); color:var(--text); }
     .btn-ghost:hover{ background:rgba(255,255,255,.08); }
     .disabled-link{ opacity:.45; pointer-events:none; cursor:not-allowed; filter:grayscale(.5); box-shadow:none!important; }
@@ -90,8 +101,8 @@
 
     /* connecteur décoratif entre les sections */
     .connector{ display:flex; justify-content:center; padding:2px 0; }
-    .connector i{ position:relative; display:block; width:2px; height:50px; border-radius:2px; background:linear-gradient(rgba(180,92,240,0), rgba(180,92,240,.6)); }
-    .connector i::after{ content:""; position:absolute; left:50%; bottom:-3px; width:9px; height:9px; transform:translateX(-50%) rotate(45deg); border-radius:2px; background:var(--primary2); box-shadow:0 0 16px 2px rgba(180,92,240,.6); }
+    .connector i{ position:relative; display:block; width:2px; height:50px; border-radius:2px; background:linear-gradient(rgba(245,230,184,0), rgba(245,230,184,.6)); }
+    .connector i::after{ content:""; position:absolute; left:50%; bottom:-3px; width:9px; height:9px; transform:translateX(-50%) rotate(45deg); border-radius:2px; background:var(--primary2); box-shadow:0 0 16px 2px rgba(245,230,184,.6); }
 
     .chip{ display:inline-flex; align-items:center; gap:7px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); padding:7px 14px; font-size:13px; color:#B7AEC6; }
     .card{ background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:0 16px 44px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05); }
@@ -99,19 +110,19 @@
     .topbar{ position:sticky; top:0; z-index:40; background:rgba(21,17,31,.72); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
     .topbar-in{ display:flex; align-items:center; gap:14px; padding:12px 0; }
     .logo{ display:inline-flex; align-items:center; gap:9px; font-weight:800; color:var(--ink); text-decoration:none; }
-    .logo .mark{ display:grid; place-items:center; height:34px; width:34px; border-radius:10px; color:#fff; font-weight:800; background:var(--grad); }
+    .logo .mark{ display:grid; place-items:center; height:34px; width:34px; border-radius:10px; color:#221A08; font-weight:800; background:var(--grad); }
     .steps-nav{ margin-left:auto; display:flex; align-items:center; gap:6px; font-size:13px; }
     .steps-nav a{ display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--muted); padding:6px 10px; border-radius:999px; }
     .steps-nav a .n{ display:grid; place-items:center; height:22px; width:22px; border-radius:999px; background:rgba(255,255,255,.08); color:#B7AEC6; font-weight:800; font-size:12px; }
     .steps-nav a.active{ color:var(--ink); font-weight:700; }
-    .steps-nav a.active .n{ background:var(--grad); color:#fff; }
+    .steps-nav a.active .n{ background:var(--grad); color:#221A08; }
     .steps-nav .sep{ width:14px; height:2px; background:var(--line); border-radius:2px; }
     @media (max-width:680px){ .steps-nav .lbl{ display:none; } }
     .mainnav{ margin-left:auto; display:flex; align-items:center; gap:4px; font-size:14px; }
     .mainnav a{ text-decoration:none; color:var(--muted); padding:8px 12px; border-radius:999px; font-weight:600; transition:color .2s, background .2s; }
     .mainnav a:hover{ color:var(--ink); background:rgba(255,255,255,.05); }
     .mainnav a.active{ color:var(--ink); }
-    .mainnav a.btn-nav{ color:#fff; background:var(--grad); padding:9px 16px; margin-left:6px; box-shadow:0 10px 24px -12px rgba(146,54,218,.8); }
+    .mainnav a.btn-nav{ color:#221A08; background:var(--grad); padding:9px 16px; margin-left:6px; box-shadow:0 10px 24px -12px rgba(213,191,130,.8); }
     .mainnav a.btn-nav:hover{ filter:brightness(1.08); background:var(--grad); }
     @media (max-width:680px){ .mainnav a.txtlink{ display:none; } }
 
@@ -126,15 +137,15 @@
     @media (min-width:620px){ .pillars{ grid-template-columns:1fr 1fr; } }
     @media (min-width:980px){ .pillars{ grid-template-columns:1fr 1fr 1fr; } }
     .pillar{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px; box-shadow:inset 0 1px 0 rgba(255,255,255,.04); transition:transform .25s, border-color .25s, box-shadow .25s; }
-    .pillar:hover{ transform:translateY(-3px); border-color:rgba(180,92,240,.45); box-shadow:0 22px 46px -18px rgba(146,54,218,.55), inset 0 1px 0 rgba(255,255,255,.06); }
-    .pico{ display:grid; place-items:center; height:48px; width:48px; border-radius:14px; background:rgba(146,54,218,.16); margin-bottom:14px; font-size:26px; line-height:1; }
+    .pillar:hover{ transform:translateY(-3px); border-color:rgba(245,230,184,.45); box-shadow:0 22px 46px -18px rgba(213,191,130,.55), inset 0 1px 0 rgba(255,255,255,.06); }
+    .pico{ display:grid; place-items:center; height:48px; width:48px; border-radius:14px; background:rgba(213,191,130,.16); margin-bottom:14px; font-size:26px; line-height:1; }
     .pillar h3{ margin:0 0 6px; font-size:18px; color:var(--ink); }
     .pillar p{ margin:0; font-size:14.5px; line-height:1.55; color:var(--muted-2); }
-    .feature-ico{ display:grid; place-items:center; height:54px; width:54px; border-radius:16px; color:#fff; background:var(--grad); box-shadow:0 14px 30px -10px rgba(146,54,218,.7); }
+    .feature-ico{ display:grid; place-items:center; height:54px; width:54px; border-radius:16px; color:#221A08; background:var(--grad); box-shadow:0 14px 30px -10px rgba(213,191,130,.7); }
 
     /* cartes stratégies avec anneau de progression */
     .strat{ background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px 22px; text-align:center; box-shadow:0 16px 44px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05); transition:transform .25s, border-color .25s, box-shadow .25s; }
-    .strat:hover{ transform:translateY(-3px); border-color:rgba(180,92,240,.45); box-shadow:0 24px 50px -18px rgba(146,54,218,.5), inset 0 1px 0 rgba(255,255,255,.07); }
+    .strat:hover{ transform:translateY(-3px); border-color:rgba(245,230,184,.45); box-shadow:0 24px 50px -18px rgba(213,191,130,.5), inset 0 1px 0 rgba(255,255,255,.07); }
     .ring{ position:relative; width:132px; height:132px; margin:0 auto; }
     .ring svg{ width:100%; height:100%; transform:rotate(-90deg); }
     .ring-bg{ fill:none; stroke:rgba(255,255,255,.08); stroke-width:9; }
@@ -167,12 +178,12 @@
     .tag{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:5px 11px; font-size:12.5px; font-weight:700; }
     .tag-up{ background:rgba(18,184,134,.18); color:#3dd7a8; }
     .tag-down{ background:rgba(251,90,106,.18); color:#ff8a96; }
-    .tag-v{ background:rgba(146,54,218,.22); color:var(--vlight); }
+    .tag-v{ background:rgba(213,191,130,.22); color:var(--vlight); }
     .tag-mut{ background:rgba(255,255,255,.06); color:#B7AEC6; }
 
     .pricerow{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 16px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.03); }
     .pricerow .old{ color:#8A8296; text-decoration:line-through; font-weight:700; }
-    .free-mega{ font-weight:900; letter-spacing:-.02em; font-size:clamp(56px,13vw,140px); line-height:.95; background:linear-gradient(125deg,#B45CF0,#CDA0FF 60%,#00BFA6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .free-mega{ font-weight:900; letter-spacing:-.02em; font-size:clamp(56px,13vw,140px); line-height:.95; background:linear-gradient(125deg,#F5E6B8,#E9D9A6 60%,#B8963F); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
     .flow{ display:grid; gap:12px; grid-template-columns:1fr; }
     @media (min-width:560px){ .flow{ grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; } }
@@ -191,12 +202,12 @@
     .ctrl-top label{ font-weight:700; color:var(--ink); font-size:15px; }
     .ctrl-top .val{ font-weight:800; color:var(--vlight); font-size:16px; }
     input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:rgba(255,255,255,.13); outline:none; }
-    input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:#B45CF0; cursor:pointer; box-shadow:0 4px 14px rgba(146,54,218,.7); border:2px solid #fff2; transition:box-shadow .2s, transform .15s; }
-    input[type=range]::-moz-range-thumb{ width:22px; height:22px; border:0; border-radius:50%; background:#B45CF0; cursor:pointer; }
+    input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:#F5E6B8; cursor:pointer; box-shadow:0 4px 14px rgba(213,191,130,.7); border:2px solid #fff2; transition:box-shadow .2s, transform .15s; }
+    input[type=range]::-moz-range-thumb{ width:22px; height:22px; border:0; border-radius:50%; background:#F5E6B8; cursor:pointer; }
     .seg{ display:flex; gap:8px; flex-wrap:wrap; }
     .seg button{ flex:1; min-width:84px; padding:11px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text); font-weight:600; font-size:14px; cursor:pointer; transition:all .2s; font-family:inherit; }
     .seg button:hover{ background:rgba(255,255,255,.08); }
-    .seg button.on{ background:var(--grad); color:#fff; border-color:transparent; box-shadow:0 10px 24px -12px rgba(146,54,218,.8); }
+    .seg button.on{ background:var(--grad); color:#221A08; border-color:transparent; box-shadow:0 10px 24px -12px rgba(213,191,130,.8); }
     .res-head{ font-size:13px; color:var(--muted); font-weight:600; }
     .bigres{ font-size:clamp(40px,9vw,64px); font-weight:900; letter-spacing:-.02em; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1; margin:6px 0 4px; }
     .gain{ font-weight:800; color:#3dd7a8; font-size:18px; }
@@ -230,11 +241,11 @@
     .chip{ box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
     .gtile{ box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
     .bigres,.gain,#capStart,.ring-val b,.simtable td,.simtable th,input[type=number]{ font-variant-numeric:tabular-nums; }
-    .livecall::before{ content:""; position:absolute; inset:-8% 0 6%; z-index:-1; pointer-events:none; background:radial-gradient(70% 55% at 50% 30%, rgba(146,54,218,.22), transparent 70%); filter:blur(20px); }
-    input[type=range]:hover::-webkit-slider-thumb{ box-shadow:0 4px 14px rgba(146,54,218,.7), 0 0 0 8px rgba(180,92,240,.18); }
-    input[type=range]:focus-visible::-webkit-slider-thumb{ box-shadow:0 4px 14px rgba(146,54,218,.7), 0 0 0 6px rgba(180,92,240,.30); transform:scale(1.06); }
-    input[type=range]:hover::-moz-range-thumb{ box-shadow:0 0 0 8px rgba(180,92,240,.18); }
-    input[type=range]:focus-visible::-moz-range-thumb{ box-shadow:0 0 0 6px rgba(180,92,240,.30); }
+    .livecall::before{ content:""; position:absolute; inset:-8% 0 6%; z-index:-1; pointer-events:none; background:radial-gradient(70% 55% at 50% 30%, rgba(213,191,130,.22), transparent 70%); filter:blur(20px); }
+    input[type=range]:hover::-webkit-slider-thumb{ box-shadow:0 4px 14px rgba(213,191,130,.7), 0 0 0 8px rgba(245,230,184,.18); }
+    input[type=range]:focus-visible::-webkit-slider-thumb{ box-shadow:0 4px 14px rgba(213,191,130,.7), 0 0 0 6px rgba(245,230,184,.30); transform:scale(1.06); }
+    input[type=range]:hover::-moz-range-thumb{ box-shadow:0 0 0 8px rgba(245,230,184,.18); }
+    input[type=range]:focus-visible::-moz-range-thumb{ box-shadow:0 0 0 6px rgba(245,230,184,.30); }
     @media (max-width:560px){
       .simtable{ font-size:12px; }
       .simtable th{ font-size:10px; padding:7px 5px; }
@@ -254,9 +265,9 @@
 
   <!-- dégradés réutilisables (anneaux + graphique Cypher) -->
   <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
-    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9236DA"/><stop offset="1" stop-color="#CDA0FF"/></linearGradient>
-    <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9236DA"/><stop offset="1" stop-color="#B45CF0"/></linearGradient>
-    <linearGradient id="simFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9236DA" stop-opacity=".35"/><stop offset="1" stop-color="#9236DA" stop-opacity="0"/></linearGradient>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D5BF82"/><stop offset="1" stop-color="#E9D9A6"/></linearGradient>
+    <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D5BF82"/><stop offset="1" stop-color="#F5E6B8"/></linearGradient>
+    <linearGradient id="simFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D5BF82" stop-opacity=".35"/><stop offset="1" stop-color="#D5BF82" stop-opacity="0"/></linearGradient>
   </defs></svg>
 
   <!-- TOPBAR -->
@@ -286,6 +297,14 @@
       <div class="reveal"><a href="#whoami" class="scroll-cue" aria-label="Défiler vers le bas"><span class="scroll-cue-txt">Défile pour découvrir</span><span class="scroll-cue-line"><span class="scroll-cue-dot"></span></span></a></div>
     </div>
   </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span>
+      <span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span>
+    </div>
+  </div>
 
   <!-- QUI JE SUIS -->
   <section id="whoami" class="scene short">
@@ -386,20 +405,20 @@
       <stop offset="1" stop-color="#0F0B19"/>
     </linearGradient>
     <linearGradient id="lcHalo" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#9236DA" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#9236DA" stop-opacity="0"/>
+      <stop offset="0" stop-color="#D5BF82" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#D5BF82" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="lcMA" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#B45CF0"/>
-      <stop offset="1" stop-color="#CDA0FF"/>
+      <stop offset="0" stop-color="#F5E6B8"/>
+      <stop offset="1" stop-color="#E9D9A6"/>
     </linearGradient>
     <linearGradient id="lcChartFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#9236DA" stop-opacity="0.16"/>
-      <stop offset="1" stop-color="#9236DA" stop-opacity="0"/>
+      <stop offset="0" stop-color="#D5BF82" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#D5BF82" stop-opacity="0"/>
     </linearGradient>
     <radialGradient id="lcGlow" cx="0.5" cy="0.4" r="0.7">
-      <stop offset="0" stop-color="#B45CF0" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#B45CF0" stop-opacity="0"/>
+      <stop offset="0" stop-color="#F5E6B8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#F5E6B8" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="lcQuit" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FB5A6A"/>
@@ -426,18 +445,18 @@
     <path d="M495 26 c5 -6 13 -6 18 0 c-5 6 -13 6 -18 0 z" fill="none" stroke="#9A92AC" stroke-width="1.3"/>
     <circle cx="504" cy="26" r="2.4" fill="#9A92AC"/>
   </g>
-  <text x="492" y="30.5" font-size="11" font-weight="600" fill="#CDA0FF" text-anchor="end">1 248 en ligne</text>
+  <text x="492" y="30.5" font-size="11" font-weight="600" fill="#E9D9A6" text-anchor="end">1 248 en ligne</text>
   <line x1="8" y1="48" x2="532" y2="48" stroke="rgba(255,255,255,0.08)"/>
 
   <!-- ===== SCENE: screen share (left) ===== -->
   <rect x="16" y="56" width="328" height="244" rx="12" fill="url(#lcScene)" stroke="rgba(255,255,255,0.08)"/>
   <rect x="16" y="56" width="328" height="244" rx="12" fill="url(#lcHalo)"/>
   <!-- screen share label -->
-  <rect x="26" y="64" width="98" height="18" rx="9" fill="rgba(146,54,218,0.18)" stroke="rgba(180,92,240,0.4)"/>
-  <rect x="33" y="69.5" width="9" height="7" rx="1.5" fill="none" stroke="#CDA0FF" stroke-width="1.1"/>
-  <line x1="37.5" y1="76.5" x2="37.5" y2="79" stroke="#CDA0FF" stroke-width="1.1"/>
-  <line x1="35" y1="79" x2="40" y2="79" stroke="#CDA0FF" stroke-width="1.1"/>
-  <text x="48" y="76.5" font-size="9.5" font-weight="600" fill="#CDA0FF">Partage d'écran</text>
+  <rect x="26" y="64" width="98" height="18" rx="9" fill="rgba(213,191,130,0.18)" stroke="rgba(245,230,184,0.4)"/>
+  <rect x="33" y="69.5" width="9" height="7" rx="1.5" fill="none" stroke="#E9D9A6" stroke-width="1.1"/>
+  <line x1="37.5" y1="76.5" x2="37.5" y2="79" stroke="#E9D9A6" stroke-width="1.1"/>
+  <line x1="35" y1="79" x2="40" y2="79" stroke="#E9D9A6" stroke-width="1.1"/>
+  <text x="48" y="76.5" font-size="9.5" font-weight="600" fill="#E9D9A6">Partage d'écran</text>
   <!-- price tag top right of scene -->
   <text x="334" y="76" font-size="11" font-weight="700" fill="#3dd7a8" text-anchor="end">+0,84 %</text>
 
@@ -490,13 +509,13 @@
   </g>
 
   <!-- dashed price line + tag -->
-  <line x1="32" y1="126" x2="312" y2="126" stroke="#CDA0FF" stroke-width="1" stroke-dasharray="4 4" opacity="0.7"/>
-  <rect x="290" y="118" width="44" height="16" rx="4" fill="#9236DA"/>
+  <line x1="32" y1="126" x2="312" y2="126" stroke="#E9D9A6" stroke-width="1" stroke-dasharray="4 4" opacity="0.7"/>
+  <rect x="290" y="118" width="44" height="16" rx="4" fill="#D5BF82"/>
   <text x="312" y="129.5" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">2 412.8</text>
 
   <!-- speaker overlay (bottom-left of scene) -->
   <rect x="26" y="266" width="176" height="26" rx="13" fill="rgba(14,10,24,0.78)" stroke="rgba(255,255,255,0.10)"/>
-  <circle cx="40" cy="279" r="9" fill="#9236DA"/>
+  <circle cx="40" cy="279" r="9" fill="#D5BF82"/>
   <text x="40" y="282.5" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">PT</text>
   <text x="54" y="282.5" font-size="9.5" font-weight="600" fill="#EDE9F4">Éducateur Pro Trader</text>
   <circle cx="192" cy="279" r="3.5" fill="#FB5A6A"/>
@@ -508,7 +527,7 @@
 
   <!-- msg 1 -->
   <circle cx="372" cy="100" r="9" fill="#3a2b52"/>
-  <text x="372" y="103.5" font-size="8" font-weight="700" fill="#CDA0FF" text-anchor="middle">KA</text>
+  <text x="372" y="103.5" font-size="8" font-weight="700" fill="#E9D9A6" text-anchor="middle">KA</text>
   <text x="386" y="98" font-size="8.5" font-weight="600" fill="#9A92AC">Karim</text>
   <rect x="386" y="103" width="128" height="26" rx="8" fill="#1E1530"/>
   <text x="394" y="114" font-size="8.5" fill="#EDE9F4">Le setup est net,</text>
@@ -523,10 +542,10 @@
   <text x="394" y="170" font-size="8.5" fill="#EDE9F4">sous 2 405 ?</text>
 
   <!-- msg 3 expert -->
-  <circle cx="372" cy="194" r="9" fill="#9236DA"/>
+  <circle cx="372" cy="194" r="9" fill="#D5BF82"/>
   <text x="372" y="197.5" font-size="8" font-weight="700" fill="#FFFFFF" text-anchor="middle">PT</text>
-  <text x="386" y="190" font-size="8.5" font-weight="700" fill="#CDA0FF">Éducateur Pro Trader</text>
-  <rect x="386" y="195" width="128" height="36" rx="8" fill="rgba(146,54,218,0.18)" stroke="rgba(180,92,240,0.35)"/>
+  <text x="386" y="190" font-size="8.5" font-weight="700" fill="#E9D9A6">Éducateur Pro Trader</text>
+  <rect x="386" y="195" width="128" height="36" rx="8" fill="rgba(213,191,130,0.18)" stroke="rgba(245,230,184,0.35)"/>
   <text x="394" y="206" font-size="8.5" fill="#EDE9F4">Oui, stop 2 404.</text>
   <text x="394" y="216" font-size="8.5" fill="#EDE9F4">Cible 1 vers 2 420,</text>
   <text x="394" y="226" font-size="8.5" fill="#EDE9F4">on sécurise ensuite.</text>
@@ -534,17 +553,17 @@
   <!-- input field -->
   <rect x="362" y="266" width="160" height="26" rx="13" fill="#0F0B19" stroke="rgba(255,255,255,0.12)"/>
   <text x="374" y="282.5" font-size="9" fill="#9A92AC">Écrire un message…</text>
-  <circle cx="509" cy="279" r="11" fill="#9236DA"/>
+  <circle cx="509" cy="279" r="11" fill="#D5BF82"/>
   <path d="M504 279 h9 M510 275 l4 4 l-4 4" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 
   <!-- ===== PARTICIPANTS ROW ===== -->
   <!-- PT speaking ring -->
   <circle cx="40" cy="316" r="13" fill="none" stroke="#3dd7a8" stroke-width="2"/>
-  <circle cx="40" cy="316" r="10.5" fill="#9236DA"/>
+  <circle cx="40" cy="316" r="10.5" fill="#D5BF82"/>
   <text x="40" y="319.5" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">PT</text>
 
   <circle cx="76" cy="316" r="10.5" fill="#3a2b52"/>
-  <text x="76" y="319.5" font-size="8.5" font-weight="700" fill="#CDA0FF" text-anchor="middle">KA</text>
+  <text x="76" y="319.5" font-size="8.5" font-weight="700" fill="#E9D9A6" text-anchor="middle">KA</text>
   <circle cx="84" cy="324" r="5" fill="#171022"/>
   <path d="M82 322.5 h4 M82 324 h4 M82 325.5 h2.5" stroke="#FB5A6A" stroke-width="1" stroke-linecap="round"/>
 
@@ -560,7 +579,7 @@
   <text x="184" y="319.5" font-size="8.5" font-weight="700" fill="#3dd7a8" text-anchor="middle">YA</text>
 
   <circle cx="220" cy="316" r="10.5" fill="#241a36" stroke="rgba(255,255,255,0.12)"/>
-  <text x="220" y="319.5" font-size="8.5" font-weight="700" fill="#CDA0FF" text-anchor="middle">+12</text>
+  <text x="220" y="319.5" font-size="8.5" font-weight="700" fill="#E9D9A6" text-anchor="middle">+12</text>
 
   <!-- separator filet -->
   <line x1="16" y1="332" x2="524" y2="332" stroke="rgba(255,255,255,0.09)"/>
@@ -633,7 +652,7 @@
           <span class="tag tag-v">★ Profil trader</span>
         </div>
         <div class="row" style="gap:14px; margin-bottom:14px">
-          <div style="flex:none; width:46px; height:46px; border-radius:13px; background:var(--grad); display:grid; place-items:center; font-weight:900; color:#fff; font-size:20px">12</div>
+          <div style="flex:none; width:46px; height:46px; border-radius:13px; background:var(--grad); display:grid; place-items:center; font-weight:900; color:#221A08; font-size:20px">12</div>
           <div><div style="font-weight:700; color:var(--ink)">Niveau 12 — Trader confirmé</div><div style="font-size:12.5px; color:var(--muted)">Plus que 340 XP avant le niveau 13</div></div>
         </div>
         <div class="bar"><span style="width:88%"></span></div>
@@ -767,7 +786,7 @@
       </div>
       <div class="laptop reveal" aria-hidden="true">
         
-        <svg viewBox="0 0 560 384" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif"><defs><linearGradient id="lpScreenGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1230"/><stop offset="1" stop-color="#0E0A18"/></linearGradient><linearGradient id="lpHalo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9236DA" stop-opacity="0.18"/><stop offset="0.5" stop-color="#9236DA" stop-opacity="0"/></linearGradient><linearGradient id="lpBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2238"/><stop offset="1" stop-color="#1C1628"/></linearGradient><linearGradient id="lpLid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2238"/><stop offset="1" stop-color="#15101F"/></linearGradient><clipPath id="lpScreenClip"><rect x="118" y="56" width="324" height="212" rx="6"/></clipPath><clipPath id="lpChartClip"><rect x="175" y="92" width="232" height="120"/></clipPath><clipPath id="lpVolClip"><rect x="175" y="224" width="232" height="24"/></clipPath></defs>
+        <svg viewBox="0 0 560 384" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif"><defs><linearGradient id="lpScreenGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1230"/><stop offset="1" stop-color="#0E0A18"/></linearGradient><linearGradient id="lpHalo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D5BF82" stop-opacity="0.18"/><stop offset="0.5" stop-color="#D5BF82" stop-opacity="0"/></linearGradient><linearGradient id="lpBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2238"/><stop offset="1" stop-color="#1C1628"/></linearGradient><linearGradient id="lpLid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2238"/><stop offset="1" stop-color="#15101F"/></linearGradient><clipPath id="lpScreenClip"><rect x="118" y="56" width="324" height="212" rx="6"/></clipPath><clipPath id="lpChartClip"><rect x="175" y="92" width="232" height="120"/></clipPath><clipPath id="lpVolClip"><rect x="175" y="224" width="232" height="24"/></clipPath></defs>
 
 <ellipse cx="280" cy="356" rx="210" ry="16" fill="#000000" opacity="0.35"/>
 
@@ -784,7 +803,7 @@
 <line x1="118" y1="78" x2="442" y2="78" stroke="#2A2238" stroke-width="1"/>
 <text x="126" y="71" font-size="10" font-weight="600" fill="#EDE9F4">XAU/USD</text>
 <text x="178" y="71" font-size="10" fill="#9A92AC">· 1H</text>
-<text x="206" y="71" font-size="10" font-weight="600" fill="#B45CF0">Cypher All-in-One</text>
+<text x="206" y="71" font-size="10" font-weight="600" fill="#F5E6B8">Cypher All-in-One</text>
 <circle cx="384" cy="67" r="3" fill="#12B886"/>
 <text x="392" y="71" font-size="9" font-weight="600" fill="#3dd7a8">EN DIRECT</text>
 
@@ -828,7 +847,7 @@
 <line x1="175" y1="212" x2="407" y2="212" stroke="#2A2238" stroke-width="0.5"/>
 
 <g clip-path="url(#lpChartClip)">
-<path d="M181 170 C 196 168, 206 156, 220 150 C 236 143, 246 152, 260 146 C 276 139, 286 124, 300 122 C 316 120, 326 132, 340 124 C 354 116, 366 110, 380 116 C 392 121, 398 130, 404 134" fill="none" stroke="#B45CF0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M181 170 C 196 168, 206 156, 220 150 C 236 143, 246 152, 260 146 C 276 139, 286 124, 300 122 C 316 120, 326 132, 340 124 C 354 116, 366 110, 380 116 C 392 121, 398 130, 404 134" fill="none" stroke="#F5E6B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
 
 <g stroke-width="1" stroke="#3dd7a8"><line x1="185" y1="150" x2="185" y2="178"/></g>
 <rect x="181" y="158" width="8" height="14" fill="#12B886"/>
@@ -936,11 +955,11 @@
       <div class="mock reveal" aria-hidden="true" style="order:2">
         <p style="margin:0 0 14px; font-weight:700; color:var(--ink)">Coach IA · ton journal</p>
         <div style="display:flex; flex-direction:column; gap:12px">
-          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#fff; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Pourquoi j'ai perdu sur mon trade XAU&nbsp;? 😟</div>
+          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#221A08; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Pourquoi j'ai perdu sur mon trade XAU&nbsp;? 😟</div>
           <div style="align-self:flex-start; max-width:92%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13px; color:var(--text)"><strong style="color:var(--ink)">Trade #483 · XAU vente — Perdant.</strong> En clair&nbsp;: le marché montait, et tu as parié sur la baisse. Tu es entré trop tôt, sur un coup de tête après ta perte précédente. <span style="color:var(--vlight)">👉 La prochaine fois, attends que le prix confirme avant d'entrer.</span></div>
-          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#fff; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Mon ratio risque/rendement était bon, pourtant&nbsp;?</div>
+          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#221A08; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Mon ratio risque/rendement était bon, pourtant&nbsp;?</div>
           <div style="align-self:flex-start; max-width:92%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13px; color:var(--text)">Ton <strong style="color:var(--ink)">R:R était de 1:1,2</strong> — correct. Mais tu as pris le trade en pleine <strong style="color:var(--ink)">session asiatique</strong> (faible volatilité) et sans confluence en H1. <span style="color:var(--vlight)">Vise plutôt 1:2 sur les ouvertures Londres / New&nbsp;York.</span></div>
-          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#fff; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Et mon meilleur trade&nbsp;?</div>
+          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#221A08; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Et mon meilleur trade&nbsp;?</div>
           <div style="align-self:flex-start; max-width:92%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13px; color:var(--text)"><strong style="color:var(--ink)">Trade #482 · XAU achat — Gagnant.</strong> Entrée alignée avec la tendance H1, patience sur la confirmation. Discipline respectée. 👏</div>
         </div>
       </div>
@@ -1038,7 +1057,7 @@
         <div class="arrow">→</div>
         <div class="node">Le broker perçoit sa commission</div>
         <div class="arrow">→</div>
-        <div class="node" style="border-color:rgba(0,191,166,.4)">Une part revient à Pro&nbsp;Trader · tout t'est offert</div>
+        <div class="node" style="border-color:rgba(184,150,63,.4)">Une part revient à Pro&nbsp;Trader · tout t'est offert</div>
       </div>
       <p class="lead reveal" style="margin:22px auto 0; max-width:560px">Pas d'affiliation agressive, pas de frais cachés. Un alignement d'intérêts simple et transparent : on gagne quand tu <strong style="color:var(--ink)">réussis et que tu restes</strong>.</p>
       <p class="fine reveal" style="margin:16px auto 0; max-width:600px">Pour trader en réel, un dépôt sur ton propre compte reste nécessaire — et cet argent reste le tien.</p>
