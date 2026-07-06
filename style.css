@@ -5,16 +5,16 @@
    ========================================================= */
 
 :root{
-  --brand:#DFC98C; --brand-700:#B7943C; --cyan:#F7ECC8;
-  --ink:#F7F0E1; --text:#EDE6D6; --body:#CBC4B4; --muted:#928C7C;
-  --bg:#0A0A09; --line:rgba(214,190,124,.15);
-  --vlight:#ECDDAC; --green:#37B588; --muted-2:#B4AD9B;
-  --gold:#DFC98C; --gold-lt:#F7ECC8; --gold-dk:#B7943C;
-  --grad:linear-gradient(105deg,#F7ECC8,#DFC98C 50%,#BC9A46);
-  --card:linear-gradient(180deg,#15140E,#0D0C09);
+  --brand:#DAC58C; --brand-700:#B9994E; --cyan:#F3E7C4;
+  --ink:#F6F1E6; --text:#ECE6D8; --body:#C6C0B2; --muted:#8F8A7B;
+  --bg:#090908; --line:rgba(216,197,140,.14);
+  --vlight:#E9DBB0; --green:#33AE82; --muted-2:#B2AC9A;
+  --gold:#DAC58C; --gold-lt:#F3E7C4; --gold-dk:#B9994E;
+  --grad:linear-gradient(105deg,#F3E7C4,#DAC58C 50%,#BE9E56);
+  --card:linear-gradient(180deg,#131109,#0C0B08);
   --shadow-sm:0 1px 2px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.5);
-  --shadow:0 30px 66px rgba(0,0,0,.6);
-  --maxw:1080px;
+  --shadow:0 30px 66px rgba(0,0,0,.62);
+  --maxw:1200px;
 }
 
 *{ box-sizing:border-box; }
@@ -62,8 +62,8 @@ a{ color:inherit; }
 .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
 @media (min-width:640px){ .wrap{ padding:0 28px; } }
 @media (min-width:1024px){ .wrap{ padding:0 40px; } }
-@media (min-width:1280px){ :root{ --maxw:1180px; } }
-@media (min-width:1700px){ :root{ --maxw:1280px; } }
+@media (min-width:1280px){ :root{ --maxw:1280px; } }
+@media (min-width:1700px){ :root{ --maxw:1400px; } }
 .narrow{ max-width:760px; margin-left:auto; margin-right:auto; }
 
 /* ---------- Titres ---------- */
@@ -302,3 +302,12 @@ a{ color:inherit; }
   .step-row.is-reverse.has-media .step-copy{ order:2; }
   .step-media.stick{ position:sticky; top:88px; }
 }
+
+/* ---------- Visuel de flux (étape transfert) ---------- */
+.flowcard{ border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg, rgba(216,197,140,.05), rgba(255,255,255,.01)); padding:20px; display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow-sm); }
+.flownode{ display:flex; align-items:center; gap:12px; padding:14px 16px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.02); }
+.flownode .fico{ display:grid; place-items:center; height:38px; width:38px; border-radius:10px; background:rgba(216,197,140,.14); color:var(--gold); flex:none; }
+.flownode b{ color:var(--ink); font-size:14.5px; display:block; }
+.flownode small{ font-size:12.5px; color:var(--muted); }
+.flowarrow{ display:grid; place-items:center; color:var(--gold); height:22px; }
+.flownode.is-raw{ border-color:rgba(216,197,140,.35); background:rgba(216,197,140,.06); }
