@@ -3,25 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pro Trader — Inscription (TradeQuo + Pro Trader)</title>
-  <meta name="description" content="Crée ton compte TradeQuo puis ton compte Pro Trader, pas à pas. Sans connaissance technique." />
+  <title>Pro Trader — L'écosystème de trading tout-en-un</title>
+  <meta name="description" content="Une académie complète, des stratégies, un journal piloté par l'IA et l'automatisation — réunis dans un seul écosystème." />
   <meta name="theme-color" content="#15111F" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%239236DA'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* — touche luxe OR & ARGENT sur l'inscription — */
-    .btn-gold{ background:linear-gradient(135deg,#F5D98B 0%,#D4AF37 45%,#B8860B 100%); color:#2a2008; box-shadow:0 14px 30px -12px rgba(212,175,55,.6); }
-    .btn-gold:hover{ filter:brightness(1.06); box-shadow:0 18px 38px -12px rgba(212,175,55,.7); }
-    .eyebrow{ color:#E6C56B !important; }
-    .step-num{ background:linear-gradient(135deg,#F5D98B,#B8860B) !important; color:#2a2008 !important; box-shadow:0 10px 22px -8px rgba(212,175,55,.6) !important; }
-    .step::before{ background:linear-gradient(90deg,#D4AF37,#C9CBD1) !important; }
-    .step-ico{ background:rgba(212,175,55,.14) !important; color:#E6C56B !important; }
-    .code-copy.copied{ background:rgba(212,175,55,.2) !important; color:#E6C56B !important; }
-  </style>
   <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root{
+      --bg:#15111F; --bg2:#0C0913; --ink:#EDE9F4; --text:#E7E2F0; --muted:#9A92AC;
+      --line:rgba(255,255,255,.09); --primary:#9236DA; --primary2:#B45CF0; --vlight:#CDA0FF;
+      --card:linear-gradient(180deg,#1B1628,#150F1F); --grad:linear-gradient(125deg,#9236DA,#B45CF0);
+      --green:#12B886; --red:#FB5A6A; --muted-2:#B3AAC4; --maxw:1080px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; scroll-padding-top:72px; }
+    body{ margin:0; background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.5; letter-spacing:-0.011em; text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1; }
+    /* === FOND PREMIUM — Aurores douces (animations discrètes, reduced-motion safe) === */
+    body::before{ content:""; position:fixed; inset:0; z-index:-4; pointer-events:none;
+      background:
+        radial-gradient(1100px 600px at 50% -10%, rgba(146,54,218,.24), transparent 60%),
+        radial-gradient(1200px 720px at 84% 6%, rgba(180,92,240,.12), transparent 60%),
+        radial-gradient(950px 620px at -8% 32%, rgba(108,70,240,.12), transparent 55%),
+        radial-gradient(1000px 760px at 50% 112%, rgba(146,54,218,.13), transparent 60%),
+        linear-gradient(180deg, #15111F 0%, #120E1B 60%, #0E0A17 100%); }
+    body::after{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.55;
+      background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+      background-size:46px 46px;
+      -webkit-mask-image:radial-gradient(circle at 50% 14%, #000, transparent 78%);
+      mask-image:radial-gradient(circle at 50% 14%, #000, transparent 78%);
+      animation:gridBreath 30s ease-in-out infinite; will-change:opacity; }
+    @keyframes gridBreath{ 0%,100%{ opacity:.42 } 50%{ opacity:.60 } }
+    .bg-stars{ position:fixed; inset:0; z-index:-3; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='%23CDA0FF'%3E%3Ccircle cx='30' cy='40' r='1'/%3E%3Ccircle cx='110' cy='90' r='.8'/%3E%3Ccircle cx='200' cy='30' r='1.1'/%3E%3Ccircle cx='270' cy='120' r='.7'/%3E%3Ccircle cx='60' cy='180' r='.9'/%3E%3Ccircle cx='160' cy='220' r='.8'/%3E%3Ccircle cx='240' cy='200' r='1'/%3E%3Ccircle cx='300' cy='280' r='.7'/%3E%3Ccircle cx='20' cy='270' r='.8'/%3E%3Ccircle cx='130' cy='300' r='.9'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='%23B45CF0'%3E%3Ccircle cx='50' cy='30' r='.7'/%3E%3Ccircle cx='150' cy='70' r='.6'/%3E%3Ccircle cx='210' cy='150' r='.7'/%3E%3Ccircle cx='90' cy='130' r='.6'/%3E%3Ccircle cx='180' cy='210' r='.7'/%3E%3Ccircle cx='30' cy='190' r='.6'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat:repeat, repeat; background-size:320px 320px, 240px 240px; opacity:.40;
+      -webkit-mask-image:radial-gradient(120% 90% at 50% 0%, #000 0%, rgba(0,0,0,.55) 45%, transparent 80%);
+      mask-image:radial-gradient(120% 90% at 50% 0%, #000 0%, rgba(0,0,0,.55) 45%, transparent 80%);
+      animation:starsTwinkle 18s ease-in-out infinite; will-change:opacity; }
+    @keyframes starsTwinkle{ 0%,100%{ opacity:.32 } 50%{ opacity:.5 } }
+    .orb{ position:fixed; z-index:-2; border-radius:50%; pointer-events:none; filter:blur(90px); opacity:.36; will-change:transform; mix-blend-mode:screen; }
+    .orb-a{ width:540px; height:540px; top:-150px; left:-120px; background:radial-gradient(circle, rgba(146,54,218,.50), transparent 70%); animation:auroraA 26s ease-in-out infinite alternate; }
+    .orb-b{ width:600px; height:600px; bottom:-200px; right:-150px; background:radial-gradient(circle, rgba(108,70,240,.44), transparent 70%); animation:auroraB 32s ease-in-out infinite alternate; }
+    .orb-c{ width:680px; height:680px; top:34%; left:46%; background:radial-gradient(circle, rgba(180,92,240,.22) 0%, rgba(0,191,166,.07) 45%, transparent 72%); opacity:.30; filter:blur(110px); animation:auroraC 40s ease-in-out infinite alternate; }
+    @keyframes auroraA{ 0%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(80px,60px) scale(1.12);} 100%{ transform:translate(150px,110px) scale(1.18);} }
+    @keyframes auroraB{ 0%{ transform:translate(0,0) scale(1.05);} 50%{ transform:translate(-70px,-50px) scale(1.12);} 100%{ transform:translate(-130px,-90px) scale(1.16);} }
+    @keyframes auroraC{ 0%{ transform:translate(-50%,-50%) scale(1) rotate(0deg);} 50%{ transform:translate(-46%,-54%) scale(1.1) rotate(6deg);} 100%{ transform:translate(-54%,-47%) scale(1.05) rotate(-5deg);} }
+    @media (prefers-reduced-motion:reduce){ .orb,.bg-stars,body::after{ animation:none !important; } .orb-c{ transform:translate(-50%,-50%) !important; } body::after{ opacity:.5; } .bg-stars{ opacity:.4; } }
+    *:focus-visible{ outline:2px solid var(--primary2); outline-offset:2px; border-radius:8px; }
+    ::selection{ background:rgba(146,54,218,.4); }
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; }
+    .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+    @media (min-width:640px){ .wrap{ padding:0 28px; } }
+    .narrow{ max-width:760px; margin-left:auto; margin-right:auto; }
+
+    .eyebrow{ font-size:12px; font-weight:800; letter-spacing:.16em; line-height:1.3; text-transform:uppercase; color:var(--vlight); margin:0 0 10px; }
+    .h-hero{ color:var(--ink); font-weight:800; letter-spacing:-.025em; line-height:1.04; font-size:clamp(36px,6vw,68px); margin:0; }
+    .h-sec{ color:var(--ink); font-weight:800; letter-spacing:-.02em; line-height:1.08; font-size:clamp(27px,3.7vw,42px); margin:0; }
+    .lead{ font-size:clamp(16px,2.1vw,19px); line-height:1.6; color:#C9C2D6; }
+    .grad{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .h-hero .grad{ background-image:linear-gradient(110deg,#9236DA,#B45CF0 42%,#CDA0FF 64%,#B45CF0 86%); background-size:230% auto; animation:gradShimmer 8.5s ease-in-out infinite; }
+    @keyframes gradShimmer{ 0%,100%{ background-position:0% center } 50%{ background-position:100% center } }
+    .fine{ font-size:11px; line-height:1.5; color:var(--muted); }
+
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:700; border-radius:14px; cursor:pointer; text-decoration:none; border:0; transition:transform .15s, box-shadow .2s, filter .2s; }
+    .btn:active{ transform:translateY(1px) scale(.99); }
+    .btn-lg{ padding:16px 30px; font-size:16px; }
+    .btn-md{ padding:13px 22px; font-size:15px; }
+    .btn-primary{ background:var(--grad); color:#fff; box-shadow:0 16px 36px -14px rgba(146,54,218,.7); }
+    .btn-primary:hover{ filter:brightness(1.08); box-shadow:0 20px 44px -14px rgba(146,54,218,.8); }
+    .btn-ghost{ background:rgba(255,255,255,.04); border:1px solid var(--line); color:var(--text); }
+    .btn-ghost:hover{ background:rgba(255,255,255,.08); }
+    .disabled-link{ opacity:.45; pointer-events:none; cursor:not-allowed; filter:grayscale(.5); box-shadow:none!important; }
+
+    .scroll-cue{ display:inline-flex; flex-direction:column; align-items:center; gap:9px; margin-top:42px; text-decoration:none; color:var(--muted); }
+    .scroll-cue:hover{ color:var(--vlight); }
+    .scroll-cue-txt{ font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    .scroll-cue-line{ position:relative; width:2px; height:52px; border-radius:2px; background:rgba(255,255,255,.12); overflow:hidden; }
+    .scroll-cue-dot{ position:absolute; left:0; top:0; width:2px; height:16px; border-radius:2px; background:linear-gradient(var(--primary),var(--primary2)); animation:scrolldot 1.7s ease-in-out infinite; }
+    @keyframes scrolldot{ 0%{ transform:translateY(-16px); opacity:0 } 22%{ opacity:1 } 78%{ opacity:1 } 100%{ transform:translateY(52px); opacity:0 } }
+    @media (prefers-reduced-motion:reduce){ .scroll-cue-dot{ animation:none; top:18px; } }
+
+    /* connecteur décoratif entre les sections */
+    .connector{ display:flex; justify-content:center; padding:2px 0; }
+    .connector i{ position:relative; display:block; width:2px; height:50px; border-radius:2px; background:linear-gradient(rgba(180,92,240,0), rgba(180,92,240,.6)); }
+    .connector i::after{ content:""; position:absolute; left:50%; bottom:-3px; width:9px; height:9px; transform:translateX(-50%) rotate(45deg); border-radius:2px; background:var(--primary2); box-shadow:0 0 16px 2px rgba(180,92,240,.6); }
+
+    .chip{ display:inline-flex; align-items:center; gap:7px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); padding:7px 14px; font-size:13px; color:#B7AEC6; }
+    .card{ background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:0 16px 44px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05); }
+
+    .topbar{ position:sticky; top:0; z-index:40; background:rgba(21,17,31,.72); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+    .topbar-in{ display:flex; align-items:center; gap:14px; padding:12px 0; }
+    .logo{ display:inline-flex; align-items:center; gap:9px; font-weight:800; color:var(--ink); text-decoration:none; }
+    .logo .mark{ display:grid; place-items:center; height:34px; width:34px; border-radius:10px; color:#fff; font-weight:800; background:var(--grad); }
+    .steps-nav{ margin-left:auto; display:flex; align-items:center; gap:6px; font-size:13px; }
+    .steps-nav a{ display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--muted); padding:6px 10px; border-radius:999px; }
+    .steps-nav a .n{ display:grid; place-items:center; height:22px; width:22px; border-radius:999px; background:rgba(255,255,255,.08); color:#B7AEC6; font-weight:800; font-size:12px; }
+    .steps-nav a.active{ color:var(--ink); font-weight:700; }
+    .steps-nav a.active .n{ background:var(--grad); color:#fff; }
+    .steps-nav .sep{ width:14px; height:2px; background:var(--line); border-radius:2px; }
+    @media (max-width:680px){ .steps-nav .lbl{ display:none; } }
+    .mainnav{ margin-left:auto; display:flex; align-items:center; gap:4px; font-size:14px; }
+    .mainnav a{ text-decoration:none; color:var(--muted); padding:8px 12px; border-radius:999px; font-weight:600; transition:color .2s, background .2s; }
+    .mainnav a:hover{ color:var(--ink); background:rgba(255,255,255,.05); }
+    .mainnav a.active{ color:var(--ink); }
+    .mainnav a.btn-nav{ color:#fff; background:var(--grad); padding:9px 16px; margin-left:6px; box-shadow:0 10px 24px -12px rgba(146,54,218,.8); }
+    .mainnav a.btn-nav:hover{ filter:brightness(1.08); background:var(--grad); }
+    @media (max-width:680px){ .mainnav a.txtlink{ display:none; } }
+
+    .scene{ min-height:auto; display:flex; align-items:center; padding:50px 0; }
+    .scene.hero{ min-height:84vh; }
+    .scene.short{ min-height:auto; padding:44px 0; }
+    @media (max-width:640px){ .scene{ padding:36px 0; } .scene.hero{ min-height:auto; padding:46px 0; } .scene-grid{ gap:26px; } }
+    .scene-grid{ display:grid; gap:34px; align-items:center; }
+    @media (min-width:900px){ .scene-grid.two{ grid-template-columns:1.05fr .95fr; gap:48px; } }
+
+    .pillars{ display:grid; gap:16px; grid-template-columns:1fr; }
+    @media (min-width:620px){ .pillars{ grid-template-columns:1fr 1fr; } }
+    @media (min-width:980px){ .pillars{ grid-template-columns:1fr 1fr 1fr; } }
+    .pillar{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px; box-shadow:inset 0 1px 0 rgba(255,255,255,.04); transition:transform .25s, border-color .25s, box-shadow .25s; }
+    .pillar:hover{ transform:translateY(-3px); border-color:rgba(180,92,240,.45); box-shadow:0 22px 46px -18px rgba(146,54,218,.55), inset 0 1px 0 rgba(255,255,255,.06); }
+    .pico{ display:grid; place-items:center; height:48px; width:48px; border-radius:14px; background:rgba(146,54,218,.16); margin-bottom:14px; font-size:26px; line-height:1; }
+    .pillar h3{ margin:0 0 6px; font-size:18px; color:var(--ink); }
+    .pillar p{ margin:0; font-size:14.5px; line-height:1.55; color:var(--muted-2); }
+    .feature-ico{ display:grid; place-items:center; height:54px; width:54px; border-radius:16px; color:#fff; background:var(--grad); box-shadow:0 14px 30px -10px rgba(146,54,218,.7); }
+
+    /* cartes stratégies avec anneau de progression */
+    .strat{ background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px 22px; text-align:center; box-shadow:0 16px 44px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05); transition:transform .25s, border-color .25s, box-shadow .25s; }
+    .strat:hover{ transform:translateY(-3px); border-color:rgba(180,92,240,.45); box-shadow:0 24px 50px -18px rgba(146,54,218,.5), inset 0 1px 0 rgba(255,255,255,.07); }
+    .ring{ position:relative; width:132px; height:132px; margin:0 auto; }
+    .ring svg{ width:100%; height:100%; transform:rotate(-90deg); }
+    .ring-bg{ fill:none; stroke:rgba(255,255,255,.08); stroke-width:9; }
+    .ring-fg{ fill:none; stroke-width:9; stroke-linecap:round; stroke-dashoffset:326.7; transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in .ring-fg{ stroke-dashoffset:var(--off,0); }
+    .ring-val{ position:absolute; inset:0; display:grid; place-items:center; line-height:1; }
+    .ring-val b{ font-size:30px; font-weight:900; color:var(--ink); letter-spacing:-.02em; }
+    .ring-val b span{ font-size:15px; color:var(--vlight); margin-left:1px; }
+    .strat-cap{ font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--vlight); margin-top:12px; }
+    .strat h3{ margin:5px 0 0; font-size:20px; color:var(--ink); }
+    .strat p{ margin:7px 0 0; font-size:14px; line-height:1.5; color:var(--muted-2); }
+    .strat-stats{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
+
+    /* badges gamification */
+    .badge{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); padding:7px 13px; font-size:13px; font-weight:600; color:var(--text); }
+    .laptop{ position:relative; }
+    .laptop svg{ width:100%; height:auto; display:block; filter:drop-shadow(0 28px 60px rgba(0,0,0,.5)); }
+    .livecall{ position:relative; }
+    .livecall svg{ width:100%; height:auto; display:block; filter:drop-shadow(0 26px 56px rgba(0,0,0,.5)); }
+    .gtile{ display:flex; flex-direction:column; align-items:center; gap:6px; width:92px; padding:14px 8px; background:var(--card); border:1px solid var(--line); border-radius:14px; font-size:24px; }
+    .gtile span{ font-size:11.5px; font-weight:600; color:var(--muted); }
+    .pricegrid{ display:grid; gap:14px; grid-template-columns:1fr; max-width:760px; margin:26px auto 0; }
+    @media (min-width:640px){ .pricegrid{ grid-template-columns:1fr 1fr 1fr; } }
+
+    .mock{ background:linear-gradient(180deg,#221A33,#181122); border:1px solid var(--line); border-radius:20px; box-shadow:0 26px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06); padding:18px; }
+    .bar{ height:10px; border-radius:999px; background:rgba(255,255,255,.07); overflow:hidden; }
+    .bar > span{ display:block; height:100%; border-radius:999px; background:var(--grad); }
+    .row{ display:flex; align-items:center; gap:12px; }
+    .cell{ background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:12px; padding:11px 14px; }
+    .tag{ display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:5px 11px; font-size:12.5px; font-weight:700; }
+    .tag-up{ background:rgba(18,184,134,.18); color:#3dd7a8; }
+    .tag-down{ background:rgba(251,90,106,.18); color:#ff8a96; }
+    .tag-v{ background:rgba(146,54,218,.22); color:var(--vlight); }
+    .tag-mut{ background:rgba(255,255,255,.06); color:#B7AEC6; }
+
+    .pricerow{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 16px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.03); }
+    .pricerow .old{ color:#8A8296; text-decoration:line-through; font-weight:700; }
+    .free-mega{ font-weight:900; letter-spacing:-.02em; font-size:clamp(56px,13vw,140px); line-height:.95; background:linear-gradient(125deg,#B45CF0,#CDA0FF 60%,#00BFA6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+    .flow{ display:grid; gap:12px; grid-template-columns:1fr; }
+    @media (min-width:560px){ .flow{ grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; } }
+    .flow .node{ background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:14px; padding:14px 16px; text-align:center; }
+    .flow .arrow{ display:grid; place-items:center; color:var(--vlight); font-weight:800; }
+    @media (max-width:559px){ .flow .arrow{ transform:rotate(90deg); } }
+
+    .foot{ border-top:1px solid var(--line); margin-top:10px; }
+    .foot-in{ padding:26px 0 34px; }
+
+    /* SIMULATEUR */
+    .sim{ display:grid; gap:18px; } @media (min-width:860px){ .sim{ grid-template-columns:1fr 1fr; align-items:stretch; } }
+    .pan{ background:var(--card); border:1px solid var(--line); border-radius:20px; padding:24px; box-shadow:0 16px 44px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05); }
+    .ctrl{ margin-bottom:22px; } .ctrl:last-child{ margin-bottom:0; }
+    .ctrl-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+    .ctrl-top label{ font-weight:700; color:var(--ink); font-size:15px; }
+    .ctrl-top .val{ font-weight:800; color:var(--vlight); font-size:16px; }
+    input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:rgba(255,255,255,.13); outline:none; }
+    input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:#B45CF0; cursor:pointer; box-shadow:0 4px 14px rgba(146,54,218,.7); border:2px solid #fff2; transition:box-shadow .2s, transform .15s; }
+    input[type=range]::-moz-range-thumb{ width:22px; height:22px; border:0; border-radius:50%; background:#B45CF0; cursor:pointer; }
+    .seg{ display:flex; gap:8px; flex-wrap:wrap; }
+    .seg button{ flex:1; min-width:84px; padding:11px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text); font-weight:600; font-size:14px; cursor:pointer; transition:all .2s; font-family:inherit; }
+    .seg button:hover{ background:rgba(255,255,255,.08); }
+    .seg button.on{ background:var(--grad); color:#fff; border-color:transparent; box-shadow:0 10px 24px -12px rgba(146,54,218,.8); }
+    .res-head{ font-size:13px; color:var(--muted); font-weight:600; }
+    .bigres{ font-size:clamp(40px,9vw,64px); font-weight:900; letter-spacing:-.02em; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1; margin:6px 0 4px; }
+    .gain{ font-weight:800; color:#3dd7a8; font-size:18px; }
+    .simchart{ margin-top:18px; } .simchart svg{ width:100%; height:auto; display:block; }
+    .sim-line{ fill:none; stroke:url(#ln); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+    .risknote{ margin-top:14px; display:flex; gap:9px; align-items:flex-start; border:1px solid rgba(245,158,11,.32); background:rgba(245,158,11,.10); color:#F3C57C; border-radius:13px; padding:12px 14px; font-size:12.5px; line-height:1.5; }
+    input[type=number]{ width:100%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:12px; color:var(--ink); font-size:18px; font-weight:800; padding:11px 14px; outline:none; font-family:inherit; }
+    input[type=number]:focus{ border-color:var(--primary2); }
+    .simtable{ width:100%; border-collapse:collapse; font-size:13px; }
+    .simtable th{ text-align:right; font-weight:700; color:var(--muted); font-size:10.5px; text-transform:uppercase; letter-spacing:.03em; padding:8px 5px; border-bottom:1px solid var(--line); }
+    .simtable th:first-child, .simtable td:first-child{ text-align:left; }
+    .simtable td{ text-align:right; padding:9px 5px; border-bottom:1px solid rgba(255,255,255,.05); color:var(--text); }
+    .simtable tr:last-child td{ border-bottom:0; }
+    .simtable td.cap{ color:var(--vlight); font-weight:800; }
+
+    .reveal{ transition:opacity .6s ease, transform .6s ease; }
+    .js .reveal{ opacity:0; transform:translateY(18px); }
+    .js .reveal.in{ opacity:1; transform:none; }
+    @media (prefers-reduced-motion:reduce){ *,*::before,*::after{ animation-duration:.001ms!important; transition-duration:.001ms!important; } html{ scroll-behavior:auto; } .js .reveal{ opacity:1!important; transform:none!important; } }
+
+    /* --- polish round 6 (esthétique, sans changement de contenu) --- */
+    .bridge{ text-align:center; max-width:560px; margin:0 auto; padding:6px 20px 2px; font-size:clamp(14.5px,1.7vw,18px); line-height:1.5; color:#C9C2D6; font-weight:500; }
+    /* grands écrans : contenu plus large & imposant */
+    @media (min-width:1280px){ :root{ --maxw:1180px; } .lead{ font-size:clamp(17px,1.3vw,21px); } }
+    @media (min-width:1700px){ :root{ --maxw:1280px; } }
+
+    .btn-primary{ position:relative; overflow:hidden; }
+    .btn-primary::after{ content:""; position:absolute; top:0; left:-130%; width:60%; height:100%; transform:skewX(-20deg); background:linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent); transition:left .6s ease; pointer-events:none; }
+    .btn-primary:hover::after{ left:140%; }
+    .tag{ box-shadow:inset 0 1px 0 rgba(255,255,255,.06); }
+    .chip{ box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
+    .gtile{ box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
+    .bigres,.gain,#capStart,.ring-val b,.simtable td,.simtable th,input[type=number]{ font-variant-numeric:tabular-nums; }
+    .livecall::before{ content:""; position:absolute; inset:-8% 0 6%; z-index:-1; pointer-events:none; background:radial-gradient(70% 55% at 50% 30%, rgba(146,54,218,.22), transparent 70%); filter:blur(20px); }
+    input[type=range]:hover::-webkit-slider-thumb{ box-shadow:0 4px 14px rgba(146,54,218,.7), 0 0 0 8px rgba(180,92,240,.18); }
+    input[type=range]:focus-visible::-webkit-slider-thumb{ box-shadow:0 4px 14px rgba(146,54,218,.7), 0 0 0 6px rgba(180,92,240,.30); transform:scale(1.06); }
+    input[type=range]:hover::-moz-range-thumb{ box-shadow:0 0 0 8px rgba(180,92,240,.18); }
+    input[type=range]:focus-visible::-moz-range-thumb{ box-shadow:0 0 0 6px rgba(180,92,240,.30); }
+    @media (max-width:560px){
+      .simtable{ font-size:12px; }
+      .simtable th{ font-size:10px; padding:7px 5px; }
+      .simtable td{ padding:8px 5px; }
+      .foot-in a{ display:inline-flex; align-items:center; min-height:40px; padding:6px 10px; }
+      .mainnav a{ min-height:40px; }
+    }
+    @media (max-width:430px){ .scene{ padding:34px 0; } .scene.short{ padding:30px 0; } .connector i{ height:38px; } .scene-grid{ gap:26px; } }
+    @media (max-width:400px){ .wrap{ padding:0 16px; } .pan{ padding:20px; } .bigres{ font-size:clamp(34px,8.5vw,44px); word-break:break-word; } .gain{ font-size:16px; } }
+  </style>
 </head>
 <body>
   <div class="bg-stars" aria-hidden="true"></div>
@@ -29,150 +252,879 @@
   <div class="orb orb-b" aria-hidden="true"></div>
   <div class="orb orb-c" aria-hidden="true"></div>
 
+  <!-- dégradés réutilisables (anneaux + graphique Cypher) -->
   <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
-    <g id="i-check"><path d="M20 6 9 17l-5-5"/></g>
-    <g id="i-arrow"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></g>
-    <g id="i-back"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></g>
-    <g id="i-bank"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></g>
-    <g id="i-user"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g>
-    <g id="i-play"><path d="M8 5v14l11-7z"/></g>
-    <g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
-    <g id="i-alert"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></g>
-    <g id="i-key"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.3-9.3"/><path d="m18 5 3 3"/><path d="m15 8 3 3"/></g>
-    <g id="i-ig"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></g>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9236DA"/><stop offset="1" stop-color="#CDA0FF"/></linearGradient>
+    <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9236DA"/><stop offset="1" stop-color="#B45CF0"/></linearGradient>
+    <linearGradient id="simFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9236DA" stop-opacity=".35"/><stop offset="1" stop-color="#9236DA" stop-opacity="0"/></linearGradient>
   </defs></svg>
 
   <!-- TOPBAR -->
   <header class="topbar">
     <div class="wrap topbar-in">
       <a href="index.html" class="logo"><span class="mark">P</span> Pro&nbsp;Trader</a>
-      <nav class="steps-nav" aria-label="Progression">
-        <a href="index.html" class="active" aria-current="step"><span class="n">1</span><span class="lbl">Inscription</span></a>
-        <span class="sep" aria-hidden="true"></span>
-        <a href="depot.html"><span class="n">2</span><span class="lbl">Dépôt</span></a>
+      <nav class="mainnav" aria-label="Navigation">
+        <a href="index.html" class="active txtlink">Présentation</a>
+        <a href="#resultats" class="txtlink">Résultats</a>
+        <a href="#simulateur" class="txtlink">Simulateur</a>
+        <a href="inscription.html" class="btn-nav">Démarrer →</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="wrap narrow" style="text-align:center; padding:54px 20px 8px">
-    <p class="eyebrow reveal">Étape 1 · Inscription</p>
-    <h1 class="h-sec reveal" style="margin-top:12px; font-size:clamp(28px,4.4vw,44px)">Crée tes accès, en 2 étapes</h1>
-    <p class="lead reveal" style="margin:16px auto 0; max-width:560px">On te guide pas à pas, dans le bon ordre. <strong style="color:var(--ink)">Aucune connaissance technique requise</strong> — et on ne parle pas encore de dépôt.</p>
-    <div class="trust reveal">
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>Gratuit</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>~10 min</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-play"/></svg>Tutos vidéo inclus</span>
+  <section class="scene hero">
+    <div class="wrap narrow" style="text-align:center">
+      <p class="eyebrow reveal">L'écosystème Pro&nbsp;Trader</p>
+      <h1 class="h-hero reveal" style="margin-top:16px">Le trading,<br /><span class="grad">enfin maîtrisé.</span></h1>
+      <p class="lead reveal" style="margin:24px auto 0; max-width:640px">Une <strong style="color:var(--ink)">académie complète</strong>, des stratégies, un <strong style="color:var(--ink)">journal piloté par l'IA</strong> et une <strong style="color:var(--ink)">automatisation totale</strong> — réunis dans un seul écosystème.</p>
+      <div class="reveal" style="margin-top:32px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center">
+        <a href="inscription.html" class="btn btn-primary btn-lg">Démarrer maintenant →</a>
+        <a href="#ecosysteme" class="btn btn-ghost btn-lg">Découvrir l'écosystème</a>
+      </div>
+      <p class="reveal" style="margin-top:20px; font-size:13.5px; color:var(--muted)">Sans connaissance technique · on te guide pas à pas.</p>
+      <div class="reveal"><a href="#whoami" class="scroll-cue" aria-label="Défiler vers le bas"><span class="scroll-cue-txt">Défile pour découvrir</span><span class="scroll-cue-line"><span class="scroll-cue-dot"></span></span></a></div>
     </div>
   </section>
 
-  <!-- ÉTAPES -->
-  <section class="wrap" style="padding:26px 20px 8px">
-    <div class="note note-blue reveal" style="max-width:760px; margin:0 auto">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
-      <span>Inscris-toi <strong>uniquement via les liens de cette page</strong> — c'est ce qui débloque ton accès Pro&nbsp;Trader. Sans ça, l'accès ne peut pas s'ouvrir.</span>
+  <!-- QUI JE SUIS -->
+  <section id="whoami" class="scene short">
+    <div class="wrap narrow card reveal" style="text-align:center; padding:34px 28px">
+      <img src="maxime.jpg" alt="Maxime" width="80" height="80" loading="lazy" decoding="async" style="height:80px; width:80px; border-radius:18px; object-fit:cover; object-position:top; margin:0 auto 14px; box-shadow:0 0 0 1px var(--line)" />
+      <p class="eyebrow">Qui t'accompagne</p>
+      <h2 class="h-sec" style="margin-top:8px; font-size:clamp(24px,3.2vw,34px)">Moi, c'est Maxime</h2>
+      <p class="lead" style="margin:14px auto 0; max-width:560px">Je trade depuis <strong style="color:var(--ink)">7 ans</strong>. Je n'ai pas créé Pro&nbsp;Trader&nbsp;: j'ai choisi les meilleurs outils et je <strong style="color:var(--ink)">t'accompagne</strong> à chaque étape. Une question&nbsp;? Écris-moi sur <a href="#" data-link="instagram" target="_blank" rel="noopener" style="color:var(--vlight); font-weight:700; text-decoration:underline; text-underline-offset:2px">@MaximeLobo_</a>.</p>
     </div>
-
-    <div class="timeline" style="max-width:820px; margin:12px auto 0">
-
-      <!-- ÉTAPE 1 -->
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <div style="display:flex; align-items:flex-start; gap:16px">
-          <div class="step-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-bank"/></svg></div>
-          <div style="min-width:0">
-            <p class="eyebrow">Étape 1</p>
-            <h2 class="h-sec" style="font-size:22px; margin-top:4px">Ouvre ton compte de trading</h2>
-            <p style="margin:8px 0 0; font-size:15px; line-height:1.55; color:var(--muted)">Crée ton compte chez <strong style="color:var(--ink)">TradeQuo</strong> via le lien. C'est gratuit et rapide.</p>
-          </div>
-        </div>
-
-        <div class="note note-red" style="margin-top:18px">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-alert"/></svg>
-          <span><strong>IMPORTANT — choisis un compte réel RAW</strong> (et non « Standard »). C'est indispensable.</span>
-        </div>
-
-        <div class="ck-list" style="margin-top:16px">
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Remplis les informations de base</span></div>
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Type de compte : <strong style="color:var(--ink)">RAW</strong></span></div>
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Choisis ta devise préférée</span></div>
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Complète la vérification d'identité</span></div>
-        </div>
-
-        <div class="note note-amber" style="margin-top:14px">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-key"/></svg>
-          <span><strong>Note bien ton numéro de compte de trading RAW</strong> (le compte que tu viens d'ouvrir — <strong>pas</strong> ton identifiant TradeQuo) : il te servira à l'étape 2 et pour activer ton bonus.</span>
-        </div>
-
-        <a href="https://my.tradequo.com/register?referral=019e8e96-5023-7169-93e5-2cd846dbb329" target="_blank" rel="noopener nofollow sponsored" class="btn btn-gold btn-md" style="margin-top:18px">Ouvrir mon compte TradeQuo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
-
-        <div style="margin-top:18px">
-          <p class="vid-tag" style="margin:0 0 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg>Tutoriel vidéo</p>
-          <div class="vid" data-yt="L6r8itcpYb8">
-            <button type="button" class="vid-btn" aria-label="Lire la vidéo : ouvrir ton compte TradeQuo">
-              <img class="vid-thumb" src="https://i.ytimg.com/vi/L6r8itcpYb8/hqdefault.jpg" alt="" loading="lazy" decoding="async" />
-              <span class="vid-shade"></span><span class="vid-play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg></span>
-              <span class="vid-label">Ouvrir ton compte — pas à pas</span>
-            </button>
-          </div>
-        </div>
-
-        <div style="margin-top:16px"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>~7 min</span></div>
-      </div>
-
-      <!-- ÉTAPE 2 -->
-      <div class="step reveal">
-        <div class="step-num">2</div>
-        <div style="display:flex; align-items:flex-start; gap:16px">
-          <div class="step-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-user"/></svg></div>
-          <div style="min-width:0">
-            <p class="eyebrow">Étape 2</p>
-            <h2 class="h-sec" style="font-size:22px; margin-top:4px">Crée ton compte Pro&nbsp;Trader</h2>
-            <p style="margin:8px 0 0; font-size:15px; line-height:1.55; color:var(--muted)">Ton espace personnel : la formation, le canal, les scanners et tes accès.</p>
-          </div>
-        </div>
-
-        <div class="ck-list" style="margin-top:16px">
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Clique sur le bouton pour ouvrir l'inscription</span></div>
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span>Renseigne tes informations</span></div>
-          <div class="ck-pill"><span class="ck-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span><span><strong style="color:var(--ink)">Connecte ton compte de trading</strong> en entrant ton <strong style="color:var(--ink)">numéro de compte de trading RAW</strong> (celui ouvert à l'étape 1, <strong style="color:var(--ink)">pas</strong> ton identifiant TradeQuo) — c'est ce qui active ton accès et rend ton bonus valable.</span></div>
-        </div>
-
-        <a href="https://app.myprotrader.app/" target="_blank" rel="noopener" class="btn btn-gold btn-md" style="margin-top:18px">Créer mon compte Pro&nbsp;Trader <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
-
-        <div style="margin-top:18px">
-          <p class="vid-tag" style="margin:0 0 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg>Tutoriel vidéo</p>
-          <div class="vid" data-yt="jajDUYlgSYI">
-            <button type="button" class="vid-btn" aria-label="Lire la vidéo : créer ton compte Pro Trader">
-              <img class="vid-thumb" src="https://i.ytimg.com/vi/jajDUYlgSYI/hqdefault.jpg" alt="" loading="lazy" decoding="async" />
-              <span class="vid-shade"></span><span class="vid-play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><use href="#i-play"/></svg></span>
-              <span class="vid-label">Créer ton compte Pro Trader — pas à pas</span>
-            </button>
-          </div>
-        </div>
-
-        <div style="margin-top:16px"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>~3 min</span></div>
-      </div>
-
-    </div>
-
-
   </section>
 
-  <!-- PAGER -->
-  <section class="wrap" style="padding:30px 20px 10px">
-    <div class="pagernav" style="max-width:820px; margin:0 auto; justify-content:center">
-      <a href="depot.html" class="btn btn-green btn-md">Passer au dépôt <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
+  <p class="bridge reveal">Voici les six outils qu'il a réunis pour toi.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- ÉCOSYSTÈME -->
+  <section id="ecosysteme" class="scene short">
+    <div class="wrap">
+      <div style="text-align:center; max-width:620px; margin:0 auto 40px">
+        <p class="eyebrow reveal">Bien plus qu'un canal de signaux</p>
+        <h2 class="h-sec reveal" style="margin-top:14px">Six outils, un seul écosystème</h2>
+        <p class="lead reveal" style="margin-top:14px">On ne te donne pas que des signaux : on te donne tout pour comprendre, décider et progresser.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal"><div class="pico">🎓</div><h3>Académie</h3><p>Des fondamentaux aux stratégies avancées sur les marchés.</p></div>
+        <div class="pillar reveal"><div class="pico">🎥</div><h3>Live Trading</h3><p>Des sessions en direct avec des éducateurs d'élite.</p></div>
+        <div class="pillar reveal"><div class="pico">⚡</div><h3>3 Stratégies</h3><p>Des signaux quotidiens à fort taux de réussite.</p></div>
+        <div class="pillar reveal"><div class="pico">🛰️</div><h3>Scanner Cypher</h3><p>Connecté à TradingView pour repérer les opportunités.</p></div>
+        <div class="pillar reveal"><div class="pico">🧠</div><h3>Journal IA</h3><p>Analyse intelligente de chaque trade via MetaTrader 5.</p></div>
+        <div class="pillar reveal"><div class="pico">🤖</div><h3>Automatisation</h3><p>L'IA exécute les trades selon ta gestion du risque.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Tout commence par les bases. Direction l'Académie.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- ACADÉMIE -->
+  <section class="scene">
+    <div class="wrap scene-grid two">
+      <div class="reveal">
+        <div class="feature-ico" style="font-size:26px">🎓</div>
+        <p class="eyebrow" style="margin-top:18px">Pilier 01 · Formation</p>
+        <h2 class="h-sec" style="margin-top:8px">Une académie de A à Z</h2>
+        <p class="lead" style="margin-top:14px">Au-delà des signaux, on t'apprend à comprendre les marchés, du premier chandelier à la gestion du risque pro.</p>
+        <p class="lead" style="margin-top:12px">Elle est organisée en <strong style="color:var(--ink)">plusieurs modules</strong>, et chaque module contient <strong style="color:var(--ink)">plusieurs formations courtes</strong> — tu avances pas à pas, à ton rythme.</p>
+      </div>
+      <div class="mock reveal" aria-hidden="true">
+        <div class="row" style="justify-content:space-between; margin-bottom:4px">
+          <p style="margin:0; font-weight:700; color:var(--ink)">Ton parcours</p>
+          <span class="tag tag-mut">👁️ Exemple visuel</span>
+        </div>
+        <p style="margin:0 0 16px; font-size:13px; color:var(--muted)">4 modules · 28 formations · progression 72 %</p>
+        <div style="display:flex; flex-direction:column; gap:15px">
+          <div>
+            <div class="row" style="justify-content:space-between"><span style="font-size:14px;color:var(--text)">1 · Les bases du marché</span><span class="tag tag-up">100 %</span></div>
+            <div style="font-size:11.5px; color:var(--muted); margin-top:3px">📚 7 formations</div>
+            <div class="bar" style="margin-top:6px"><span style="width:100%"></span></div>
+          </div>
+          <div>
+            <div class="row" style="justify-content:space-between"><span style="font-size:14px;color:var(--text)">2 · Lecture des bougies</span><span class="tag tag-up">100 %</span></div>
+            <div style="font-size:11.5px; color:var(--muted); margin-top:3px">📚 8 formations</div>
+            <div class="bar" style="margin-top:6px"><span style="width:100%"></span></div>
+          </div>
+          <div>
+            <div class="row" style="justify-content:space-between"><span style="font-size:14px;color:var(--text)">3 · Support &amp; résistance</span><span class="tag tag-v">78 %</span></div>
+            <div style="font-size:11.5px; color:var(--muted); margin-top:3px">📚 7 formations</div>
+            <div class="bar" style="margin-top:6px"><span style="width:78%"></span></div>
+          </div>
+          <div>
+            <div class="row" style="justify-content:space-between"><span style="font-size:14px;color:var(--muted)">4 · Money management</span><span class="tag tag-mut">À venir</span></div>
+            <div style="font-size:11.5px; color:var(--muted); margin-top:3px">📚 6 formations</div>
+            <div class="bar" style="margin-top:6px"><span style="width:0"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">La théorie, c'est bien. Voir un pro le faire en direct, c'est mieux.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- LIVES -->
+  <section class="scene">
+    <div class="wrap scene-grid two">
+      <div class="reveal" aria-hidden="true" style="order:2">
+        <div class="livecall"><svg viewBox="0 0 540 384" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+  <defs>
+    <linearGradient id="lcBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#120D1C"/>
+      <stop offset="1" stop-color="#0E0A18"/>
+    </linearGradient>
+    <linearGradient id="lcHeader" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B1228"/>
+      <stop offset="1" stop-color="#171022"/>
+    </linearGradient>
+    <linearGradient id="lcScene" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15101F"/>
+      <stop offset="1" stop-color="#0F0B19"/>
+    </linearGradient>
+    <linearGradient id="lcHalo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9236DA" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#9236DA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lcMA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B45CF0"/>
+      <stop offset="1" stop-color="#CDA0FF"/>
+    </linearGradient>
+    <linearGradient id="lcChartFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9236DA" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#9236DA" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="lcGlow" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#B45CF0" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#B45CF0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lcQuit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FB5A6A"/>
+      <stop offset="1" stop-color="#E23B4D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window -->
+  <rect x="8" y="8" width="524" height="368" rx="18" fill="url(#lcBg)" stroke="rgba(255,255,255,0.10)"/>
+  <ellipse cx="270" cy="120" rx="260" ry="140" fill="url(#lcGlow)"/>
+
+  <!-- Header -->
+  <path d="M8 26 a18 18 0 0 1 18 -18 h488 a18 18 0 0 1 18 18 v22 h-524 z" fill="url(#lcHeader)"/>
+  <circle cx="26" cy="28" r="4.5" fill="#FB5A6A"/>
+  <circle cx="40" cy="28" r="4.5" fill="#F4C152"/>
+  <circle cx="54" cy="28" r="4.5" fill="#3dd7a8"/>
+  <!-- LIVE badge -->
+  <rect x="74" y="20" width="58" height="17" rx="8.5" fill="rgba(251,90,106,0.16)" stroke="rgba(251,90,106,0.45)"/>
+  <circle cx="85" cy="28.5" r="3.5" fill="#FB5A6A"/>
+  <text x="93" y="32" font-size="10.5" font-weight="700" fill="#FB5A6A">LIVE</text>
+  <text x="142" y="32" font-size="12.5" font-weight="600" fill="#EDE9F4">Live · Or (XAU/USD)</text>
+  <!-- viewers -->
+  <g>
+    <path d="M495 26 c5 -6 13 -6 18 0 c-5 6 -13 6 -18 0 z" fill="none" stroke="#9A92AC" stroke-width="1.3"/>
+    <circle cx="504" cy="26" r="2.4" fill="#9A92AC"/>
+  </g>
+  <text x="492" y="30.5" font-size="11" font-weight="600" fill="#CDA0FF" text-anchor="end">1 248 en ligne</text>
+  <line x1="8" y1="48" x2="532" y2="48" stroke="rgba(255,255,255,0.08)"/>
+
+  <!-- ===== SCENE: screen share (left) ===== -->
+  <rect x="16" y="56" width="328" height="244" rx="12" fill="url(#lcScene)" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="16" y="56" width="328" height="244" rx="12" fill="url(#lcHalo)"/>
+  <!-- screen share label -->
+  <rect x="26" y="64" width="98" height="18" rx="9" fill="rgba(146,54,218,0.18)" stroke="rgba(180,92,240,0.4)"/>
+  <rect x="33" y="69.5" width="9" height="7" rx="1.5" fill="none" stroke="#CDA0FF" stroke-width="1.1"/>
+  <line x1="37.5" y1="76.5" x2="37.5" y2="79" stroke="#CDA0FF" stroke-width="1.1"/>
+  <line x1="35" y1="79" x2="40" y2="79" stroke="#CDA0FF" stroke-width="1.1"/>
+  <text x="48" y="76.5" font-size="9.5" font-weight="600" fill="#CDA0FF">Partage d'écran</text>
+  <!-- price tag top right of scene -->
+  <text x="334" y="76" font-size="11" font-weight="700" fill="#3dd7a8" text-anchor="end">+0,84 %</text>
+
+  <!-- chart grid -->
+  <g stroke="rgba(255,255,255,0.05)">
+    <line x1="32" y1="108" x2="328" y2="108"/>
+    <line x1="32" y1="138" x2="328" y2="138"/>
+    <line x1="32" y1="168" x2="328" y2="168"/>
+    <line x1="32" y1="198" x2="328" y2="198"/>
+    <line x1="32" y1="228" x2="328" y2="228"/>
+  </g>
+
+  <!-- MA area fill + line -->
+  <path d="M40 200 L66 188 L92 196 L118 178 L144 184 L170 162 L196 170 L222 150 L248 156 L274 134 L300 142 L322 124 L322 240 L40 240 Z" fill="url(#lcChartFill)"/>
+  <path d="M40 200 L66 188 L92 196 L118 178 L144 184 L170 162 L196 170 L222 150 L248 156 L274 134 L300 142 L322 124" fill="none" stroke="url(#lcMA)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Candles -->
+  <g stroke-linecap="round">
+    <!-- up green / down red, wicks + bodies -->
+    <line x1="48" y1="186" x2="48" y2="222" stroke="#12B886" stroke-width="1"/>
+    <rect x="44.5" y="196" width="7" height="18" rx="1.5" fill="#12B886"/>
+    <line x1="66" y1="180" x2="66" y2="214" stroke="#FB5A6A" stroke-width="1"/>
+    <rect x="62.5" y="188" width="7" height="18" rx="1.5" fill="#FB5A6A"/>
+    <line x1="84" y1="178" x2="84" y2="208" stroke="#12B886" stroke-width="1"/>
+    <rect x="80.5" y="186" width="7" height="16" rx="1.5" fill="#12B886"/>
+    <line x1="102" y1="166" x2="102" y2="200" stroke="#12B886" stroke-width="1"/>
+    <rect x="98.5" y="174" width="7" height="20" rx="1.5" fill="#12B886"/>
+    <line x1="120" y1="170" x2="120" y2="202" stroke="#FB5A6A" stroke-width="1"/>
+    <rect x="116.5" y="178" width="7" height="16" rx="1.5" fill="#FB5A6A"/>
+    <line x1="138" y1="160" x2="138" y2="192" stroke="#12B886" stroke-width="1"/>
+    <rect x="134.5" y="168" width="7" height="18" rx="1.5" fill="#12B886"/>
+    <line x1="156" y1="154" x2="156" y2="186" stroke="#12B886" stroke-width="1"/>
+    <rect x="152.5" y="162" width="7" height="18" rx="1.5" fill="#12B886"/>
+    <line x1="174" y1="158" x2="174" y2="190" stroke="#FB5A6A" stroke-width="1"/>
+    <rect x="170.5" y="166" width="7" height="16" rx="1.5" fill="#FB5A6A"/>
+    <line x1="192" y1="146" x2="192" y2="178" stroke="#12B886" stroke-width="1"/>
+    <rect x="188.5" y="154" width="7" height="18" rx="1.5" fill="#12B886"/>
+    <line x1="210" y1="142" x2="210" y2="174" stroke="#12B886" stroke-width="1"/>
+    <rect x="206.5" y="150" width="7" height="16" rx="1.5" fill="#12B886"/>
+    <line x1="228" y1="146" x2="228" y2="178" stroke="#FB5A6A" stroke-width="1"/>
+    <rect x="224.5" y="154" width="7" height="16" rx="1.5" fill="#FB5A6A"/>
+    <line x1="246" y1="134" x2="246" y2="166" stroke="#12B886" stroke-width="1"/>
+    <rect x="242.5" y="142" width="7" height="16" rx="1.5" fill="#12B886"/>
+    <line x1="264" y1="128" x2="264" y2="160" stroke="#12B886" stroke-width="1"/>
+    <rect x="260.5" y="136" width="7" height="18" rx="1.5" fill="#12B886"/>
+    <line x1="282" y1="132" x2="282" y2="162" stroke="#FB5A6A" stroke-width="1"/>
+    <rect x="278.5" y="140" width="7" height="14" rx="1.5" fill="#FB5A6A"/>
+    <line x1="300" y1="120" x2="300" y2="150" stroke="#12B886" stroke-width="1"/>
+    <rect x="296.5" y="126" width="7" height="18" rx="1.5" fill="#12B886"/>
+  </g>
+
+  <!-- dashed price line + tag -->
+  <line x1="32" y1="126" x2="312" y2="126" stroke="#CDA0FF" stroke-width="1" stroke-dasharray="4 4" opacity="0.7"/>
+  <rect x="290" y="118" width="44" height="16" rx="4" fill="#9236DA"/>
+  <text x="312" y="129.5" font-size="9.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">2 412.8</text>
+
+  <!-- speaker overlay (bottom-left of scene) -->
+  <rect x="26" y="266" width="176" height="26" rx="13" fill="rgba(14,10,24,0.78)" stroke="rgba(255,255,255,0.10)"/>
+  <circle cx="40" cy="279" r="9" fill="#9236DA"/>
+  <text x="40" y="282.5" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">PT</text>
+  <text x="54" y="282.5" font-size="9.5" font-weight="600" fill="#EDE9F4">Éducateur Pro Trader</text>
+  <circle cx="192" cy="279" r="3.5" fill="#FB5A6A"/>
+
+  <!-- ===== CHAT panel (right) ===== -->
+  <rect x="352" y="56" width="180" height="244" rx="12" fill="#171022" stroke="rgba(255,255,255,0.08)"/>
+  <text x="364" y="76" font-size="11.5" font-weight="700" fill="#EDE9F4">Chat en direct</text>
+  <line x1="362" y1="84" x2="522" y2="84" stroke="rgba(255,255,255,0.07)"/>
+
+  <!-- msg 1 -->
+  <circle cx="372" cy="100" r="9" fill="#3a2b52"/>
+  <text x="372" y="103.5" font-size="8" font-weight="700" fill="#CDA0FF" text-anchor="middle">KA</text>
+  <text x="386" y="98" font-size="8.5" font-weight="600" fill="#9A92AC">Karim</text>
+  <rect x="386" y="103" width="128" height="26" rx="8" fill="#1E1530"/>
+  <text x="394" y="114" font-size="8.5" fill="#EDE9F4">Le setup est net,</text>
+  <text x="394" y="124" font-size="8.5" fill="#EDE9F4">merci pour l'analyse</text>
+
+  <!-- msg 2 -->
+  <circle cx="372" cy="146" r="9" fill="#2b3b52"/>
+  <text x="372" y="149.5" font-size="8" font-weight="700" fill="#7fb4ff" text-anchor="middle">MA</text>
+  <text x="386" y="144" font-size="8.5" font-weight="600" fill="#9A92AC">Marie</text>
+  <rect x="386" y="149" width="128" height="26" rx="8" fill="#1E1530"/>
+  <text x="394" y="160" font-size="8.5" fill="#EDE9F4">On garde le stop</text>
+  <text x="394" y="170" font-size="8.5" fill="#EDE9F4">sous 2 405 ?</text>
+
+  <!-- msg 3 expert -->
+  <circle cx="372" cy="194" r="9" fill="#9236DA"/>
+  <text x="372" y="197.5" font-size="8" font-weight="700" fill="#FFFFFF" text-anchor="middle">PT</text>
+  <text x="386" y="190" font-size="8.5" font-weight="700" fill="#CDA0FF">Éducateur Pro Trader</text>
+  <rect x="386" y="195" width="128" height="36" rx="8" fill="rgba(146,54,218,0.18)" stroke="rgba(180,92,240,0.35)"/>
+  <text x="394" y="206" font-size="8.5" fill="#EDE9F4">Oui, stop 2 404.</text>
+  <text x="394" y="216" font-size="8.5" fill="#EDE9F4">Cible 1 vers 2 420,</text>
+  <text x="394" y="226" font-size="8.5" fill="#EDE9F4">on sécurise ensuite.</text>
+
+  <!-- input field -->
+  <rect x="362" y="266" width="160" height="26" rx="13" fill="#0F0B19" stroke="rgba(255,255,255,0.12)"/>
+  <text x="374" y="282.5" font-size="9" fill="#9A92AC">Écrire un message…</text>
+  <circle cx="509" cy="279" r="11" fill="#9236DA"/>
+  <path d="M504 279 h9 M510 275 l4 4 l-4 4" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ===== PARTICIPANTS ROW ===== -->
+  <!-- PT speaking ring -->
+  <circle cx="40" cy="316" r="13" fill="none" stroke="#3dd7a8" stroke-width="2"/>
+  <circle cx="40" cy="316" r="10.5" fill="#9236DA"/>
+  <text x="40" y="319.5" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">PT</text>
+
+  <circle cx="76" cy="316" r="10.5" fill="#3a2b52"/>
+  <text x="76" y="319.5" font-size="8.5" font-weight="700" fill="#CDA0FF" text-anchor="middle">KA</text>
+  <circle cx="84" cy="324" r="5" fill="#171022"/>
+  <path d="M82 322.5 h4 M82 324 h4 M82 325.5 h2.5" stroke="#FB5A6A" stroke-width="1" stroke-linecap="round"/>
+
+  <circle cx="112" cy="316" r="10.5" fill="#2b3b52"/>
+  <text x="112" y="319.5" font-size="8.5" font-weight="700" fill="#7fb4ff" text-anchor="middle">MA</text>
+
+  <circle cx="148" cy="316" r="10.5" fill="#523a2b"/>
+  <text x="148" y="319.5" font-size="8.5" font-weight="700" fill="#F4C152" text-anchor="middle">LÉ</text>
+  <circle cx="156" cy="324" r="5" fill="#171022"/>
+  <path d="M154 322.5 h4 M154 324 h4 M154 325.5 h2.5" stroke="#FB5A6A" stroke-width="1" stroke-linecap="round"/>
+
+  <circle cx="184" cy="316" r="10.5" fill="#2b524a"/>
+  <text x="184" y="319.5" font-size="8.5" font-weight="700" fill="#3dd7a8" text-anchor="middle">YA</text>
+
+  <circle cx="220" cy="316" r="10.5" fill="#241a36" stroke="rgba(255,255,255,0.12)"/>
+  <text x="220" y="319.5" font-size="8.5" font-weight="700" fill="#CDA0FF" text-anchor="middle">+12</text>
+
+  <!-- separator filet -->
+  <line x1="16" y1="332" x2="524" y2="332" stroke="rgba(255,255,255,0.09)"/>
+
+  <!-- ===== CONTROL BAR ===== -->
+  <rect x="120" y="340" width="300" height="32" rx="16" fill="#1B1228" stroke="rgba(255,255,255,0.10)"/>
+
+  <!-- mic -->
+  <circle cx="152" cy="356" r="13" fill="#241a36"/>
+  <rect x="148.5" y="349" width="7" height="11" rx="3.5" fill="none" stroke="#EDE9F4" stroke-width="1.3"/>
+  <path d="M146 356 a6 6 0 0 0 12 0" fill="none" stroke="#EDE9F4" stroke-width="1.3"/>
+  <line x1="152" y1="362" x2="152" y2="365" stroke="#EDE9F4" stroke-width="1.3"/>
+
+  <!-- camera -->
+  <circle cx="196" cy="356" r="13" fill="#241a36"/>
+  <rect x="189" y="351" width="11" height="10" rx="2" fill="none" stroke="#EDE9F4" stroke-width="1.3"/>
+  <path d="M200 354 l4 -2.5 v9 l-4 -2.5 z" fill="none" stroke="#EDE9F4" stroke-width="1.3" stroke-linejoin="round"/>
+
+  <!-- share screen -->
+  <circle cx="240" cy="356" r="13" fill="#241a36"/>
+  <rect x="233" y="350" width="14" height="9" rx="1.5" fill="none" stroke="#EDE9F4" stroke-width="1.3"/>
+  <line x1="240" y1="359" x2="240" y2="362" stroke="#EDE9F4" stroke-width="1.3"/>
+  <line x1="237" y1="362.5" x2="243" y2="362.5" stroke="#EDE9F4" stroke-width="1.3"/>
+  <path d="M240 353.5 l-2 2 M240 353.5 l2 2 M240 353.5 v3.5" stroke="#3dd7a8" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- raise hand -->
+  <circle cx="284" cy="356" r="13" fill="#241a36"/>
+  <path d="M280 360 v-6 a1.2 1.2 0 0 1 2.4 0 v3 v-4.5 a1.2 1.2 0 0 1 2.4 0 v4.5 v-3.5 a1.2 1.2 0 0 1 2.4 0 v6 a4 4 0 0 1 -7.2 1.5 z" fill="none" stroke="#F4C152" stroke-width="1.2" stroke-linejoin="round"/>
+
+  <!-- quit -->
+  <rect x="338" y="343" width="68" height="26" rx="13" fill="url(#lcQuit)"/>
+  <path d="M352 351 v10 a2 2 0 0 0 2 2 h4 M358 351 h-4 a2 2 0 0 0 -2 2 M361 351 l4 5 l-4 5 M357 356 h8" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="372" y="360" font-size="10" font-weight="700" fill="#FFFFFF">Quitter</text>
+</svg></div>
+        <div style="margin-top:18px">
+          <div class="row" style="justify-content:space-between; margin-bottom:10px">
+            <span style="font-size:11.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--vlight)">📅 Programme de la semaine</span>
+            <span class="tag tag-up">3 sessions</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px">
+            <div class="cell row" style="justify-content:space-between"><span style="font-size:14px;color:var(--text)">📅 <strong style="color:var(--ink)">Lun</strong> · Analyse pré-marché</span><span class="tag tag-v">08:00</span></div>
+            <div class="cell row" style="justify-content:space-between"><span style="font-size:14px;color:var(--text)">📅 <strong style="color:var(--ink)">Mer</strong> · Live trading</span><span class="tag tag-v">14:00</span></div>
+            <div class="cell row" style="justify-content:space-between"><span style="font-size:14px;color:var(--text)">📅 <strong style="color:var(--ink)">Ven</strong> · Débrief &amp; Q/R</span><span class="tag tag-v">18:00</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="order:1">
+        <div class="feature-ico" style="font-size:26px">🎥</div>
+        <p class="eyebrow" style="margin-top:18px">Pilier 02 · Lives</p>
+        <h2 class="h-sec" style="margin-top:8px">Apprends aux côtés des meilleurs</h2>
+        <p class="lead" style="margin-top:14px">Nos éducateurs tradent en direct, devant toi. Tu vois comment ils lisent le marché en temps réel — et tu progresses bien plus vite qu'en solo.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Et pour ne rien lâcher en cours de route…</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- PROGRESSION / JEU -->
+  <section class="scene">
+    <div class="wrap">
+      <div style="text-align:center; max-width:620px; margin:0 auto 30px">
+        <p class="eyebrow reveal">🎮 Expérience</p>
+        <h2 class="h-sec reveal" style="margin-top:12px">Progresser devient un <span class="grad">jeu</span></h2>
+        <p class="lead reveal" style="margin-top:14px">Niveaux, séries, badges et bonus débloqués au fil de ta progression.</p>
+      </div>
+      <div class="mock reveal" aria-hidden="true" style="max-width:600px; margin:0 auto">
+        <div class="row" style="justify-content:space-between; margin-bottom:16px">
+          <span style="display:inline-flex; gap:6px; align-items:center"><span style="width:10px;height:10px;border-radius:50%;background:#FB5A6A;display:inline-block"></span><span style="width:10px;height:10px;border-radius:50%;background:#F0B45C;display:inline-block"></span><span style="width:10px;height:10px;border-radius:50%;background:#12B886;display:inline-block"></span></span>
+          <span class="tag tag-v">★ Profil trader</span>
+        </div>
+        <div class="row" style="gap:14px; margin-bottom:14px">
+          <div style="flex:none; width:46px; height:46px; border-radius:13px; background:var(--grad); display:grid; place-items:center; font-weight:900; color:#fff; font-size:20px">12</div>
+          <div><div style="font-weight:700; color:var(--ink)">Niveau 12 — Trader confirmé</div><div style="font-size:12.5px; color:var(--muted)">Plus que 340 XP avant le niveau 13</div></div>
+        </div>
+        <div class="bar"><span style="width:88%"></span></div>
+        <div class="row" style="justify-content:space-between; margin-top:6px; font-size:11.5px; color:var(--muted)"><span>2 660 XP</span><span>3 000 XP</span></div>
+        <div style="display:flex; gap:12px; margin-top:16px">
+          <div style="flex:1; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:12px; padding:12px 8px; text-align:center"><div style="font-size:20px; font-weight:900; color:var(--ink)">🔥 14</div><div style="font-size:11px; color:var(--muted)">jours de série</div></div>
+          <div style="flex:1; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:12px; padding:12px 8px; text-align:center"><div style="font-size:20px; font-weight:900; color:var(--ink)">23</div><div style="font-size:11px; color:var(--muted)">badges</div></div>
+          <div style="flex:1; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:12px; padding:12px 8px; text-align:center"><div style="font-size:20px; font-weight:900; color:var(--vlight)">#47</div><div style="font-size:11px; color:var(--muted)">classement</div></div>
+        </div>
+      </div>
+      <div class="reveal" style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin:16px auto 0">
+        <div class="gtile">🥇<span>First Win</span></div>
+        <div class="gtile">🔥<span>Série 7j</span></div>
+        <div class="gtile">🎯<span>Discipline</span></div>
+        <div class="gtile">💎<span>Consistance</span></div>
+        <div class="gtile">🚀<span>Level Up</span></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Maintenant que tu sais lire le marché, place à l'action&nbsp;: les signaux.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- STRATÉGIES (= les résultats réels) -->
+  <section id="resultats" class="scene">
+    <div class="wrap">
+      <div style="text-align:center; max-width:620px; margin:0 auto 36px">
+        <div class="feature-ico reveal" style="margin:0 auto; font-size:26px">⚡</div>
+        <p class="eyebrow reveal" style="margin-top:18px">Pilier 03 · Stratégies</p>
+        <h2 class="h-sec reveal" style="margin-top:8px">Trois stratégies, trois styles</h2>
+        <p class="lead reveal" style="margin-top:14px">Des signaux quotidiens, clairs, avec point d'entrée et gestion du risque. Tu choisis le style qui te ressemble.</p>
+      </div>
+      <div class="pillars">
+        <div class="strat reveal">
+          <div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#ringGrad)" stroke-dasharray="326.7" style="--off:28.1"/></svg><div class="ring-val"><b>91,4<span>%</span></b></div></div>
+          <p class="strat-cap">Taux de réussite</p>
+          <h3>🔥 Synergy</h3>
+          <p>Scalping intensif sur l'or.</p>
+          <div class="strat-stats"><span class="tag tag-v">22 trades/jour</span><span class="tag tag-mut">2 850 trades</span></div>
+        </div>
+        <div class="strat reveal">
+          <div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#ringGrad)" stroke-dasharray="326.7" style="--off:67.6"/></svg><div class="ring-val"><b>79,3<span>%</span></b></div></div>
+          <p class="strat-cap">Taux de réussite</p>
+          <h3>🎯 PulseX</h3>
+          <p>Stratégie plus posée, bon ratio risque / rendement.</p>
+          <div class="strat-stats"><span class="tag tag-v">2,6 trades/jour</span><span class="tag tag-mut">314 trades</span></div>
+        </div>
+        <div class="strat reveal">
+          <div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52" stroke="url(#ringGrad)" stroke-dasharray="326.7" style="--off:59.8"/></svg><div class="ring-val"><b>81,7<span>%</span></b></div></div>
+          <p class="strat-cap">Taux de réussite</p>
+          <h3>🌐 Nova</h3>
+          <p>Multi-actifs : or, indices et crypto.</p>
+          <div class="strat-stats"><span class="tag tag-v">3,1 trades/jour</span><span class="tag tag-mut">378 trades</span></div>
+        </div>
+      </div>
+      <div class="reveal" style="text-align:center; margin-top:28px">
+        <a href="#simulateur" class="btn btn-primary btn-md">🧮 Simuler mes gains →</a>
+      </div>
+      <p class="fine reveal" style="text-align:center; margin-top:22px; max-width:640px; margin-left:auto; margin-right:auto">Chiffres communiqués par Pro&nbsp;Trader. Le trading comporte un risque de perte en capital. Les performances passées ne préjugent pas des performances futures. Aucun résultat n'est garanti.</p>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Imagine ces stratégies appliquées dès le départ.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- SIMULATEUR -->
+  <section id="simulateur" class="scene">
+    <div class="wrap">
+      <div style="text-align:center; max-width:620px; margin:0 auto 28px">
+        <p class="eyebrow reveal">🧮 Simulateur</p>
+        <h2 class="h-sec reveal" style="margin-top:12px">Et si tu avais commencé&nbsp;?</h2>
+        <p class="lead reveal" style="margin-top:14px">On simule mois par mois <strong style="color:var(--ink)">depuis novembre 2025</strong>. Choisis ton capital, ton risque et la stratégie.</p>
+      </div>
+      <div class="sim reveal" style="max-width:980px; margin:0 auto">
+        <div class="pan">
+          <div class="ctrl">
+            <div class="ctrl-top"><label for="cap">💶 Ton dépôt de départ (€)</label></div>
+            <input type="number" id="cap" min="50" max="100000" step="50" value="300" inputmode="numeric" />
+            <p style="margin:9px 0 0; font-size:12.5px; color:#3dd7a8">🎁 Bonus broker ×2 → capital de départ : <strong id="capStart">600 €</strong></p>
+          </div>
+          <div class="ctrl">
+            <div class="ctrl-top"><label for="risk">🎚️ Risque par trade</label><span class="val" id="riskVal">2 %</span></div>
+            <input type="range" id="risk" min="2" max="20" step="0.5" value="2" />
+            <p style="margin:9px 0 0; font-size:12px; color:var(--muted)">Réglage de base : <strong style="color:var(--vlight)">2 %</strong> (colle aux vrais chiffres). Monte le curseur pour viser plus haut — mais le risque augmente aussi.</p>
+          </div>
+          <div class="ctrl">
+            <div class="ctrl-top"><label>⚡ Choisis la stratégie</label></div>
+            <div class="seg" id="segStrat">
+              <button type="button" data-s="pul" class="on">🎯 PulseX</button>
+              <button type="button" data-s="syn">🔥 Synergy</button>
+              <button type="button" data-s="nov">🌐 Nova</button>
+            </div>
+          </div>
+          <div class="risknote" style="margin-top:18px">
+            <span>⚠️</span>
+            <span><strong>Simulation pédagogique</strong> basée sur des performances passées. Les performances passées ne préjugent pas du futur — tu peux aussi perdre une partie de ton capital.</span>
+          </div>
+        </div>
+        <div class="pan" style="display:flex; flex-direction:column">
+          <div class="res-head">Capital aujourd'hui · depuis novembre 2025</div>
+          <div class="bigres" id="res">3 820 €</div>
+          <div class="gain" id="gain">× 6,37 · départ 600 €</div>
+          <div class="simchart" style="margin-top:16px">
+            <svg viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+              <g stroke="rgba(255,255,255,.06)" stroke-width="1"><line x1="0" y1="50" x2="600" y2="50"/><line x1="0" y1="100" x2="600" y2="100"/><line x1="0" y1="150" x2="600" y2="150"/></g>
+              <path id="simarea" fill="url(#simFill)" d=""/>
+              <path id="simline" class="sim-line" d=""/>
+            </svg>
+          </div>
+          <table class="simtable" style="margin-top:16px">
+            <thead><tr><th>Mois</th><th>Trades</th><th>Gagnés</th><th>Perdus</th><th>Capital</th></tr></thead>
+            <tbody id="simrows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Pour repérer ces occasions en direct, il te faut un radar.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- SCANNER -->
+  <section class="scene">
+    <div class="wrap scene-grid two">
+      <div class="reveal">
+        <div class="feature-ico" style="font-size:26px">🛰️</div>
+        <p class="eyebrow" style="margin-top:18px">Pilier 04 · Le scanner</p>
+        <h2 class="h-sec" style="margin-top:8px">Cypher, ton radar de marché</h2>
+        <p class="lead" style="margin-top:14px">Un scanner connecté à ton TradingView. Il surveille les marchés en continu et te signale les configurations à fort potentiel — tu ne rates plus rien.</p>
+        <div class="row" style="flex-wrap:wrap; gap:8px; margin-top:18px"><span class="tag tag-v">Multi-marchés</span><span class="tag tag-v">Alertes auto</span><span class="tag tag-v">Surveillance 24h/24</span></div>
+      </div>
+      <div class="laptop reveal" aria-hidden="true">
+        
+        <svg viewBox="0 0 560 384" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif"><defs><linearGradient id="lpScreenGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1230"/><stop offset="1" stop-color="#0E0A18"/></linearGradient><linearGradient id="lpHalo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9236DA" stop-opacity="0.18"/><stop offset="0.5" stop-color="#9236DA" stop-opacity="0"/></linearGradient><linearGradient id="lpBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2238"/><stop offset="1" stop-color="#1C1628"/></linearGradient><linearGradient id="lpLid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2238"/><stop offset="1" stop-color="#15101F"/></linearGradient><clipPath id="lpScreenClip"><rect x="118" y="56" width="324" height="212" rx="6"/></clipPath><clipPath id="lpChartClip"><rect x="175" y="92" width="232" height="120"/></clipPath><clipPath id="lpVolClip"><rect x="175" y="224" width="232" height="24"/></clipPath></defs>
+
+<ellipse cx="280" cy="356" rx="210" ry="16" fill="#000000" opacity="0.35"/>
+
+<rect x="100" y="36" width="360" height="248" rx="14" fill="url(#lpLid)" stroke="#3a3050" stroke-width="1.5"/>
+<rect x="112" y="50" width="336" height="224" rx="8" fill="#0a0712" stroke="#1C1628" stroke-width="1"/>
+<rect x="118" y="56" width="324" height="212" rx="6" fill="url(#lpScreenGlow)"/>
+<circle cx="280" cy="44" r="2" fill="#3a3050"/>
+<circle cx="280" cy="44" r="0.9" fill="#6a5a88"/>
+
+<g clip-path="url(#lpScreenClip)">
+<rect x="118" y="56" width="200" height="120" fill="url(#lpHalo)"/>
+
+<rect x="118" y="56" width="324" height="22" fill="#171022"/>
+<line x1="118" y1="78" x2="442" y2="78" stroke="#2A2238" stroke-width="1"/>
+<text x="126" y="71" font-size="10" font-weight="600" fill="#EDE9F4">XAU/USD</text>
+<text x="178" y="71" font-size="10" fill="#9A92AC">· 1H</text>
+<text x="206" y="71" font-size="10" font-weight="600" fill="#B45CF0">Cypher All-in-One</text>
+<circle cx="384" cy="67" r="3" fill="#12B886"/>
+<text x="392" y="71" font-size="9" font-weight="600" fill="#3dd7a8">EN DIRECT</text>
+
+<rect x="118" y="78" width="56" height="190" fill="#120D1C"/>
+<line x1="174" y1="78" x2="174" y2="268" stroke="#2A2238" stroke-width="1"/>
+<text x="124" y="92" font-size="8" fill="#9A92AC">WATCHLIST</text>
+
+<text x="124" y="106" font-size="9" font-weight="600" fill="#EDE9F4">XAU</text>
+<text x="168" y="106" font-size="9" text-anchor="end" fill="#3dd7a8">2411</text>
+
+<text x="168" y="115" font-size="7.5" text-anchor="end" fill="#3dd7a8">+0.42%</text>
+
+<text x="124" y="130" font-size="9" font-weight="600" fill="#EDE9F4">EUR</text>
+<text x="168" y="130" font-size="9" text-anchor="end" fill="#FB5A6A">1.084</text>
+
+<text x="168" y="139" font-size="7.5" text-anchor="end" fill="#FB5A6A">-0.18%</text>
+
+<text x="124" y="154" font-size="9" font-weight="600" fill="#EDE9F4">BTC</text>
+<text x="168" y="154" font-size="9" text-anchor="end" fill="#3dd7a8">64.2k</text>
+
+<text x="168" y="163" font-size="7.5" text-anchor="end" fill="#3dd7a8">+1.30%</text>
+
+<text x="124" y="178" font-size="9" font-weight="600" fill="#EDE9F4">SPX</text>
+<text x="168" y="178" font-size="9" text-anchor="end" fill="#3dd7a8">5471</text>
+
+<text x="168" y="187" font-size="7.5" text-anchor="end" fill="#3dd7a8">+0.21%</text>
+
+<text x="124" y="202" font-size="9" font-weight="600" fill="#EDE9F4">OIL</text>
+<text x="168" y="202" font-size="9" text-anchor="end" fill="#FB5A6A">81.4</text>
+
+<text x="168" y="211" font-size="7.5" text-anchor="end" fill="#FB5A6A">-0.55%</text>
+
+<line x1="124" y1="226" x2="168" y2="226" stroke="#2A2238" stroke-width="1"/>
+<rect x="124" y="234" width="44" height="14" rx="3" fill="#12B886" opacity="0.18"/>
+<text x="146" y="244" font-size="8" font-weight="600" text-anchor="middle" fill="#3dd7a8">SCANNER ON</text>
+
+<line x1="175" y1="104" x2="407" y2="104" stroke="#2A2238" stroke-width="0.5"/>
+<line x1="175" y1="131" x2="407" y2="131" stroke="#2A2238" stroke-width="0.5"/>
+<line x1="175" y1="158" x2="407" y2="158" stroke="#2A2238" stroke-width="0.5"/>
+<line x1="175" y1="185" x2="407" y2="185" stroke="#2A2238" stroke-width="0.5"/>
+<line x1="175" y1="212" x2="407" y2="212" stroke="#2A2238" stroke-width="0.5"/>
+
+<g clip-path="url(#lpChartClip)">
+<path d="M181 170 C 196 168, 206 156, 220 150 C 236 143, 246 152, 260 146 C 276 139, 286 124, 300 122 C 316 120, 326 132, 340 124 C 354 116, 366 110, 380 116 C 392 121, 398 130, 404 134" fill="none" stroke="#B45CF0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+<g stroke-width="1" stroke="#3dd7a8"><line x1="185" y1="150" x2="185" y2="178"/></g>
+<rect x="181" y="158" width="8" height="14" fill="#12B886"/>
+<line x1="197" y1="156" x2="197" y2="184" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="193" y="160" width="8" height="18" fill="#FB5A6A"/>
+<line x1="209" y1="146" x2="209" y2="172" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="205" y="150" width="8" height="16" fill="#12B886"/>
+<line x1="221" y1="138" x2="221" y2="162" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="217" y="142" width="8" height="14" fill="#12B886"/>
+<line x1="233" y1="142" x2="233" y2="166" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="229" y="146" width="8" height="14" fill="#FB5A6A"/>
+<line x1="245" y1="134" x2="245" y2="158" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="241" y="138" width="8" height="14" fill="#12B886"/>
+<line x1="257" y1="126" x2="257" y2="150" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="253" y="130" width="8" height="14" fill="#12B886"/>
+<line x1="269" y1="124" x2="269" y2="148" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="265" y="128" width="8" height="14" fill="#FB5A6A"/>
+<line x1="281" y1="114" x2="281" y2="140" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="277" y="118" width="8" height="16" fill="#12B886"/>
+<line x1="293" y1="110" x2="293" y2="132" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="289" y="114" width="8" height="12" fill="#12B886"/>
+<line x1="305" y1="112" x2="305" y2="136" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="301" y="116" width="8" height="14" fill="#FB5A6A"/>
+<line x1="317" y1="116" x2="317" y2="142" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="313" y="120" width="8" height="16" fill="#FB5A6A"/>
+<line x1="329" y1="110" x2="329" y2="134" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="325" y="114" width="8" height="14" fill="#12B886"/>
+<line x1="341" y1="106" x2="341" y2="128" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="337" y="110" width="8" height="12" fill="#12B886"/>
+<line x1="353" y1="108" x2="353" y2="130" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="349" y="112" width="8" height="12" fill="#FB5A6A"/>
+<line x1="365" y1="104" x2="365" y2="126" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="361" y="108" width="8" height="12" fill="#12B886"/>
+<line x1="377" y1="106" x2="377" y2="130" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="373" y="110" width="8" height="14" fill="#12B886"/>
+<line x1="389" y1="110" x2="389" y2="134" stroke="#3dd7a8" stroke-width="1"/>
+<rect x="385" y="114" width="8" height="14" fill="#12B886"/>
+<line x1="401" y1="116" x2="401" y2="138" stroke="#FB5A6A" stroke-width="1"/>
+<rect x="397" y="120" width="8" height="12" fill="#FB5A6A"/>
+</g>
+
+<polygon points="245,166 240,174 250,174" fill="#12B886"/>
+<text x="245" y="184" font-size="7.5" font-weight="600" text-anchor="middle" fill="#3dd7a8">Achat</text>
+
+<line x1="407" y1="92" x2="407" y2="248" stroke="#2A2238" stroke-width="1"/>
+<text x="412" y="107" font-size="8" fill="#9A92AC">2 416</text>
+<text x="412" y="134" font-size="8" fill="#9A92AC">2 412</text>
+<text x="412" y="161" font-size="8" fill="#9A92AC">2 408</text>
+<text x="412" y="188" font-size="8" fill="#9A92AC">2 404</text>
+<text x="412" y="215" font-size="8" fill="#9A92AC">2 400</text>
+
+<rect x="409" y="121" width="30" height="13" rx="2" fill="#12B886"/>
+<text x="424" y="130" font-size="8" font-weight="700" text-anchor="middle" fill="#0E0A18">2 411</text>
+
+<line x1="175" y1="221" x2="407" y2="221" stroke="#2A2238" stroke-width="1"/>
+<g clip-path="url(#lpVolClip)">
+<rect x="181" y="240" width="8" height="8" fill="#12B886" opacity="0.55"/>
+<rect x="193" y="236" width="8" height="12" fill="#FB5A6A" opacity="0.55"/>
+<rect x="205" y="238" width="8" height="10" fill="#12B886" opacity="0.55"/>
+<rect x="217" y="234" width="8" height="14" fill="#12B886" opacity="0.55"/>
+<rect x="229" y="239" width="8" height="9" fill="#FB5A6A" opacity="0.55"/>
+<rect x="241" y="235" width="8" height="13" fill="#12B886" opacity="0.55"/>
+<rect x="253" y="232" width="8" height="16" fill="#12B886" opacity="0.55"/>
+<rect x="265" y="237" width="8" height="11" fill="#FB5A6A" opacity="0.55"/>
+<rect x="277" y="230" width="8" height="18" fill="#12B886" opacity="0.55"/>
+<rect x="289" y="236" width="8" height="12" fill="#12B886" opacity="0.55"/>
+<rect x="301" y="238" width="8" height="10" fill="#FB5A6A" opacity="0.55"/>
+<rect x="313" y="235" width="8" height="13" fill="#FB5A6A" opacity="0.55"/>
+<rect x="325" y="233" width="8" height="15" fill="#12B886" opacity="0.55"/>
+<rect x="337" y="236" width="8" height="12" fill="#12B886" opacity="0.55"/>
+<rect x="349" y="239" width="8" height="9" fill="#FB5A6A" opacity="0.55"/>
+<rect x="361" y="234" width="8" height="14" fill="#12B886" opacity="0.55"/>
+<rect x="373" y="237" width="8" height="11" fill="#12B886" opacity="0.55"/>
+<rect x="385" y="238" width="8" height="10" fill="#12B886" opacity="0.55"/>
+<rect x="397" y="240" width="8" height="8" fill="#FB5A6A" opacity="0.55"/>
+</g>
+
+<text x="186" y="261" font-size="7.5" fill="#9A92AC">09:00</text>
+<text x="243" y="261" font-size="7.5" fill="#9A92AC">11:00</text>
+<text x="300" y="261" font-size="7.5" fill="#9A92AC">13:00</text>
+<text x="357" y="261" font-size="7.5" fill="#9A92AC">15:00</text>
+</g>
+
+<path d="M70 284 L490 284 L512 340 L48 340 Z" fill="url(#lpBase)" stroke="#3a3050" stroke-width="1.5"/>
+<path d="M70 284 L490 284 L488 290 L72 290 Z" fill="#15101F"/>
+<rect x="232" y="330" width="96" height="7" rx="3" fill="#15101F"/>
+
+<g fill="#1C1628" stroke="#2A2238" stroke-width="0.5">
+<rect x="92" y="296" width="320" height="6" rx="2"/>
+<rect x="100" y="306" width="304" height="6" rx="2"/>
+<rect x="108" y="316" width="288" height="6" rx="2"/>
+</g>
+<rect x="210" y="312" width="84" height="14" rx="3" fill="#171022" stroke="#2A2238" stroke-width="0.5"/>
+</svg>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Le scanner trouve les trades. Le journal, lui, t'apprend des tiens.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- JOURNAL IA -->
+  <section class="scene">
+    <div class="wrap scene-grid two">
+      <div class="mock reveal" aria-hidden="true" style="order:2">
+        <p style="margin:0 0 14px; font-weight:700; color:var(--ink)">Coach IA · ton journal</p>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#fff; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Pourquoi j'ai perdu sur mon trade XAU&nbsp;? 😟</div>
+          <div style="align-self:flex-start; max-width:92%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13px; color:var(--text)"><strong style="color:var(--ink)">Trade #483 · XAU vente — Perdant.</strong> En clair&nbsp;: le marché montait, et tu as parié sur la baisse. Tu es entré trop tôt, sur un coup de tête après ta perte précédente. <span style="color:var(--vlight)">👉 La prochaine fois, attends que le prix confirme avant d'entrer.</span></div>
+          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#fff; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Mon ratio risque/rendement était bon, pourtant&nbsp;?</div>
+          <div style="align-self:flex-start; max-width:92%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13px; color:var(--text)">Ton <strong style="color:var(--ink)">R:R était de 1:1,2</strong> — correct. Mais tu as pris le trade en pleine <strong style="color:var(--ink)">session asiatique</strong> (faible volatilité) et sans confluence en H1. <span style="color:var(--vlight)">Vise plutôt 1:2 sur les ouvertures Londres / New&nbsp;York.</span></div>
+          <div style="align-self:flex-end; max-width:88%; background:var(--grad); color:#fff; border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:13.5px">Et mon meilleur trade&nbsp;?</div>
+          <div style="align-self:flex-start; max-width:92%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:13px; color:var(--text)"><strong style="color:var(--ink)">Trade #482 · XAU achat — Gagnant.</strong> Entrée alignée avec la tendance H1, patience sur la confirmation. Discipline respectée. 👏</div>
+        </div>
+      </div>
+      <div class="reveal" style="order:1">
+        <div class="feature-ico" style="font-size:26px">🧠</div>
+        <p class="eyebrow" style="margin-top:18px">Pilier 05 · Le journal</p>
+        <h2 class="h-sec" style="margin-top:8px">Un journal 100&nbsp;% piloté par l'IA</h2>
+        <p class="lead" style="margin-top:14px">Connecté à MetaTrader 5, il analyse <strong style="color:var(--ink)">pourquoi</strong> tu gagnes ou tu perds. <strong style="color:var(--ink)">Pose-lui tes questions</strong> : un coach IA te répond — technique, timing et psychologie. Que tu <strong style="color:var(--ink)">débutes</strong> ou que tu sois déjà <strong style="color:var(--ink)">confirmé</strong>, il s'adapte à ton niveau.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Et si tu n'as ni le temps ni l'envie de cliquer, l'IA trade pour toi.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- AUTOMATISATION -->
+  <section class="scene">
+    <div class="wrap">
+      <div style="text-align:center; max-width:640px; margin:0 auto 34px">
+        <div class="feature-ico reveal" style="margin:0 auto; font-size:26px">🤖</div>
+        <p class="eyebrow reveal" style="margin-top:18px">Pilier 06 · Automatisation</p>
+        <h2 class="h-sec reveal" style="margin-top:8px">Ton capital travaille, même quand tu dors</h2>
+        <p class="lead reveal" style="margin-top:14px">En clair&nbsp;: <strong style="color:var(--ink)">tu n'as rien à faire</strong>. Dès qu'une opportunité se présente, un assistant intelligent passe le trade <strong style="color:var(--ink)">à ta place</strong>, en respectant le niveau de risque que tu as choisi. Un peu comme le <strong style="color:var(--ink)">pilote automatique</strong> d'un avion&nbsp;: tu fixes la destination, il s'occupe du reste.</p>
+      </div>
+      <div class="flow reveal" style="max-width:760px; margin:0 auto">
+        <div class="node"><strong style="color:var(--ink)">📨 L'opportunité</strong><div style="font-size:13px; color:var(--muted)">On la repère pour toi</div></div>
+        <div class="arrow">→</div>
+        <div class="node"><strong style="color:var(--ink)">🤖 L'assistant</strong><div style="font-size:13px; color:var(--muted)">Il prépare le trade</div></div>
+        <div class="arrow">→</div>
+        <div class="node"><strong style="color:var(--ink)">💹 Ton compte</strong><div style="font-size:13px; color:var(--muted)">Le trade se fait seul</div></div>
+      </div>
+      <div class="pillars reveal" style="max-width:860px; margin:26px auto 0">
+        <div class="pillar" style="text-align:center"><div class="pico" style="margin-left:auto;margin-right:auto">🎚️</div><h3 style="font-size:16px">Tu choisis ton risque</h3><p>Prudent ou plus ambitieux&nbsp;: tu décides, l'assistant s'y tient à la lettre.</p></div>
+        <div class="pillar" style="text-align:center"><div class="pico" style="margin-left:auto;margin-right:auto">🛡️</div><h3 style="font-size:16px">Tes pertes sont encadrées</h3><p>Il ne dépasse jamais la limite que tu as fixée. Pas de mauvaise surprise.</p></div>
+        <div class="pillar" style="text-align:center"><div class="pico" style="margin-left:auto;margin-right:auto">⚡</div><h3 style="font-size:16px">Aucun écran à surveiller</h3><p>Jour et nuit, tout se fait tout seul. Tu vis ta vie pendant ce temps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Tu as vu tout ce que ça réunit. Une question, maintenant…</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- PRIX (1/2) -->
+  <section class="scene short">
+    <div class="wrap narrow" style="text-align:center">
+      <p class="eyebrow reveal">Le modèle</p>
+      <h2 class="h-sec reveal" style="margin-top:12px">À ton avis, combien ça devrait coûter&nbsp;?</h2>
+      <p class="lead reveal" style="margin:14px auto 0; max-width:540px">Ailleurs, un accompagnement de ce niveau se paie au prix fort :</p>
+      <div class="reveal pricegrid">
+        <div style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 14px; text-align:center">
+          <div style="font-size:14px; color:var(--text); margin-bottom:8px">🎓 Académie de trading</div>
+          <div style="font-size:22px; font-weight:800; color:#ff8a96; text-decoration:line-through">≈ 10 000 €</div>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 14px; text-align:center">
+          <div style="font-size:14px; color:var(--text); margin-bottom:8px">📅 Accompagnement / mois</div>
+          <div style="font-size:22px; font-weight:800; color:#ff8a96; text-decoration:line-through">≈ 200 €</div>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 14px; text-align:center">
+          <div style="font-size:14px; color:var(--text); margin-bottom:8px">🤖 Outils IA &amp; auto / mois</div>
+          <div style="font-size:22px; font-weight:800; color:#ff8a96; text-decoration:line-through">≈ 150 €</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Tu as ton chiffre en tête&nbsp;? Oublie-le.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- GRATUIT (2/2) -->
+  <section class="scene short">
+    <div class="wrap narrow" style="text-align:center">
+      <p class="lead reveal" style="margin:0 auto; max-width:440px">Alors avec Pro&nbsp;Trader… combien&nbsp;?</p>
+      <div class="reveal free-mega" style="margin-top:8px">GRATUIT</div>
+      <p class="reveal" style="margin:10px auto 0; font-size:13px; color:var(--muted)">5 outils inclus, séparément, sans rien payer&nbsp;:</p>
+      <div class="reveal" style="display:grid; gap:10px; max-width:460px; margin:18px auto 0; text-align:left">
+        <div class="cell row" style="gap:12px"><span style="font-size:20px; line-height:1">🎓</span><span style="flex:1"><strong style="color:var(--ink)">1 · Académie complète</strong><span style="display:block; font-size:12px; color:var(--muted)">Plusieurs modules &amp; formations, des bases au niveau pro</span></span><span style="color:#3dd7a8; font-weight:800">✓</span></div>
+        <div class="cell row" style="gap:12px"><span style="font-size:20px; line-height:1">🎥</span><span style="flex:1"><strong style="color:var(--ink)">2 · Lives</strong><span style="display:block; font-size:12px; color:var(--muted)">Sessions en direct chaque semaine, avec les éducateurs</span></span><span style="color:#3dd7a8; font-weight:800">✓</span></div>
+        <div class="cell row" style="gap:12px"><span style="font-size:20px; line-height:1">⚡</span><span style="flex:1"><strong style="color:var(--ink)">3 · Les 3 stratégies</strong><span style="display:block; font-size:12px; color:var(--muted)">Des signaux quotidiens, clairs et prêts à suivre</span></span><span style="color:#3dd7a8; font-weight:800">✓</span></div>
+        <div class="cell row" style="gap:12px"><span style="font-size:20px; line-height:1">🛰️</span><span style="flex:1"><strong style="color:var(--ink)">4 · Scanner Cypher</strong><span style="display:block; font-size:12px; color:var(--muted)">Ton radar de marché connecté à TradingView</span></span><span style="color:#3dd7a8; font-weight:800">✓</span></div>
+        <div class="cell row" style="gap:12px"><span style="font-size:20px; line-height:1">🧠</span><span style="flex:1"><strong style="color:var(--ink)">5 · Journal &amp; Coach IA</strong><span style="display:block; font-size:12px; color:var(--muted)">L'IA analyse chacun de tes trades et te conseille</span></span><span style="color:#3dd7a8; font-weight:800">✓</span></div>
+      </div>
+      <p class="lead reveal" style="margin:18px auto 0; max-width:520px"><strong style="color:var(--ink)">Pas d'abonnement, pas de frais cachés.</strong></p>
+    </div>
+  </section>
+
+  <p class="bridge reveal">Oui, vraiment. Et voici comment c'est possible.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- LE MODÈLE -->
+  <section class="scene short">
+    <div class="wrap narrow" style="text-align:center">
+      <h2 class="h-sec reveal">Le broker nous rémunère.<br /><span class="grad">Pas toi.</span></h2>
+      <div class="flow reveal" style="margin:28px auto 0; max-width:820px">
+        <div class="node">Tu trades via le broker</div>
+        <div class="arrow">→</div>
+        <div class="node">Le broker perçoit sa commission</div>
+        <div class="arrow">→</div>
+        <div class="node" style="border-color:rgba(0,191,166,.4)">Une part revient à Pro&nbsp;Trader · tout t'est offert</div>
+      </div>
+      <p class="lead reveal" style="margin:22px auto 0; max-width:560px">Pas d'affiliation agressive, pas de frais cachés. Un alignement d'intérêts simple et transparent : on gagne quand tu <strong style="color:var(--ink)">réussis et que tu restes</strong>.</p>
+      <p class="fine reveal" style="margin:16px auto 0; max-width:600px">Pour trader en réel, un dépôt sur ton propre compte reste nécessaire — et cet argent reste le tien.</p>
+    </div>
+  </section>
+
+
+  <p class="bridge reveal">Maintenant que tu sais pourquoi, il ne te reste qu'à te lancer.</p>
+  <div class="connector" aria-hidden="true"><i></i></div>
+
+  <!-- CTA FINAL -->
+  <section class="scene short">
+    <div class="wrap narrow card reveal" style="text-align:center; padding:46px 28px">
+      <h2 class="h-sec">Tout ça, gratuitement.</h2>
+      <p class="lead" style="margin:14px auto 0; max-width:520px">Il te reste juste à créer ton accès — c'est rapide, et on te guide pas à pas.</p>
+      <div style="margin-top:26px">
+        <a href="inscription.html" class="btn btn-primary btn-lg">Démarrer mon inscription →</a>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="foot">
-    <div class="wrap foot-in">
-      <p style="margin:0">© <span id="year"></span> Pro&nbsp;Trader · Animé par Maxime (<a href="#" data-link="instagram" target="_blank" rel="noopener">@MaximeLobo_</a>)</p>
+    <div class="wrap foot-in" style="text-align:center">
+      <div style="display:flex; flex-wrap:wrap; gap:18px; justify-content:center; margin-bottom:14px">
+        <a href="index.html" style="color:var(--vlight); text-decoration:none; font-size:13px; font-weight:600">Présentation</a>
+        <a href="#resultats" style="color:var(--vlight); text-decoration:none; font-size:13px; font-weight:600">Résultats</a>
+        <a href="#simulateur" style="color:var(--vlight); text-decoration:none; font-size:13px; font-weight:600">Simulateur</a>
+        <a href="inscription.html" style="color:var(--vlight); text-decoration:none; font-size:13px; font-weight:600">Inscription</a>
+      </div>
+      <p class="fine" style="margin:0">© <span id="year"></span> Pro&nbsp;Trader · L'écosystème de trading tout-en-un.</p>
     </div>
   </footer>
 
+  <script>
+    (function(){
+      /* Données RÉELLES reprises du simulateur du collègue (capital de référence : dépôt 100 ×2 = 200). */
+      var BASE=200;
+      var DATA={
+        pul:{ m:['Nov 25','Déc 25','Jan 26','Fév 26','Mar 26','Avr 26','Mai 26','Juin 26'],
+              t:[10,50,59,42,52,40,39,22], g:[8,38,44,36,42,25,29,20], p:[2,10,13,6,9,13,8,2],
+              cap:[222.3,295.7,401.8,530.5,741.43,836.4,1038.39,1273.38] },
+        syn:{ m:['Déc 25','Jan 26','Fév 26','Mar 26','Avr 26','Mai 26','Juin 26'],
+              t:[384,436,420,497,413,422,278], g:[307,364,342,420,374,376,242], p:[33,36,44,40,27,30,19],
+              cap:[867.62,4977.54,19442,117682,554494,2390000,5110000] },
+        nov:{ m:['Nov 25','Déc 25','Jan 26','Fév 26','Mar 26','Avr 26','Mai 26','Juin 26'],
+              t:[6,35,36,50,70,80,51,50], g:[4,31,31,44,51,60,47,41], p:[2,4,5,6,19,20,4,9],
+              cap:[201.82,218.69,234.35,253.68,310.36,364.89,494.39,590.45] }
+      };
+      var st={ dep:300, risk:2, strat:'pul' };
+      var capEl=document.getElementById('cap'), riskEl=document.getElementById('risk');
+      if(!capEl) return;
+      var capStart=document.getElementById('capStart'), resEl=document.getElementById('res'), gainEl=document.getElementById('gain'), rows=document.getElementById('simrows'), riskValEl=document.getElementById('riskVal');
+      var lineEl=document.getElementById('simline'), areaEl=document.getElementById('simarea');
+      function nb(v){ return Math.round(v).toLocaleString('fr-FR'); }
+      function fmt(v){ v=Math.round(v);
+        if(v>=1e9) return (v/1e9).toLocaleString('fr-FR',{maximumFractionDigits:2})+' Md €';
+        if(v>=1e6) return (v/1e6).toLocaleString('fr-FR',{maximumFractionDigits:2})+' M €';
+        return v.toLocaleString('fr-FR')+' €'; }
+      function render(){
+        var d=DATA[st.strat], cap0=st.dep*2, rf=st.risk/2, CAP=7, prevMult=1, cum=1, curve=[1], html='';
+        capStart.textContent=nb(cap0)+' €';
+        if(riskValEl) riskValEl.textContent=st.risk.toLocaleString('fr-FR')+' %';
+        for(var i=0;i<d.cap.length;i++){
+          var baseMult=d.cap[i]/BASE, monthMult=baseMult/prevMult, m=Math.min(1+(monthMult-1)*rf, CAP);
+          cum=cum*m; prevMult=baseMult; curve.push(cum);
+          html+='<tr><td>'+d.m[i]+'</td><td>'+nb(d.t[i])+'</td><td style="color:#3dd7a8">'+nb(d.g[i])+'</td><td style="color:#ff8a96">'+nb(d.p[i])+'</td><td class="cap">'+fmt(cap0*cum)+'</td></tr>';
+        }
+        rows.innerHTML=html;
+        resEl.textContent=fmt(cap0*cum);
+        gainEl.textContent='× '+cum.toLocaleString('fr-FR',{maximumFractionDigits: cum<100?2:0})+' · départ '+nb(cap0)+' €';
+        var W=600,H=200,pad=12,n=curve.length, lx=function(v){return Math.log(v);}, lmin=lx(curve[0]), lmax=lx(curve[n-1]), span=(lmax-lmin)||1;
+        var pts=curve.map(function(v,i){ return [pad+i*(W-2*pad)/(n-1), (H-pad)-(lx(v)-lmin)/span*(H-2*pad)]; });
+        var dp=pts.map(function(pt,i){ return (i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1); }).join(' ');
+        lineEl.setAttribute('d',dp); areaEl.setAttribute('d',dp+' L'+(W-pad)+','+(H-pad)+' L'+pad+','+(H-pad)+' Z');
+      }
+      capEl.addEventListener('input', function(){ var v=parseFloat(capEl.value)||300; if(v<50)v=50; if(v>100000)v=100000; st.dep=v; render(); });
+      riskEl.addEventListener('input', function(){ var v=parseFloat(riskEl.value)||2; if(v<2)v=2; if(v>20)v=20; st.risk=v; render(); });
+      document.getElementById('segStrat').addEventListener('click', function(e){
+        var b=e.target.closest('button'); if(!b) return;
+        this.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on'); st.strat=b.dataset.s; render();
+      });
+      render();
+    })();
+  </script>
   <script src="config.js?v=3"></script>
 </body>
 </html>
