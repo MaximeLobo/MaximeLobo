@@ -127,7 +127,9 @@
     @media (max-width:680px){ .mainnav a.txtlink{ display:none; } }
 
     .scene{ min-height:auto; display:flex; align-items:center; padding:50px 0; }
-    .scene.hero{ min-height:84vh; }
+    .scene.hero{ min-height:84vh; position:relative; overflow:hidden; }
+    .hero-chart{ position:absolute; inset:0; width:100%; height:100%; z-index:0; opacity:.5; pointer-events:none; }
+    .hero-veil{ position:absolute; inset:0; z-index:1; pointer-events:none; background:radial-gradient(120% 90% at 50% 42%, transparent 0%, rgba(10,10,9,.5) 66%, rgba(10,10,9,.92) 100%), linear-gradient(180deg, rgba(10,10,9,.55), transparent 26%, rgba(10,10,9,.85)); }
     .scene.short{ min-height:auto; padding:44px 0; }
     @media (max-width:640px){ .scene{ padding:36px 0; } .scene.hero{ min-height:auto; padding:46px 0; } .scene-grid{ gap:26px; } }
     .scene-grid{ display:grid; gap:34px; align-items:center; }
@@ -285,7 +287,9 @@
 
   <!-- HERO -->
   <section class="scene hero">
-    <div class="wrap narrow" style="text-align:center">
+    <canvas id="heroChart" class="hero-chart" aria-hidden="true"></canvas>
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="wrap narrow" style="text-align:center; position:relative; z-index:2">
       <p class="eyebrow reveal">L'écosystème Pro&nbsp;Trader</p>
       <h1 class="h-hero reveal" style="margin-top:16px">Le trading,<br /><span class="grad">enfin maîtrisé.</span></h1>
       <p class="lead reveal" style="margin:24px auto 0; max-width:640px">Une <strong style="color:var(--ink)">académie complète</strong>, des stratégies, un <strong style="color:var(--ink)">journal piloté par l'IA</strong> et une <strong style="color:var(--ink)">automatisation totale</strong> — réunis dans un seul écosystème.</p>
@@ -299,12 +303,7 @@
   </section>
 
   <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span>
-      <span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span>
-    </div>
-  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="mq-group"><span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span><span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span><span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span></div><div class="mq-group"><span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span><span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span><span class="g">Académie complète</span><span class="sep">✦</span><span>Scanners</span><span class="sep">✦</span><span class="g">Canal privé</span><span class="sep">✦</span><span>Journal IA</span><span class="sep">✦</span><span class="g">Automatisation</span><span class="sep">✦</span><span>100% gratuit</span><span class="sep">✦</span></div></div></div>
 
   <!-- QUI JE SUIS -->
   <section id="whoami" class="scene short">
@@ -1142,6 +1141,39 @@
         b.classList.add('on'); st.strat=b.dataset.s; render();
       });
       render();
+    })();
+  </script>
+  <script>
+    /* Graphique animé du hero — bougies + ligne dorée qui grimpe */
+    (function(){
+      var c=document.getElementById('heroChart'); if(!c) return;
+      var ctx=c.getContext('2d'), DPR=Math.min(window.devicePixelRatio||1,2), W=0, H=0;
+      function resize(){ W=c.clientWidth; H=c.clientHeight; c.width=W*DPR; c.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
+      resize(); window.addEventListener('resize', resize);
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var n=70, candles=[], price=100, drift=0.55;
+      function push(){ var o=price, mv=(Math.random()-0.5)*7 + drift; price=Math.max(24, price+mv); if(price>190){ drift=-0.5; } if(price<60){ drift=0.6; } var cl=price, hi=Math.max(o,cl)+Math.random()*3.2, lo=Math.min(o,cl)-Math.random()*3.2; candles.push({o:o,c:cl,h:hi,l:lo}); if(candles.length>n) candles.shift(); }
+      for(var i=0;i<n;i++) push();
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        var minP=Infinity,maxP=-Infinity; candles.forEach(function(k){ if(k.l<minP)minP=k.l; if(k.h>maxP)maxP=k.h; });
+        var pad=26, gap=W/(n-1), cw=Math.max(2,gap*0.5);
+        function y(p){ return H-pad-(p-minP)/((maxP-minP)||1)*(H-2*pad); }
+        candles.forEach(function(k,idx){ var x=idx*gap, up=k.c>=k.o;
+          ctx.strokeStyle=up?'rgba(55,181,136,.45)':'rgba(224,122,110,.45)';
+          ctx.fillStyle=up?'rgba(55,181,136,.30)':'rgba(224,122,110,.30)';
+          ctx.beginPath(); ctx.moveTo(x,y(k.h)); ctx.lineTo(x,y(k.l)); ctx.stroke();
+          var top=y(Math.max(k.o,k.c)), bot=y(Math.min(k.o,k.c)); ctx.fillRect(x-cw/2, top, cw, Math.max(1,bot-top)); });
+        ctx.beginPath(); candles.forEach(function(k,idx){ var x=idx*gap, yy=y(k.c); idx?ctx.lineTo(x,yy):ctx.moveTo(x,yy); });
+        var g=ctx.createLinearGradient(0,0,W,0); g.addColorStop(0,'rgba(223,201,140,.12)'); g.addColorStop(1,'#F7ECC8');
+        ctx.strokeStyle=g; ctx.lineWidth=2.4; ctx.lineJoin='round'; ctx.shadowColor='rgba(223,201,140,.55)'; ctx.shadowBlur=14; ctx.stroke(); ctx.shadowBlur=0;
+        var last=candles[candles.length-1], lx=(candles.length-1)*gap, ly=y(last.c);
+        ctx.beginPath(); ctx.arc(lx,ly,3.6,0,7); ctx.fillStyle='#F7ECC8'; ctx.shadowColor='rgba(247,236,200,.9)'; ctx.shadowBlur=16; ctx.fill(); ctx.shadowBlur=0;
+      }
+      if(reduce){ draw(); return; }
+      var acc=0, prev=performance.now();
+      function loop(now){ var dt=now-prev; prev=now; acc+=dt; if(acc>950){ acc=0; push(); } draw(); requestAnimationFrame(loop); }
+      requestAnimationFrame(loop);
     })();
   </script>
   <script src="config.js?v=3"></script>
