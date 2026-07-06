@@ -1143,39 +1143,6 @@
       render();
     })();
   </script>
-  <script>
-    /* Graphique animé du hero — bougies + ligne dorée qui grimpe */
-    (function(){
-      var c=document.getElementById('heroChart'); if(!c) return;
-      var ctx=c.getContext('2d'), DPR=Math.min(window.devicePixelRatio||1,2), W=0, H=0;
-      function resize(){ W=c.clientWidth; H=c.clientHeight; c.width=W*DPR; c.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
-      resize(); window.addEventListener('resize', resize);
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var n=70, candles=[], price=100, drift=0.55;
-      function push(){ var o=price, mv=(Math.random()-0.5)*7 + drift; price=Math.max(24, price+mv); if(price>190){ drift=-0.5; } if(price<60){ drift=0.6; } var cl=price, hi=Math.max(o,cl)+Math.random()*3.2, lo=Math.min(o,cl)-Math.random()*3.2; candles.push({o:o,c:cl,h:hi,l:lo}); if(candles.length>n) candles.shift(); }
-      for(var i=0;i<n;i++) push();
-      function draw(){
-        ctx.clearRect(0,0,W,H);
-        var minP=Infinity,maxP=-Infinity; candles.forEach(function(k){ if(k.l<minP)minP=k.l; if(k.h>maxP)maxP=k.h; });
-        var pad=26, gap=W/(n-1), cw=Math.max(2,gap*0.5);
-        function y(p){ return H-pad-(p-minP)/((maxP-minP)||1)*(H-2*pad); }
-        candles.forEach(function(k,idx){ var x=idx*gap, up=k.c>=k.o;
-          ctx.strokeStyle=up?'rgba(55,181,136,.45)':'rgba(224,122,110,.45)';
-          ctx.fillStyle=up?'rgba(55,181,136,.30)':'rgba(224,122,110,.30)';
-          ctx.beginPath(); ctx.moveTo(x,y(k.h)); ctx.lineTo(x,y(k.l)); ctx.stroke();
-          var top=y(Math.max(k.o,k.c)), bot=y(Math.min(k.o,k.c)); ctx.fillRect(x-cw/2, top, cw, Math.max(1,bot-top)); });
-        ctx.beginPath(); candles.forEach(function(k,idx){ var x=idx*gap, yy=y(k.c); idx?ctx.lineTo(x,yy):ctx.moveTo(x,yy); });
-        var g=ctx.createLinearGradient(0,0,W,0); g.addColorStop(0,'rgba(223,201,140,.12)'); g.addColorStop(1,'#F7ECC8');
-        ctx.strokeStyle=g; ctx.lineWidth=2.4; ctx.lineJoin='round'; ctx.shadowColor='rgba(223,201,140,.55)'; ctx.shadowBlur=14; ctx.stroke(); ctx.shadowBlur=0;
-        var last=candles[candles.length-1], lx=(candles.length-1)*gap, ly=y(last.c);
-        ctx.beginPath(); ctx.arc(lx,ly,3.6,0,7); ctx.fillStyle='#F7ECC8'; ctx.shadowColor='rgba(247,236,200,.9)'; ctx.shadowBlur=16; ctx.fill(); ctx.shadowBlur=0;
-      }
-      if(reduce){ draw(); return; }
-      var acc=0, prev=performance.now();
-      function loop(now){ var dt=now-prev; prev=now; acc+=dt; if(acc>950){ acc=0; push(); } draw(); requestAnimationFrame(loop); }
-      requestAnimationFrame(loop);
-    })();
-  </script>
-  <script src="config.js?v=3"></script>
+  <script src="config.js?v=4"></script>
 </body>
 </html>

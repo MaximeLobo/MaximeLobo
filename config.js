@@ -124,3 +124,86 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+/* ============================================================
+   HERO — graphique de trading animé (fluide, continu)
+   Présent si la page contient <canvas id="heroChart">.
+   ============================================================ */
+(function () {
+  "use strict";
+  function boot() {
+    var c = document.getElementById("heroChart");
+    if (!c) return;
+    var ctx = c.getContext("2d"),
+        DPR = Math.min(window.devicePixelRatio || 1, 2),
+        W = 0, H = 0;
+    function resize() {
+      W = c.clientWidth; H = c.clientHeight;
+      c.width = Math.max(1, Math.round(W * DPR));
+      c.height = Math.max(1, Math.round(H * DPR));
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var VIS = 46, arr = [], price = 100, drift = 0.5;
+    function make() {
+      var o = price, mv = (Math.random() - 0.5) * 6 + drift;
+      price += mv;
+      if (price > 185) drift = -0.5;
+      if (price < 55) drift = 0.55;
+      var cl = price, hi = Math.max(o, cl) + Math.random() * 2.6, lo = Math.min(o, cl) - Math.random() * 2.6;
+      return { o: o, c: cl, h: hi, l: lo };
+    }
+    for (var i = 0; i < VIS + 3; i++) arr.push(make());
+    var offset = 0, speed = 0.34;
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      if (W <= 0 || H <= 0) return;
+      var gap = W / (VIS - 1), cw = Math.max(2, gap * 0.46), pad = Math.max(20, H * 0.12), shift = offset;
+      var minP = Infinity, maxP = -Infinity;
+      arr.forEach(function (k) { if (k.l < minP) minP = k.l; if (k.h > maxP) maxP = k.h; });
+      function y(p) { return H - pad - (p - minP) / ((maxP - minP) || 1) * (H - 2 * pad); }
+      /* aire dégradée sous la ligne */
+      ctx.beginPath();
+      arr.forEach(function (k, idx) { var x = idx * gap - shift, yy = y(k.c); idx ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy); });
+      ctx.lineTo((arr.length - 1) * gap - shift, H); ctx.lineTo(-gap, H); ctx.closePath();
+      var fill = ctx.createLinearGradient(0, 0, 0, H);
+      fill.addColorStop(0, "rgba(218,197,140,.16)"); fill.addColorStop(1, "rgba(218,197,140,0)");
+      ctx.fillStyle = fill; ctx.fill();
+      /* bougies */
+      arr.forEach(function (k, idx) {
+        var x = idx * gap - shift, up = k.c >= k.o;
+        ctx.strokeStyle = up ? "rgba(51,174,130,.4)" : "rgba(216,110,100,.4)";
+        ctx.fillStyle = up ? "rgba(51,174,130,.26)" : "rgba(216,110,100,.26)";
+        ctx.beginPath(); ctx.moveTo(x, y(k.h)); ctx.lineTo(x, y(k.l)); ctx.stroke();
+        var top = y(Math.max(k.o, k.c)), bot = y(Math.min(k.o, k.c));
+        ctx.fillRect(x - cw / 2, top, cw, Math.max(1, bot - top));
+      });
+      /* ligne dorée */
+      ctx.beginPath();
+      arr.forEach(function (k, idx) { var x = idx * gap - shift, yy = y(k.c); idx ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy); });
+      var g = ctx.createLinearGradient(0, 0, W, 0);
+      g.addColorStop(0, "rgba(218,197,140,.10)"); g.addColorStop(1, "#F3E7C4");
+      ctx.strokeStyle = g; ctx.lineWidth = 2.2; ctx.lineJoin = "round";
+      ctx.shadowColor = "rgba(218,197,140,.5)"; ctx.shadowBlur = 14; ctx.stroke(); ctx.shadowBlur = 0;
+      /* point lumineux à la pointe */
+      var tip = arr[arr.length - 2], lx = (arr.length - 2) * gap - shift, ly = y(tip.c);
+      ctx.beginPath(); ctx.arc(lx, ly, 3.4, 0, 7); ctx.fillStyle = "#F3E7C4";
+      ctx.shadowColor = "rgba(243,231,196,.9)"; ctx.shadowBlur = 16; ctx.fill(); ctx.shadowBlur = 0;
+    }
+    if (reduce) { draw(); return; }
+    var prev = performance.now();
+    function loop(now) {
+      var dt = Math.min(50, now - prev); prev = now;
+      var gap = W / (VIS - 1);
+      offset += speed * (dt / 16.7);
+      while (offset >= gap) { offset -= gap; arr.push(make()); if (arr.length > VIS + 3) arr.shift(); }
+      draw();
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
