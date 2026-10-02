@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NeoMax — ProTrader, TP-Max & Portefeuille</title>
+  <meta name="description" content="Découvrez l'écosystème NeoMax : ProTrader, TP-Max et le portefeuille TradeQuo. Un parcours simple, guidé et accessible via notre partenariat.">
+  <meta name="theme-color" content="#f5f1e9">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>:root{
+  --bg:#f5f1e9;--paper:#fffdf9;--ink:#111612;--muted:#687168;--line:rgba(17,22,18,.11);
+  --green:#0d684e;--green-2:#178b67;--mint:#dcebe4;--gold:#b68a4a;--gold-soft:#eadcc5;
+  --graphite:#111815;--shadow:0 28px 80px rgba(24,37,29,.09);--r:30px;--ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+.nav{position:sticky;top:12px;z-index:50;margin-top:12px}.navin{height:68px;border:1px solid rgba(255,255,255,.65);background:rgba(255,253,249,.82);backdrop-filter:blur(18px);border-radius:22px;display:flex;align-items:center;padding:0 18px 0 20px;box-shadow:0 12px 50px rgba(20,35,26,.08)}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em}.mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(145deg,#173b30,#0d684e);color:#fff;display:grid;place-items:center;box-shadow:inset 0 1px rgba(255,255,255,.2),0 8px 20px rgba(13,104,78,.2);font-size:13px}.brand small{display:block;font-size:8px;letter-spacing:.17em;color:var(--green);margin-top:2px}.links{margin-left:auto;display:flex;align-items:center;gap:25px;font-size:13px;font-weight:650;color:#49524b}.links a:hover{color:var(--green)}.navcta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;transition:.28s var(--ease)}.navcta{margin-left:24px;padding:12px 17px;border-radius:13px;background:var(--ink);color:#fff;font-size:12px;font-weight:750}.navcta:hover,.btn:hover{transform:translateY(-2px)}.menu{display:none;margin-left:auto;width:42px;height:42px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.hero{min-height:720px;padding:118px 0 80px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:650px;height:650px;border-radius:50%;right:-160px;top:-100px;background:radial-gradient(circle at 42% 42%,rgba(23,139,103,.15),rgba(182,138,74,.06) 42%,transparent 70%);filter:blur(3px)}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}.eyebrow:before{content:"";width:36px;height:1px;background:currentColor}.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:64px}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(58px,7vw,102px);line-height:.93;letter-spacing:-.055em;font-weight:400;margin:27px 0}.hero h1 em{font-style:italic;color:var(--green)}.lede{max-width:625px;color:#566057;font-size:18px;line-height:1.65}.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:34px}.btn{min-height:54px;padding:0 22px;border-radius:15px;font-size:13px;font-weight:780}.btn.primary{background:linear-gradient(135deg,#0c5f48,#0d7958);color:white;box-shadow:0 15px 40px rgba(13,104,78,.22)}.btn.secondary{background:rgba(255,255,255,.72);border:1px solid var(--line)}.fine{font-size:11px;color:#768077;margin-top:13px;line-height:1.55}.visual{position:relative;min-height:510px;perspective:1200px}.orb{position:absolute;border-radius:50%;filter:blur(.3px)}.orb.a{width:430px;height:430px;right:20px;top:30px;background:radial-gradient(circle at 33% 28%,#cbe5d7 0 10%,#2b7e60 31%,#173c31 58%,#0c1713 77%);box-shadow:inset -25px -30px 60px rgba(0,0,0,.37),0 45px 120px rgba(13,104,78,.23)}.orb.b{width:150px;height:150px;right:375px;top:355px;background:radial-gradient(circle at 35% 30%,#ffe8ba,#bd8b4a 42%,#4c321f 76%);box-shadow:0 25px 60px rgba(92,58,31,.17)}.hud{position:absolute;right:0;bottom:0;width:360px;padding:24px;border:1px solid rgba(255,255,255,.16);background:rgba(13,24,20,.88);color:white;border-radius:22px;backdrop-filter:blur(14px);box-shadow:0 35px 80px rgba(9,25,18,.22);transform:rotateY(-7deg) rotateX(2deg)}.hud .top{display:flex;justify-content:space-between;font-size:9px;letter-spacing:.17em;color:#90c8b3}.spark{height:94px;margin:18px 0;background:linear-gradient(180deg,transparent,rgba(23,139,103,.08)),linear-gradient(155deg,transparent 0 17%,#38bd8e 18% 19%,transparent 20% 34%,#38bd8e 35% 36%,transparent 37% 55%,#38bd8e 56% 57%,transparent 58%);border-bottom:1px solid rgba(255,255,255,.09)}.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mini div{padding:10px;border-radius:12px;background:rgba(255,255,255,.05)}.mini small{display:block;color:#819e91;font-size:8px}.mini strong{font-size:12px}
+.section{padding:110px 0}.section.white{background:var(--paper)}.section.dark{background:var(--graphite);color:white}.head{display:flex;justify-content:space-between;gap:40px;align-items:flex-end;margin-bottom:42px}.head h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(40px,5vw,68px);line-height:1;margin:13px 0 0;letter-spacing:-.045em}.head p{max-width:420px;color:var(--muted);line-height:1.7}.dark .head p{color:#9ca89f}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{position:relative;border:1px solid var(--line);border-radius:var(--r);padding:28px;background:rgba(255,255,255,.68);min-height:330px;overflow:hidden;transition:.4s var(--ease)}.card:hover{transform:translateY(-7px);box-shadow:var(--shadow);background:#fff}.num{font-size:10px;color:var(--green);font-weight:800;letter-spacing:.16em}.icon{width:58px;height:58px;border-radius:19px;margin:32px 0 42px;display:grid;place-items:center;background:linear-gradient(145deg,#f7faf8,#dbe9e2);color:var(--green);font-weight:900;border:1px solid #d6e5de;box-shadow:inset 0 1px #fff,0 13px 28px rgba(33,72,52,.1)}.card:nth-child(2) .icon{background:linear-gradient(145deg,#e8f8ff,#cfe9f4);color:#176987}.card:nth-child(3) .icon{background:linear-gradient(145deg,#fff8e9,#ead9bc);color:#98692d}.card h3{font-size:25px;margin:0 0 12px;letter-spacing:-.035em}.card p{font-size:14px;line-height:1.7;color:var(--muted)}.arrow{position:absolute;right:25px;bottom:24px;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:#fff}
+.partner{display:grid;grid-template-columns:1fr 1fr;gap:18px}.partner-card{border-radius:34px;padding:44px;background:linear-gradient(145deg,#153128,#0b1713);color:white;min-height:420px;position:relative;overflow:hidden}.partner-card:after{content:"TQ";position:absolute;right:-15px;bottom:-56px;font:180px/1 Georgia;color:rgba(255,255,255,.035)}.partner-card h3{font-family:Georgia,serif;font-size:54px;font-weight:400;margin:18px 0}.partner-card p{color:#abb8b0;max-width:500px;line-height:1.7}.check{display:grid;gap:13px;margin-top:28px}.check div{display:flex;gap:11px;align-items:center;font-size:13px}.dot{width:22px;height:22px;border-radius:50%;background:#1d7258;color:#fff;display:grid;place-items:center;font-size:11px}.partner-side{border:1px solid var(--line);background:#fff;border-radius:34px;padding:42px}.partner-side h4{font-size:27px;margin:0 0 10px}.partner-side p{color:var(--muted);line-height:1.7}.steps{display:grid;gap:13px;margin-top:28px}.step{display:grid;grid-template-columns:45px 1fr;gap:15px;padding:16px;border-radius:18px;background:#f6f5f0}.step b{width:37px;height:37px;border-radius:12px;background:#fff;display:grid;place-items:center;color:var(--green);font-size:11px}.step strong{display:block;font-size:13px;margin-bottom:4px}.step span{font-size:12px;color:var(--muted)}
+.video{position:relative;aspect-ratio:16/9;border-radius:25px;overflow:hidden;background:#101815;box-shadow:var(--shadow)}.video img{width:100%;height:100%;object-fit:cover;opacity:.72}.play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(0deg,rgba(5,12,9,.65),transparent 60%)}.play i{width:68px;height:68px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;font-style:normal;font-size:22px;box-shadow:0 15px 40px rgba(0,0,0,.22)}.video-label{position:absolute;left:20px;bottom:18px;color:white;font-size:12px;font-weight:700}.faq{max-width:800px;margin:auto}.faq details{border-top:1px solid var(--line);padding:22px 0}.faq summary{font-size:16px;font-weight:750;cursor:pointer;list-style:none}.faq p{color:var(--muted);line-height:1.7}.footer{padding:42px 0;border-top:1px solid var(--line);display:flex;gap:25px;align-items:center;color:#717a72;font-size:11px}.footer .brand{margin-right:auto;color:var(--ink)}
+.subhero{padding:100px 0 65px}.subhero h1{font-family:Georgia,serif;font-size:clamp(52px,7vw,92px);font-weight:400;line-height:.95;letter-spacing:-.05em;margin:20px 0}.subhero p{max-width:700px;color:var(--muted);font-size:17px;line-height:1.7}.split{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px}.panel h3{margin:0 0 12px;font-size:23px}.panel p,.panel li{color:var(--muted);line-height:1.65;font-size:14px}.panel ul{padding-left:18px}.flow{display:grid;gap:14px}.flow article{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:23px;border:1px solid var(--line);background:#fff;border-radius:22px}.flow .n{width:45px;height:45px;border-radius:14px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:11px;font-weight:800}.flow h3{margin:2px 0 6px;font-size:18px}.flow p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}.callout{padding:30px;border-radius:28px;background:#15281f;color:#fff}.callout p{color:#b2c0b7;line-height:1.65}.pill{display:inline-flex;padding:8px 11px;border:1px solid var(--line);border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.risk{font-size:11px;color:#7b827d;line-height:1.6}
+.reveal{opacity:0;transform:translateY(18px);transition:.75s var(--ease)}.reveal.in{opacity:1;transform:none}
+@media(max-width:860px){.links{display:none}.menu{display:block}.navcta{display:none}.hero-grid,.partner,.split{grid-template-columns:1fr}.hero{padding-top:80px;min-height:auto}.visual{min-height:430px}.orb.a{width:350px;height:350px;right:5%}.hud{width:310px}.grid3{grid-template-columns:1fr}.head{display:block}.head p{margin-top:18px}.section{padding:80px 0}.partner-card h3{font-size:45px}.footer{flex-wrap:wrap}}@media(max-width:520px){.wrap{width:min(100% - 24px,1180px)}.nav{top:7px;margin-top:7px}.navin{height:60px}.brand small{display:none}.hero h1{font-size:55px}.hero{padding-top:65px}.visual{min-height:360px}.orb.a{width:290px;height:290px;right:0}.orb.b{width:100px;height:100px;right:260px;top:280px}.hud{width:280px;padding:18px}.section{padding:65px 0}.card{min-height:300px;padding:23px}.partner-card,.partner-side{padding:28px}.subhero{padding:75px 0 48px}.subhero h1{font-size:55px}.actions .btn{width:100%}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}</style>
+</head>
+<body>
+<header class="nav wrap">
+  <div class="navin">
+    <a class="brand" href="index.html"><span class="mark">NX</span><span>NeoMax<small>ÉCOSYSTÈME TRADING</small></span></a>
+    <nav class="links" aria-label="Navigation principale">
+      <a href="#univers">Les 3 univers</a><a href="#tradequo">TradeQuo</a><a href="#demarrer">Démarrer</a><a href="https://trading-academy-opal.vercel.app/">Trust Academy</a>
+    </nav>
+    <a class="navcta" href="start.html">Activer mes accès →</a>
+    <button class="menu" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow reveal">NeoMax · Un seul point d'entrée</div>
+      <h1 class="reveal">Apprendre.<br><em>Automatiser.</em><br>Suivre.</h1>
+      <p class="lede reveal">NeoMax réunit trois espaces complémentaires : ProTrader pour comprendre et progresser, TP-Max pour automatiser, et un portefeuille pour suivre votre compte broker. Une seule première étape : créer votre compte TradeQuo avec notre lien partenaire.</p>
+      <div class="actions reveal">
+        <a class="btn primary" href="start.html">Commencer simplement →</a>
+        <a class="btn secondary" href="#univers">Découvrir les 3 univers</a>
+      </div>
+      <p class="fine reveal">Création du compte gratuite · aucun montant de dépôt imposé · tutoriels vidéo inclus</p>
+    </div>
+    <div class="visual reveal" aria-hidden="true">
+      <div class="orb a"></div><div class="orb b"></div>
+      <div class="hud">
+        <div class="top"><span>NEOMAX / LIVE ENVIRONMENT</span><span>● CONNECTED</span></div>
+        <div class="spark"></div>
+        <div class="mini"><div><small>01</small><strong>ProTrader</strong></div><div><small>02</small><strong>TP-Max</strong></div><div><small>03</small><strong>Portfolio</strong></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section white" id="univers">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow reveal">Les trois univers</div><h2 class="reveal">Trois espaces.<br>Une logique claire.</h2></div>
+      <p class="reveal">Chaque espace répond à un besoin différent. Vous pouvez tout découvrir avant de vous inscrire.</p>
+    </div>
+    <div class="grid3">
+      <a class="card reveal" href="protrader.html"><span class="num">01 / APPRENDRE</span><div class="icon">PT</div><h3>ProTrader</h3><p>Formations, lives, stratégies, scanners et journal IA pour comprendre vos décisions et progresser avec méthode.</p><span class="arrow">↗</span></a>
+      <a class="card reveal" href="tpmax.html"><span class="num">02 / AUTOMATISER</span><div class="icon">TP</div><h3>TP-Max</h3><p>Un projet d'automatisation 100 % piloté depuis votre environnement broker, avec paramètres adaptés et suivi clair.</p><span class="arrow">↗</span></a>
+      <a class="card reveal" href="portefeuille.html"><span class="num">03 / PILOTER</span><div class="icon">TQ</div><h3>Portefeuille</h3><p>Balance, equity, positions et historique : l'objectif est de centraliser le suivi sans jamais détenir vos fonds.</p><span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tradequo">
+  <div class="wrap partner">
+    <article class="partner-card reveal">
+      <div class="eyebrow" style="color:#91c8b2">Partenaire broker</div>
+      <h3>TradeQuo</h3>
+      <p>Le compte broker est le point de départ de l'écosystème. Vos fonds restent chez le broker. NeoMax sert à guider, connecter et présenter les services disponibles.</p>
+      <div class="check">
+        <div><span class="dot">✓</span><span>Inscription uniquement via notre lien partenaire</span></div>
+        <div><span class="dot">✓</span><span>RAW + MT5 recommandé, mais libre de choix</span></div>
+        <div><span class="dot">✓</span><span>Aucun montant de dépôt recommandé</span></div>
+      </div>
+      <div class="actions"><a class="btn primary" data-referral target="_blank" rel="noopener sponsored">Créer mon compte TradeQuo ↗</a></div>
+    </article>
+    <aside class="partner-side reveal">
+      <span class="pill">Le plus simple possible</span>
+      <h4>Une seule étape obligatoire.</h4>
+      <p>Pour débloquer les contenus inclus, commencez par l'inscription partenaire. Le dépôt reste une étape distincte et facultative pour l'Academy.</p>
+      <div class="steps">
+        <div class="step"><b>01</b><div><strong>Créer le compte</strong><span>Via le lien partenaire NeoMax.</span></div></div>
+        <div class="step"><b>02</b><div><strong>Faire confirmer le rattachement</strong><span>Automatisé dès qu'une API TradeQuo sera disponible.</span></div></div>
+        <div class="step"><b>03</b><div><strong>Accéder à Trust Academy</strong><span>Les contenus inclus sont alors débloqués.</span></div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section white" id="demarrer">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow reveal">Tutoriel d'inscription</div>
+      <div class="head" style="display:block;margin:18px 0 28px"><h2 class="reveal">Voir. Faire.<br>C'est terminé.</h2></div>
+      <p class="lede reveal" style="font-size:16px">Pas de long formulaire sur NeoMax. Regardez la vidéo, ouvrez TradeQuo avec le bon lien, puis revenez pour demander la validation de votre accès.</p>
+      <div class="actions reveal"><a class="btn primary" href="start.html">Ouvrir le guide pas à pas →</a></div>
+    </div>
+    <div class="video reveal" data-video="L6r8itcpYb8">
+      <img src="https://i.ytimg.com/vi/L6r8itcpYb8/hqdefault.jpg" alt="Tutoriel vidéo d'inscription TradeQuo">
+      <button class="play" aria-label="Lire le tutoriel"><i>▶</i></button>
+      <span class="video-label">Créer son compte TradeQuo · tutoriel</span>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow reveal" style="color:#8cc4ad">Ensuite</div><h2 class="reveal">Trust Academy.<br>Votre espace membre.</h2></div><p class="reveal">Même design, même logique. Les visiteurs peuvent découvrir une partie du contenu ; les partenaires vérifiés débloquent l'intégralité des parcours inclus.</p></div>
+    <div class="actions reveal"><a class="btn primary" href="https://trading-academy-opal.vercel.app/">Découvrir Trust Academy →</a><a class="btn secondary" style="color:#fff;border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.05)" href="start.html">Activer mes accès</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap faq">
+    <div class="eyebrow reveal">Questions fréquentes</div>
+    <details class="reveal"><summary>Dois-je déposer pour accéder à l'Academy ?</summary><p>Non. Le rattachement à notre partenariat suffit pour débloquer les contenus inclus. Le dépôt concerne uniquement l'utilisation réelle du compte de trading et les services qui en dépendent.</p></details>
+    <details class="reveal"><summary>Quel montant dois-je déposer ?</summary><p>Nous ne recommandons aucun montant. Vous choisissez librement selon votre situation et votre propre tolérance au risque.</p></details>
+    <details class="reveal"><summary>Pourquoi RAW + MT5 est-il recommandé ?</summary><p>C'est la configuration que nous privilégions pour notre accompagnement et les conditions négociées avec le broker. Elle reste une recommandation, pas une obligation.</p></details>
+    <details class="reveal"><summary>Où est mon argent ?</summary><p>Les fonds restent sur votre compte broker. NeoMax ne reçoit ni ne conserve votre capital.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="wrap footer"><a class="brand" href="#"><span class="mark">NX</span><span>NeoMax</span></a><span>Présentation · Partenariat TradeQuo</span><span>Le trading comporte un risque de perte en capital.</span></footer>
+<script>const REFERRAL='https://my.tradequo.com/register?referral=019e8e96-5023-7169-93e5-2cd846dbb329';
+document.querySelectorAll('[data-referral]').forEach(a=>a.href=REFERRAL);
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('[data-video]').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const id=card.dataset.video,start=card.dataset.start||0;
+    card.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&start='+start+'" title="Tutoriel vidéo" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  });
+});
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
+  const value=b.dataset.copy;
+  try{await navigator.clipboard.writeText(value);const old=b.textContent;b.textContent='Copié ✓';setTimeout(()=>b.textContent=old,1400)}catch(e){}
+}));
+const menu=document.querySelector('.menu'),links=document.querySelector('.links');
+if(menu&&links){menu.addEventListener('click',()=>{const open=links.dataset.open==='true';links.dataset.open=String(!open);if(!open){links.style.display='flex';links.style.position='absolute';links.style.right='18px';links.style.top='64px';links.style.flexDirection='column';links.style.alignItems='stretch';links.style.padding='14px';links.style.borderRadius='16px';links.style.background='#fff';links.style.boxShadow='0 18px 50px rgba(0,0,0,.12)'}else{links.removeAttribute('style')}})}
+</script>
+</body></html>
